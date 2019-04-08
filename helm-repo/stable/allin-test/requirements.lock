@@ -1,0 +1,6 @@
+dependencies:
+- name: nginx
+  repository: https://sumomo-99.github.io/helm-repo/stable
+  version: 0.1.0
+digest: sha256:a76772e9c62999b54c34bd30212f51464645a3d7038297781f870ba5c3283e9d
+generated: 2019-04-05T06:50:14.144919804Z
