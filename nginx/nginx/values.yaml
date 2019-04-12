@@ -5,16 +5,18 @@
 replicaCount: 1
 
 image:
-  repository: sumomo99/test01-nginx
-  tag: 0.1.0
+  repository: sumomo99/nginx
+  tag: 0.1.1
   pullPolicy: IfNotPresent
 
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "nginx"
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
+  targetPort: 80
+  nodePort: 30000
 
 ingress:
   enabled: false

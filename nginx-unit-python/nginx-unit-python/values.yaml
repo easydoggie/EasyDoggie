@@ -5,16 +5,16 @@
 replicaCount: 1
 
 image:
-  repository: sumomo99/node
+  repository: sumomo99/nginx-unit-python
   tag: 0.1.0
   pullPolicy: IfNotPresent
 
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: "nginx-unit-python"
 
 service:
-  type: NodePort
-  port: 8081
+  type: ClusterIP
+  port: 8300
 
 ingress:
   enabled: false
