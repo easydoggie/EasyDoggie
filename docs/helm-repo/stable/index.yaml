@@ -1,9 +1,19 @@
 apiVersion: v1
 entries:
+  allin-test:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2019-04-12T07:52:31.197362858Z
+    description: A Helm chart for Kubernetes
+    digest: b29d4b8cfe360e574ebb1bc7af96decd8324c8151745b59c6f5d29dacbbdd3a6
+    name: allin-test
+    urls:
+    - allin-test-0.1.0.tgz
+    version: 0.1.0
   nginx:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T06:44:29.768823554Z
+    created: 2019-04-12T07:52:31.198136849Z
     description: A Helm chart for Kubernetes
     digest: 28d81285c1b812b5a09050daab390594c51f04466a5397d63daf58593fecb395
     name: nginx
@@ -12,7 +22,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T06:44:29.768495631Z
+    created: 2019-04-12T07:52:31.197887645Z
     description: A Helm chart for Kubernetes
     digest: 1305945a4cc0250b3d0acd9bacebb9ab62cb7aede0a6715e58de9eb332db945b
     name: nginx
@@ -22,7 +32,7 @@ entries:
   nginx-unit-python:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T06:44:29.769105263Z
+    created: 2019-04-12T07:52:31.198777082Z
     description: A Helm chart for Kubernetes
     digest: 2b957771a0cdd4d1e4738a6e3f55340be7a7539940250f0d6249150da21c8712
     name: nginx-unit-python
@@ -32,11 +42,11 @@ entries:
   node:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T06:44:29.769411712Z
+    created: 2019-04-12T07:52:31.199214307Z
     description: A Helm chart for Kubernetes
     digest: 1e602556e6bc62a258d46aa7aaf4927f31d43fc1bf522b7e54ac9cadee51466b
     name: node
     urls:
     - node-0.1.1.tgz
     version: 0.1.1
-generated: 2019-04-12T06:44:29.767978227Z
+generated: 2019-04-12T07:52:31.196642373Z
