@@ -1,8 +1,20 @@
 var config = {
   type: Phaser.AUTO,
-  parent: 'phaser-example',
-  width: 800,
-  height: 600,
+    backgroundColor: '0xd3d3d3',
+  scale: {
+    mode: Phaser.DOM.FIT,
+    parent: 'phaser-example',
+    width: 800,
+    height: 600,
+    min: {
+      width: 400,
+      height: 300
+    },
+    max: {
+      width: 1600,
+      height: 1200
+    }
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -23,6 +35,7 @@ function preload() {
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
   this.load.image('star', 'assets/star_gold.png');
+  this.load.image('button', 'assets/icons8-start-100.png');
 }
 
 function create() {
@@ -56,7 +69,49 @@ function create() {
       }
     });
   });
-  this.cursors = this.input.keyboard.createCursorKeys();
+
+  if (this.sys.game.device.os.android ||
+      this.sys.game.device.os.iOS) {
+    this.input.addPointer(2);
+    this.input.topOnly = true;
+    this.cursors = {
+        'up': {},
+        'left': {},
+        'right': {},
+        'down': {},
+    }
+
+    const pointerDown = key => {
+        this.cursors[key].isDown = true;
+    }
+    const pointerUp = key => {
+        this.cursors[key].isDown = false;
+    }
+
+    const WIDTH = 100;
+    const HEIGHT = 100;
+    const GUTTER = 50;
+
+    const createBtn = (key, x, y, angle, width=WIDTH, height=HEIGHT) => {
+        this.add.image(x, y, 'button')
+        //this.add.rectangle(x, y, width, height, 0xff0000, 1)
+            .setOrigin(0.5, 0.5)
+            .setScrollFactor(0)
+            .setInteractive()
+            .setAngle(angle)
+            .on('pointerdown', () => pointerDown(key))
+            .on('pointerup', () => pointerUp(key))
+        }
+
+    const BTN_Y = this.sys.game.config.height - HEIGHT - GUTTER;
+
+    createBtn('left', GUTTER, BTN_Y, 180);
+    createBtn('right', WIDTH + 2 * GUTTER, BTN_Y, 0);
+    createBtn('up', this.sys.game.config.width / 2, BTN_Y, 270);
+    //createBtn('down', config.width - WIDTH - GUTTER, BTN_Y);
+  } else {
+      this.cursors = this.input.keyboard.createCursorKeys();
+  }
 
   this.blueScoreText = this.add.text(16, 16, '', { fontSize: '32px', fill: '#0000FF' });
   this.redScoreText = this.add.text(584, 16, '', { fontSize: '32px', fill: '#FF0000' });
@@ -73,6 +128,7 @@ function create() {
       this.socket.emit('starCollected');
     }, null, self);
   });
+
 }
 
 function addPlayer(self, playerInfo) {
@@ -131,3 +187,4 @@ function update() {
     };
   }
 }
+
