@@ -32,6 +32,12 @@ var config = {
 var game = new Phaser.Game(config);
 
 function preload() {
+  this.load.spritesheet('ship2', 'assets/Assault_Squad_Duo_PNGBoard.png',
+    {frameWidth: 24,
+     frameHeight: 24,
+     spacing: 8,
+     margin: 4
+    });
   this.load.image('ship', 'assets/spaceShips_001.png');
   this.load.image('otherPlayer', 'assets/enemyBlack5.png');
   this.load.image('star', 'assets/star_gold.png');
@@ -42,6 +48,27 @@ function create() {
   var self = this;
   this.socket = io();
   this.otherPlayers = this.physics.add.group();
+
+  this.anims.create({
+      key: 'red',
+      frames: this.anims.generateFrameNumbers('ship2', {
+          start: 1,
+          end: 1
+      }),
+      frameRate: 10,
+      repeat: -1
+      });
+  this.anims.create({
+      key: 'blue',
+      frames: this.anims.generateFrameNumbers('ship2', {
+          start: 4,
+          end: 4
+      }),
+      frameRate: 10,
+      repeat: -1
+      });
+  //this.physics.add.sprite(100, 100, 'ship2').anims.play('normal');
+
   this.socket.on('currentPlayers', function (players) {
     Object.keys(players).forEach(function (id) {
       if (players[id].playerId === self.socket.id) {
@@ -132,12 +159,22 @@ function create() {
 }
 
 function addPlayer(self, playerInfo) {
-  self.ship = self.physics.add.image(playerInfo.x, playerInfo.y, 'ship').setOrigin(0.5, 0.5).setDisplaySize(53, 40);
+  //self.ship = self.physics.add.image(playerInfo.x, playerInfo.y, 'ship').setOrigin(0.5, 0.5).setDisplaySize(53, 40);
+
   if (playerInfo.team === 'blue') {
-    self.ship.setTint(0x0000ff);
+    //self.ship.setTint(0x0000ff);
+  self.ship = self.physics.add.sprite(playerInfo.x, playerInfo.y, 'ship2').anims.play('blue').setOrigin(0.5, 0.5).setDisplaySize(53, 40);
   } else {
-    self.ship.setTint(0xff0000);
+    //self.ship.setTint(0xff0000);
+  self.ship = self.physics.add.sprite(playerInfo.x, playerInfo.y, 'ship2').anims.play('red').setOrigin(0.5, 0.5).setDisplaySize(53, 40);
   }
+
+  //text = self.add.text(0, 0, playerInfo.name);
+  //text.setOrigin(0.5, 0.5);
+  //container = self.add.container(playerInfo.x, playerInfo.y);
+  //container.add(self.ship);
+  //container.add(text);
+
   self.ship.setDrag(100);
   self.ship.setAngularDrag(100);
   self.ship.setMaxVelocity(200);
@@ -165,7 +202,7 @@ function update() {
     }
   
     if (this.cursors.up.isDown) {
-      this.physics.velocityFromRotation(this.ship.rotation + 1.5, 100, this.ship.body.acceleration);
+      this.physics.velocityFromRotation(this.ship.rotation - 1.5, 100, this.ship.body.acceleration);
     } else {
       this.ship.setAcceleration(0);
     }

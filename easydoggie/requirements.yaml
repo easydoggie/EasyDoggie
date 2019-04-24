@@ -8,6 +8,6 @@ dependencies:
     repository: "@sumomo99-stable"
     #repository: "@local"
   - name: node 
-    version: 0.1.1
+    version: 0.1.2
     repository: "@sumomo99-stable"
     #repository: "@local"

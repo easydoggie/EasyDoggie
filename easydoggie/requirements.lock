@@ -1,12 +1,12 @@
 dependencies:
 - name: nginx
-  repository: http://127.0.0.1:8879/charts
+  repository: https://sumomo-99.github.io/EasyDoggie/helm-repo/stable
   version: 0.1.1
 - name: nginx-unit-python
-  repository: http://127.0.0.1:8879/charts
+  repository: https://sumomo-99.github.io/EasyDoggie/helm-repo/stable
   version: 0.1.0
 - name: node
   repository: http://127.0.0.1:8879/charts
-  version: 0.1.1
-digest: sha256:2249bd35747cd1beeef1e441566abcb8f6df2096557773c3dc1f26f7bbda11df
-generated: 2019-04-12T07:39:35.192805739Z
+  version: 0.1.2
+digest: sha256:1baa5973780493ab52ebdefe0afd5d851f005e273343c81d8d094d3c54ad4fba
+generated: 2019-04-24T08:54:20.510796293Z

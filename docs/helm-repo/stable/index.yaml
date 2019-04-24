@@ -3,7 +3,16 @@ entries:
   easydoggie:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T08:11:10.634476648Z
+    created: 2019-04-24T09:02:19.16381513Z
+    description: A Helm chart for Kubernetes
+    digest: e63c382bc766fc3f5c90620253ce4d9ea6d0d71f97a13a6ca219cc0297fbb97b
+    name: easydoggie
+    urls:
+    - easydoggie-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2019-04-24T09:02:19.163043772Z
     description: A Helm chart for Kubernetes
     digest: 686c539e4260c882f67e6b240c2984e37f142df467f9de12990e1558f919d6f1
     name: easydoggie
@@ -13,7 +22,7 @@ entries:
   nginx:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T08:11:10.635368175Z
+    created: 2019-04-24T09:02:19.164783287Z
     description: A Helm chart for Kubernetes
     digest: 28d81285c1b812b5a09050daab390594c51f04466a5397d63daf58593fecb395
     name: nginx
@@ -22,7 +31,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T08:11:10.634907208Z
+    created: 2019-04-24T09:02:19.164361063Z
     description: A Helm chart for Kubernetes
     digest: 1305945a4cc0250b3d0acd9bacebb9ab62cb7aede0a6715e58de9eb332db945b
     name: nginx
@@ -32,7 +41,7 @@ entries:
   nginx-unit-python:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T08:11:10.635800411Z
+    created: 2019-04-24T09:02:19.165364054Z
     description: A Helm chart for Kubernetes
     digest: 2b957771a0cdd4d1e4738a6e3f55340be7a7539940250f0d6249150da21c8712
     name: nginx-unit-python
@@ -41,12 +50,21 @@ entries:
     version: 0.1.0
   node:
   - apiVersion: v1
+    appVersion: "1.1"
+    created: 2019-04-24T09:02:19.166293592Z
+    description: A Helm chart for Kubernetes
+    digest: 009a2b151439cb50bc146341c7732325de16ba40f071d95b86541cbfefeeb668
+    name: node
+    urls:
+    - node-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-04-12T08:11:10.63621262Z
+    created: 2019-04-24T09:02:19.165831381Z
     description: A Helm chart for Kubernetes
     digest: 1e602556e6bc62a258d46aa7aaf4927f31d43fc1bf522b7e54ac9cadee51466b
     name: node
     urls:
     - node-0.1.1.tgz
     version: 0.1.1
-generated: 2019-04-12T08:11:10.63262892Z
+generated: 2019-04-24T09:02:19.161986177Z

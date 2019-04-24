@@ -12,10 +12,12 @@ var scores = {
   blue: 0,
   red: 0
 };
+var username = 'who am i?';
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
+  username = req.query.username;
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -27,7 +29,8 @@ io.on('connection', function (socket) {
     x: Math.floor(Math.random() * 700) + 50,
     y: Math.floor(Math.random() * 500) + 50,
     playerId: socket.id,
-    team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue'
+    team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue',
+    name: username
   };
   // send the players object to the new player
   socket.emit('currentPlayers', players);
