@@ -1,5 +1,6 @@
 # EasyDoggie
 **ゲームインフラは、もっと楽にできる！**
+
 スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。
 
 > ・　サーバーサイドのプログラマですが、インフラも兼務しています。インフラの構築、運用に時間がかかってサーバサイドのプログラミングが進みません
@@ -15,7 +16,7 @@
 **そう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！**
 
 ## EasyDoggie構成イメージ
-![structure](https://raw.githubusercontent.com/sumomo-99/EasyDoggie/master/images/struture.png)
+![structure](https://github.com/sumomo-99/EasyDoggie/blob/master/images/structure.PNG)
 
 # Setup
 ## Helmのインストール
@@ -43,7 +44,7 @@ helm install --name easydoggie sumomo99-stable/easydoggie
 
 # 使い方
 2019年5月9日時点では、以下の構成サービスが起動します。
-![structure_20190509](https://raw.githubusercontent.com/sumomo-99/EasyDoggie/master/images/structure_20190509.png)
+![structure_20190509](https://github.com/sumomo-99/EasyDoggie/blob/master/images/structure_20190509.PNG)
 
 # ライセンス
 MIT
