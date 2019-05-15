@@ -18,21 +18,24 @@
 ## EasyDoggie構成イメージ
 ![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure.PNG)
 
-# Setup
+# セットアップ方法
 ## Helmのインストール
 EasyDoggieはKubernetes上で動作します。コンテナの初期設定はHelmを利用してインストールを行います。
 初めにHelmのインストールと初期設定を行います。
+Helmについては、[ブログ](https://www.skyarch.net/blog/?p=16335)でも紹介をしています。Helmの概要を知りたい場合に、参考にしてください。
+
 ```
 $ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz
 $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz
 $ sudo mv linux-amd64/helm /usr/local/bin/helm
 $ helm init
 ```
+Helmのインストールについては、[ブログ]()でも紹介をしているので、参考にしてください。
 
 ## Helmリポジトリの追加
 EasyDoggie用のHelmリポジトリを追加します。
 ```
-$ helm repo add easydoggie-stable https://easydoggie.github.io/EasyDoggie/helm-repo/stable
+$ helm repo add easydoggie-stable https://easydoggie.github.io/helm-repo/stable
 $ helm repo list
 ```
 
