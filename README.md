@@ -30,7 +30,7 @@ $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz
 $ sudo mv linux-amd64/helm /usr/local/bin/helm
 $ helm init
 ```
-Helmのインストールについては、[ブログ]()でも紹介をしているので、参考にしてください。
+Helmのインストールについては、[ブログ](https://www.skyarch.net/blog/?p=16350)でも紹介をしているので、参考にしてください。
 
 ## Helmリポジトリの追加
 EasyDoggie用のHelmリポジトリを追加します。
