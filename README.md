@@ -16,7 +16,7 @@
 **そう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！**
 
 ## EasyDoggie構成イメージ
-![structure](https://github.com/sumomo-99/EasyDoggie/blob/master/images/structure.PNG)
+![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure.PNG)
 
 # Setup
 ## Helmのインストール
@@ -43,8 +43,8 @@ helm install --name easydoggie sumomo99-stable/easydoggie
 ```
 
 # 使い方
-2019年5月9日時点では、以下の構成サービスが起動します。
-![structure_20190509](https://github.com/sumomo-99/EasyDoggie/blob/master/images/structure_20190509.PNG)
+2019年5月15日時点では、以下の構成サービスが起動します。
+![structure_20190509](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190509.PNG)
 
 # ライセンス
 MIT
