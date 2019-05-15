@@ -32,14 +32,14 @@ $ helm init
 ## Helmリポジトリの追加
 EasyDoggie用のHelmリポジトリを追加します。
 ```
-$ helm repo add sumomo99-stable https://sumomo-99.github.io/EasyDoggie/helm-repo/stable
+$ helm repo add easydoggie-stable https://easydoggie.github.io/EasyDoggie/helm-repo/stable
 $ helm repo list
 ```
 
 ## EasyDoggieのインストール
 Helmを利用してEasyDoggieをKubernetesにデプロイします。
 ```
-helm install --name easydoggie sumomo99-stable/easydoggie
+helm install --name easydoggie easydoggie-stable/easydoggie
 ```
 
 # 使い方
