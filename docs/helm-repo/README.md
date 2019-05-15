@@ -1,2 +1,0 @@
-# helm-repo
-EasyDoggieのHelmリポジトリです。
