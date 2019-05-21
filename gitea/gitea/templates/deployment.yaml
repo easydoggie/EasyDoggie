@@ -20,30 +20,49 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: {{ .Chart.Name }}-proxy
+          image: "{{ .Values.proxy_image.repository }}:{{ .Values.proxy_image.tag }}"
           ports:
-            - name: http
-              containerPort: {{ .Values.service.targetPort }}
-              protocol: TCP
+            - containerPort:  {{ .Values.service.targetPort }}
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.service.port }}
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.service.port }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-proxy-config
+              mountPath: /etc/nginx/conf.d
+              subpath: default.conf
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          #ports:
+          #  - name: http
+          #    containerPort: {{ .Values.service.targetPort }}
+          #    protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.gitea.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.gitea.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: gitea-persistent-storage
+            - name: {{ .Chart.Name }}-persistent-storage
               mountPath: /data
       volumes:
-        - name: gitea-persistent-storage
+        - name: {{ .Chart.Name }}-proxy-config
+          configMap:
+            name: {{ .Chart.Name }}-proxy-conf
+        - name: {{ .Chart.Name }}-persistent-storage
           persistentVolumeClaim:
-            claimName: gitea-pv-claim
+            claimName: {{ .Chart.Name }}-pv-claim
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
