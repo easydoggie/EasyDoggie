@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-proxy-conf
+data:
+  default.conf: |-
+    upstream gitea {
+        server 127.0.0.1:{{ .Values.gitea.port }};
+    }
+    
+    server {
+        listen       {{ .Values.service.targetPort }};
+        server_name  localhost;
+    
+        location / {
+            proxy_pass http://gitea;
+        }
+    
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+            
+    }
