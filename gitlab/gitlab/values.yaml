@@ -1,5 +1,0 @@
-gitlab:
-    global:
-        edition: ce
-    certmanager-issuer:
-        email: me@example.com
