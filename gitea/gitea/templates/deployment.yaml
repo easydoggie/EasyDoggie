@@ -20,29 +20,11 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-proxy
-          image: "{{ .Values.proxy_image.repository }}:{{ .Values.proxy_image.tag }}"
-          ports:
-            - containerPort:  {{ .Values.service.targetPort }}
-          livenessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.service.port }}
-          readinessProbe:
-            httpGet:
-              path: /
-              port: {{ .Values.service.port }}
-          volumeMounts:
-            - name: {{ .Chart.Name }}-proxy-config
-              mountPath: /etc/nginx/conf.d
-              subpath: default.conf
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          #ports:
-          #  - name: http
-          #    containerPort: {{ .Values.service.targetPort }}
-          #    protocol: TCP
+          ports:
+            - containerPort: {{ .Values.service.targetPort }}
           livenessProbe:
             httpGet:
               path: /
@@ -56,10 +38,13 @@ spec:
           volumeMounts:
             - name: {{ .Chart.Name }}-persistent-storage
               mountPath: /data
+            - name: {{ .Chart.Name }}-config
+              mountPath: /data/gitea/conf
+              subpath: app.ini
       volumes:
-        - name: {{ .Chart.Name }}-proxy-config
+        - name: {{ .Chart.Name }}-config
           configMap:
-            name: {{ .Chart.Name }}-proxy-conf
+            name: {{ .Chart.Name }}-conf
         - name: {{ .Chart.Name }}-persistent-storage
           persistentVolumeClaim:
             claimName: {{ .Chart.Name }}-pv-claim

@@ -10,13 +10,10 @@ image:
   pullPolicy: IfNotPresent
   
 gitea:
+    host: localhost
     port: 3000
+    ingressPort: 80
   
-proxy_image:
-    repository: nginx
-    tag: 1.15.12-alpine
-    pullPolicy: IfNotPresent
-
 nameOverride: ""
 fullnameOverride: "gitea"
 
@@ -25,8 +22,8 @@ pv:
   
 service:
   type: NodePort
-  port: 80
-  targetPort: 80
+  port: 3000
+  targetPort: 3000
   #nodePort: 30010
 
 ingress:
