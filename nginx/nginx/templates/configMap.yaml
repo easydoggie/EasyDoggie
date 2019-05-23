@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-conf
+data:
+  default.conf: |-
+    #upstream unit_backend {
+    #   server nginx-unit-python:8300;
+    #}
+    
+    server {
+        listen       80;
+        server_name  localhost;
+            
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+    
+        #location /python {
+        #    proxy_pass http://unit_backend;
+        #    proxy_set_header Host $host;
+        #}
+    
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+    
+    }

@@ -25,7 +25,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 80
+              containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           livenessProbe:
             httpGet:
@@ -37,6 +37,19 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-persistent-storage
+              mountPath: /usr/share/nginx/html
+            - name: {{ .Chart.Name }}-config
+              mountPath: /etc/nginx/conf.d
+              subpath: default.conf
+      volumes:
+        - name: {{ .Chart.Name }}-persistent-storage
+          persistentVolumeClaim:
+            claimName: {{ .Chart.Name }}-pv-claim
+        - name: {{ .Chart.Name }}-config
+          configMap:
+            name: {{ .Chart.Name }}-conf
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

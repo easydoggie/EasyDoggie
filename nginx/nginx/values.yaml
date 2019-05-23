@@ -5,18 +5,21 @@
 replicaCount: 1
 
 image:
-  repository: sumomo99/nginx
-  tag: 0.1.1
+  repository: nginx
+  tag: 1.15.12-alpine
   pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: "nginx"
 
+pv:
+  hostPath: "/c/Temp/nginx/html"
+  
 service:
   type: NodePort
   port: 80
   targetPort: 80
-  nodePort: 30000
+  #nodePort: 30000
 
 ingress:
   enabled: false
