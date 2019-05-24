@@ -35,19 +35,29 @@ Helmのインストールについては、[ブログ](https://www.skyarch.net/b
 ## Helmリポジトリの追加
 EasyDoggie用のHelmリポジトリを追加します。
 ```
-$ helm repo add easydoggie-stable https://easydoggie.github.io/helm-repo/stable
+$ helm repo add easydoggie https://easydoggie.github.io/helm-repo/releases
 $ helm repo list
+NAME                    URL
+stable                  https://kubernetes-charts.storage.googleapis.com
+local                   http://127.0.0.1:8879/charts
+easydoggie              https://easydoggie.github.io/helm-repo/releases
 ```
 
 ## EasyDoggieのインストール
 Helmを利用してEasyDoggieをKubernetesにデプロイします。
 ```
-helm install --name easydoggie easydoggie-stable/easydoggie
+$ helm install --name easydoggie easydoggie/easydoggie
 ```
 
 # 使い方
 2019年5月15日時点では、以下の構成サービスが起動します。
-![structure_20190509](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190509.PNG)
+![structure_20190524](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190524.png)
+
+## Web(nginx)へのアクセス
+http://localhost/easydoggie
+
+## giteaへのアクセス
+http://localhost/gitea
 
 # ライセンス
 MIT
