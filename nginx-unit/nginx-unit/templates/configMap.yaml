@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-conf
+data:
+  unit.conf.json: |-
+    {
+      "listeners": {
+        "*:{{ .Values.service.targetPort }}": {
+          "pass": "applications/testapp"
+        }
+      },  
+      "applications": {
+        "testapp": {
+          "type": "python 3.5",
+          "processes": 2,
+          "working_directory": "/app/",
+          "path": "/app/testapp/",
+          "module": "index",
+          "user": "root",
+          "group": "root",
+          "limits": {
+              "timeout": 10,
+              "requests": 1000
+          }
+        }
+      },
+      "settings": {
+          "http": {
+              "header_read_timeout": 10,
+              "body_read_timeout": 10,
+              "send_timeout": 10,
+              "idle_timeout": 120,
+              "max_body_size": 6291456
+          }
+      },
+    }

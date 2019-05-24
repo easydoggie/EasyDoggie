@@ -9,6 +9,11 @@ image:
   tag: 1.15.12-alpine
   pullPolicy: IfNotPresent
 
+appServer:
+  enabled: true
+  serverName: nginx-unit
+  port: 8300
+  
 nameOverride: ""
 fullnameOverride: "nginx"
 
@@ -20,7 +25,7 @@ service:
   port: 80
   targetPort: 80
   #nodePort: 30000
-
+  
 ingress:
   enabled: false
   annotations: {}

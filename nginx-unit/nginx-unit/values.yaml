@@ -5,16 +5,20 @@
 replicaCount: 1
 
 image:
-  repository: sumomo99/nginx-unit-python
-  tag: 0.1.0
+  repository: nginx/unit
+  tag: 1.8.0-full
   pullPolicy: IfNotPresent
 
 nameOverride: ""
-fullnameOverride: "nginx-unit-python"
+fullnameOverride: "nginx-unit"
 
+pv:
+  hostPath: "/c/Temp/nginx-unit"
+  
 service:
   type: ClusterIP
   port: 8300
+  targetPort: 8300
 
 ingress:
   enabled: false

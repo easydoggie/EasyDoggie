@@ -4,9 +4,11 @@ metadata:
   name: {{ .Chart.Name }}-conf
 data:
   default.conf: |-
-    #upstream unit_backend {
-    #   server nginx-unit-python:8300;
-    #}
+    {{- if .Values.appServer.enabled }}
+    upstream unit_backend {
+       server {{ .Values.appServer.serverName }}:{{ .Values.appServer.port }};
+    }
+    {{- end }}
     
     server {
         listen       80;
@@ -15,13 +17,14 @@ data:
         location / {
             root /usr/share/nginx/html;
             index index.html;
+        } 
+        {{- if .Values.appServer.enabled -}}
+        location /api {
+            proxy_pass http://unit_backend;
+            proxy_set_header Host $host;
         }
-    
-        #location /python {
-        #    proxy_pass http://unit_backend;
-        #    proxy_set_header Host $host;
-        #}
-    
+        {{- end }}
+        
         error_page   500 502 503 504  /50x.html;
         location = /50x.html {
             root   /usr/share/nginx/html;
