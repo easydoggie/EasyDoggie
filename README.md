@@ -47,6 +47,15 @@ easydoggie              https://easydoggie.github.io/helm-repo/releases
 Helmを利用してEasyDoggieをKubernetesにデプロイします。
 ```
 $ helm install --name easydoggie easydoggie/easydoggie
+$ kubectl get pods
+NAME                                                        READY   STATUS    RESTARTS   AGE
+easydoggie-nginx-ingress-controller-749677776f-kb2fl        1/1     Running   0          30s
+easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv   1/1     Running   0          30s
+gitea-6dc55f758d-cwkt9                                      1/1     Running   0          31s
+nginx-64f88989bc-n97ml                                      1/1     Running   0          30s
+nginx-unit-5ff6499cb5-9ldnt                                 1/1     Running   0          30s
+nginx-unit-python-c4bfddd87-bwg8w                           1/1     Running   0          30s
+node-cb997ff45-psj4n                                        1/1     Running   0          30s
 ```
 
 # 使い方
