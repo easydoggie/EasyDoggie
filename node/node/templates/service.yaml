@@ -12,9 +12,7 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
-      nodePort: {{ .Values.service.nodePort }}
       protocol: TCP
-      name: http
   selector:
     app.kubernetes.io/name: {{ include "helm.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

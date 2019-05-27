@@ -23,20 +23,30 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+             - "sh"
+             - "-c"
+             - "cd /app && npm init -f && npm install express && npm install socket.io && node server.js"
           ports:
-            - name: http
-              containerPort: 8081
+            - name: unit
+              containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           livenessProbe:
-            httpGet:
-              path: /
-              port: http
+            tcpSocket:
+              port: {{ .Values.service.targetPort }}
           readinessProbe:
-            httpGet:
-              path: /
-              port: http
+            tcpSocket:
+              port: {{ .Values.service.targetPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-persistent-storage
+              mountPath: /app
+              subPath: app
+      volumes:
+        - name: {{ .Chart.Name }}-persistent-storage
+          persistentVolumeClaim:
+            claimName: {{ .Chart.Name }}-pv-claim
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
