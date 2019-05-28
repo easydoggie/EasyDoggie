@@ -44,7 +44,7 @@ easydoggie              https://easydoggie.github.io/helm-repo/releases
 ```
 
 ## EasyDoggieのインストール
-Helmを利用してEasyDoggieをKubernetesにデプロイします。
+Helmを利用してEasyDoggieをKubernetesにデプロイします。"easydoggie"チャートは、すべての構成をインストールします。
 ```
 $ helm install --name easydoggie easydoggie/easydoggie
 $ kubectl get pods
@@ -54,16 +54,21 @@ easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv   1/1     Running   0 
 gitea-6dc55f758d-cwkt9                                      1/1     Running   0          31s
 nginx-64f88989bc-n97ml                                      1/1     Running   0          30s
 nginx-unit-5ff6499cb5-9ldnt                                 1/1     Running   0          30s
-nginx-unit-python-c4bfddd87-bwg8w                           1/1     Running   0          30s
 node-cb997ff45-psj4n                                        1/1     Running   0          30s
 ```
-
+必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。
+```
+$ helm install --name nginx easydoggie/nginx
+```
 # 使い方
-2019年5月15日時点では、以下の構成サービスが起動します。
-![structure_20190524](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190524.png)
+2019年5月28日時点では、以下の構成サービスが起動します。
+![structure_20190528](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190528.png)
 
 ## Web(nginx)へのアクセス
 http://localhost/easydoggie
+
+## API(nginx unit)へのアクセス
+http://localhost/easydoggie/api
 
 ## giteaへのアクセス
 http://localhost/gitea
