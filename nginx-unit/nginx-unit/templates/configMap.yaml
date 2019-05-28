@@ -14,8 +14,9 @@ data:
         "testapp": {
           "type": "python 3.5",
           "processes": 2,
-          "working_directory": "/app/",
-          "path": "/app/testapp/",
+          "working_directory": "/app",
+          "path": "/app/testapp",
+          "home": "/app/venv",
           "module": "index",
           "user": "root",
           "group": "root",

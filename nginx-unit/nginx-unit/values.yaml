@@ -12,8 +12,12 @@ image:
 nameOverride: ""
 fullnameOverride: "nginx-unit"
 
+python:
+  enables: true
+  redis: true
+
 pv:
-  hostPath: "/c/Temp/nginx-unit"
+  hostPath: "/c/Projects/EasyDoggie/nginx-unit/app"
   
 service:
   type: ClusterIP

@@ -1,4 +1,0 @@
-dependencies:
-  - name: redis
-    version: 6.4.4
-    repository: "@stable"  

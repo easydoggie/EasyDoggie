@@ -1,9 +1,0 @@
-redis:
-  image:
-    tag: 5.0.4
-  cluster:
-    enabled: false
-    slaveCount: 0
-  master:
-    persistence: 
-      enabled: false
