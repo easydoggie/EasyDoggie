@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "gitea.fullname" . }}
   labels:
@@ -36,7 +36,7 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: {{ .Chart.Name }}-persistent-storage
+            - name: {{ .Chart.Name }}-data
               mountPath: /data
             - name: {{ .Chart.Name }}-config
               mountPath: /data/gitea/conf
@@ -45,9 +45,6 @@ spec:
         - name: {{ .Chart.Name }}-config
           configMap:
             name: {{ .Chart.Name }}-conf
-        - name: {{ .Chart.Name }}-persistent-storage
-          persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pv-claim
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -60,3 +57,12 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Chart.Name }}-data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi

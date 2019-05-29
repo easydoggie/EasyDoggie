@@ -16,9 +16,6 @@ gitea:
   
 nameOverride: ""
 fullnameOverride: "gitea"
-
-pv:
-  hostPath: "/c/temp/gitea/data"
   
 service:
   type: NodePort
