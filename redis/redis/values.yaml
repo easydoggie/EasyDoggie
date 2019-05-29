@@ -1,5 +1,20 @@
+# file: redis/redis/values.yaml
 redis:
   usePassword: false
   cluster:
-    enabled: false
-    slaveCount: 0
+    enabled: true
+    slaveCount: 2
+  master:
+    livenessProbe:
+      periodSeconds: 10
+      failureThreshold: 3
+    readinessProbe:
+      periodSeconds: 5
+      failureThreshold: 3
+  slave:
+    livenessProbe:
+      periodSeconds: 10
+      failureThreshold: 3
+    readinessProbe:
+      periodSeconds: 5
+      failureThreshold: 3

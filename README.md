@@ -56,13 +56,13 @@ nginx-64f88989bc-n97ml                                      1/1     Running   0 
 nginx-unit-5ff6499cb5-9ldnt                                 1/1     Running   0          30s
 node-cb997ff45-psj4n                                        1/1     Running   0          30s
 ```
-必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。
+必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。以下は、Nginxだけをインストールする例です。
 ```
 $ helm install --name nginx easydoggie/nginx
 ```
 # 使い方
 2019年5月28日時点では、以下の構成サービスが起動します。
-![structure_20190528](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190528.png)
+![structure_20190529](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190529.png)
 
 ## Web(nginx)へのアクセス
 http://localhost/easydoggie
@@ -72,6 +72,10 @@ http://localhost/easydoggie/api
 
 ## giteaへのアクセス
 http://localhost/gitea
+
+# 設定方法
+構成ミドルウェアのパラメータ等の変更は、Wikiを参照してください。
+https://github.com/easydoggie/EasyDoggie/wiki
 
 # ライセンス
 MIT
