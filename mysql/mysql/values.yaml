@@ -1,0 +1,23 @@
+# file: mysql/mysql/values
+mysql:
+  db:
+    name: testdb
+  root:
+    password: easydoggie
+  replication:
+    enabled: true
+  master:
+    livenessProbe:
+      periodSeconds: 5
+      failureThreshold: 5
+    readinessProbe:
+      periodSeconds: 5
+      failureThreshold: 5
+  slave:
+    replicas: 1
+    livenessProbe:
+      periodSeconds: 5
+      failureThreshold: 5
+    readinessProbe:
+      periodSeconds: 5
+      failureThreshold: 5
