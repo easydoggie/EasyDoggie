@@ -61,8 +61,8 @@ node-cb997ff45-psj4n                                        1/1     Running   0 
 $ helm install --name nginx easydoggie/nginx
 ```
 # 使い方
-2019年5月30日時点では、以下の構成サービスが起動します。
-![structure_20190530](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190530.png)
+2019年6月3日時点では、以下の構成サービスが起動します。
+![structure_20190603](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190603.png)
 
 ## Web(nginx)へのアクセス
 http://localhost/easydoggie
@@ -72,6 +72,9 @@ http://localhost/easydoggie/api
 
 ## giteaへのアクセス
 http://localhost/gitea
+
+## Adminerへのアクセス
+http://localhost/adminer
 
 # 設定方法
 構成ミドルウェアのパラメータ等の変更は、[Wiki](https://github.com/easydoggie/EasyDoggie/wiki)を参照してください。
