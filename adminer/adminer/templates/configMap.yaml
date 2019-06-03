@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-conf
+data:
+  unit.conf.json: |-
+    {
+      "listeners": {
+        "*:{{ .Values.appServer.port }}": {
+          "pass": "applications/adminer"
+        }
+      },  
+      "applications": {
+        "adminer": {
+          "type": "php",
+          "processes": 2,
+          "root": "/app/adminer",
+          "index": "adminer.php",
+          "limits": {
+              "timeout": 30,
+              "requests": 1000
+          }
+        }
+      },
+      "settings": {
+          "http": {
+              "header_read_timeout": 30,
+              "body_read_timeout": 30,
+              "send_timeout": 30,
+              "idle_timeout": 120,
+              "max_body_size": 6291456
+          }
+      },
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-nginx-conf
+data:
+  default.conf: |-
+    upstream unit_backend {
+       server 127.0.0.1:{{ .Values.appServer.port }};
+    }
+    
+    server {
+        listen       {{ .Values.service.port }};
+        server_name  localhost;
+        
+        location /index.html {
+            return 200;
+        }
+            
+        location / {
+            proxy_pass http://unit_backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Prefix "/adminer";
+        }
+        
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+    
+    }

@@ -1,14 +1,19 @@
-FROM nginx/unit:1.8.0-php7.0
+FROM ubuntu:18.04
 
 RUN set -x \
-    && apt update \
-    && apt install --no-install-recommends --no-install-suggests -y lsb-release apt-transport-https ca-certificates \
-    && curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
-    && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php7.3.list \
-    && apt remove --purge --auto-remove -y php-common \
-    && apt update \
-    && apt install --no-install-recommends --no-install-suggests -y php7.3 php7.3-curl  php7.3-mbstring php7.3-mysql \
-	&& apt remove --purge --auto-remove -y lsb-release apt-transport-https \
-	&& rm -rf /var/lib/apt/lists/* 
+	&& apt update \
+	&& apt install --no-install-recommends --no-install-suggests -y curl gnupg1 apt-transport-https ca-certificates \
+	&& curl -O https://nginx.org/keys/nginx_signing.key \
+	&& apt-key add nginx_signing.key \
+	&& echo "deb https://packages.nginx.org/unit/ubuntu/ bionic unit" >> /etc/apt/sources.list.d/unit.list \
+	&& echo "deb-src https://packages.nginx.org/unit/ubuntu/ bionic unit" >> /etc/apt/sources.list.d/unit.list \
+	&& apt update \
+	&& apt install --no-install-recommends --no-install-suggests -y unit unit-php php7.2-mysql \
+	&& rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/unit.list
+	
+RUN set -x \
+	&& ln -sf /dev/stdout /var/log/unit.log
+
+STOPSIGNAL SIGTERM
 
 CMD ["unitd", "--no-daemon", "--control", "unix:/var/run/control.unit.sock"]

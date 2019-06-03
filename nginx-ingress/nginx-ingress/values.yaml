@@ -19,6 +19,9 @@ ingress:
     - path: /gitea(/|$)(.*)
       serviceName: gitea
       servicePort: 3000
+    - path: /adminer(/|$)(.*)
+      serviceName: adminer
+      servicePort: 80
 
   tls: []
   #  - secretName: chart-example-tls

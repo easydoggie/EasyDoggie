@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helm.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "helm.name" . }}
+    helm.sh/chart: {{ include "helm.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "helm.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "helm.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          lifecycle:
+            postStart:
+                exec: 
+                    command:
+                        - sh
+                        - -c
+                        - "curl -Lo /app/adminer/adminer.php https://github.com/vrana/adminer/releases/download/v4.7.1/adminer-4.7.1.php \
+                        && while [ ! -e /var/run/control.unit.sock ]; do sleep 1; done \
+                        && curl -X PUT --data-binary @/tmp/unit/unit.conf.json --unix-socket /var/run/control.unit.sock http://localhost/config"
+          livenessProbe:
+            httpGet:
+              path: /adminer.php
+              port: {{ .Values.appServer.port }}
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /adminer.php
+              port: {{ .Values.appServer.port }}
+            initialDelaySeconds: 30
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-config
+              mountPath: /tmp/unit
+              #subpath: unit.conf.json
+            - name: {{ .Chart.Name }}-app
+              mountPath: /app/adminer
+        - name: {{ .Chart.Name }}-nginx
+          image: "{{ .Values.imageNginx.repository }}:{{ .Values.imageNginx.tag }}"
+          imagePullPolicy: {{ .Values.imageNginx.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-nginx-config
+              mountPath: /etc/nginx/conf.d
+              subapth: default.conf
+      volumes:
+        - name: {{ .Chart.Name }}-config
+          configMap:
+            name: {{ .Chart.Name }}-conf
+        - name: {{ .Chart.Name }}-app
+          emptyDir: {}
+        - name: {{ .Chart.Name }}-nginx-config
+          configMap:
+            name: {{ .Chart.Name }}-nginx-conf
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
