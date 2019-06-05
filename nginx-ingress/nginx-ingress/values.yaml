@@ -22,6 +22,9 @@ ingress:
     - path: /adminer(/|$)(.*)
       serviceName: adminer
       servicePort: 80
+    - path: /kibana(/|$)(.*)
+      serviceName: kibana-kibana
+      servicePort: 5601
 
   tls: []
   #  - secretName: chart-example-tls

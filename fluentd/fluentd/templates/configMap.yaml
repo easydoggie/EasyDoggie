@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-conf
+data:
+  system.conf: |-
+    <system>
+      log_level info
+    </system>
