@@ -1,5 +1,6 @@
 # kibana/kibana/values.yaml
 kibana:
+  nameOverride: kibana
   elasticsearchHosts: http://elasticsearch-master:9200
   kibanaConfig:
     kibana.yml: |
