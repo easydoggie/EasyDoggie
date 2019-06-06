@@ -1,0 +1,10 @@
+# prometheus/prometheus/values.yaml
+prometheus-operator:
+  nameOverride: ""
+  fullnameOverride: prometheus
+
+  grafana:
+    fullnameOverride: grafana
+    env:
+      GF_SERVER_DOMAIN: "localhost"
+      GF_SERVER_ROOT_URL: "%(protocol)s://%(domain)s/grafana/"

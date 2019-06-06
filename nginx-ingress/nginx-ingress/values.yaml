@@ -25,6 +25,9 @@ ingress:
     - path: /kibana(/|$)(.*)
       serviceName: kibana-kibana
       servicePort: 5601
+    - path: /grafana(/|$)(.*)
+      serviceName: grafana
+      servicePort: 80
 
   tls: []
   #  - secretName: chart-example-tls
