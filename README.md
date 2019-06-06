@@ -1,4 +1,5 @@
 # EasyDoggie
+![logo2](https://github.com/easydoggie/EasyDoggie/blob/master/images/logo2.png)
 **ゲームインフラは、もっと楽にできる！**
 
 スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。
@@ -61,8 +62,8 @@ node-cb997ff45-psj4n                                        1/1     Running   0 
 $ helm install --name nginx easydoggie/nginx
 ```
 # 使い方
-2019年6月5日時点では、以下の構成サービスが起動します。
-![structure_20190605](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190605.png)
+2019年6月6日時点では、以下の構成サービスが起動します。
+![structure_20190606](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190606.png)
 
 ## Web(nginx)へのアクセス
 http://localhost/easydoggie
@@ -78,6 +79,9 @@ http://localhost/adminer
 
 ## Kibanaへのアクセス
 http://localhost/kibana
+
+## Grafanaへのアクセス
+http://localhost/grafana
 
 # 設定方法
 構成ミドルウェアのパラメータ等の変更は、[Wiki](https://github.com/easydoggie/EasyDoggie/wiki)を参照してください。
