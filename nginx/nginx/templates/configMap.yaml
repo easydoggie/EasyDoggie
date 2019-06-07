@@ -31,3 +31,36 @@ data:
         }
     
     }
+  unit.conf.json: |-
+    {
+      "listeners": {
+        "*:{{ .Values.appServer.port }}": {
+          "pass": "applications/testapp"
+        }
+      },  
+      "applications": {
+        "testapp": {
+          "type": "python 3.5",
+          "processes": 2,
+          "working_directory": "/app/python",
+          "path": "/app/python/testapp",
+          "home": "/app/python/venv",
+          "module": "index",
+          "user": "root",
+          "group": "root",
+          "limits": {
+              "timeout": 10,
+              "requests": 1000
+          }
+        }
+      },
+      "settings": {
+          "http": {
+              "header_read_timeout": 10,
+              "body_read_timeout": 10,
+              "send_timeout": 10,
+              "idle_timeout": 120,
+              "max_body_size": 6291456
+          }
+      },
+    }

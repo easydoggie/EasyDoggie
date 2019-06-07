@@ -6,19 +6,48 @@ replicaCount: 1
 
 image:
   repository: nginx
-  tag: 1.15.12-alpine
+  tag: 1.16.0-alpine
   pullPolicy: IfNotPresent
 
+imageUnit:
+  repository: nginx/unit
+  tag: 1.9.0-full
+  pullPolicy: IfNotPresent
+
+imageInit:
+  alpine:
+    repository: alpine/git
+    tag: latest
+    pullPolicy: IfNotPresent
+    command: |-
+      - ""
+    args: |-
+      - "clone"
+      - "https://github.com/easydoggie/testapp.git"
+      - "/tmp/git"
+  python:
+    enabled: true
+    repository: python
+    tag: 3.5-alpine
+    pullPolicy: IfNotPresent
+    command: |-
+      - "/bin/sh"
+      - "-c"
+      - "apk add git; \
+         git clone https://github.com/easydoggie/testapp.git /tmp/git; \
+         python -m venv /tmp/git/python/venv; \
+         . /tmp/git/python/venv/bin/activate; \
+         pip install redis"
+    args: |-
+      - ""
+  
 appServer:
   enabled: true
-  serverName: nginx-unit
+  serverName: localhost
   port: 8300
   
 nameOverride: ""
 fullnameOverride: "nginx"
-
-pv:
-  hostPath: "/c/Temp/nginx/html"
   
 service:
   type: NodePort

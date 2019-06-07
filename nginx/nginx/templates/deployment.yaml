@@ -19,6 +19,17 @@ spec:
         app.kubernetes.io/name: {{ include "nginx.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      initContainers:
+        - name: init-client
+          image: {{ include "init.repository" . }}:{{ include "init.tag" . }}
+          imagePullPolicy: {{ include "init.pullPolicy" . }}
+          command:
+            {{- include "init.command" . | nindent 12 }}
+          args:
+            {{- include "init.args" . | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-storage
+              mountPath: /tmp/git
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -38,18 +49,54 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: {{ .Chart.Name }}-persistent-storage
+            - name: {{ .Chart.Name }}-storage
               mountPath: /usr/share/nginx/html
+              subPath: web
             - name: {{ .Chart.Name }}-config
               mountPath: /etc/nginx/conf.d
-              subpath: default.conf
+        {{- if .Values.appServer.enabled }}
+        - name: nginx-unit
+          image: "{{ .Values.imageUnit.repository }}:{{ .Values.imageUnit.tag }}"
+          imagePullPolicy: {{ .Values.imageUnit.pullPolicy }}
+          lifecycle:
+            postStart:
+                exec: 
+                    command:
+                        - sh
+                        - -c
+                        - "curl -X PUT --data-binary @/tmp/unit.conf.json --unix-socket /var/run/control.unit.sock http://localhost/config"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.appServer.port }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.appServer.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-storage
+              mountPath: /app/python
+              subPath: python
+            - name: {{ .Chart.Name }}-unit-config
+              mountPath: /tmp
+        {{- end }}
       volumes:
-        - name: {{ .Chart.Name }}-persistent-storage
-          persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pv-claim
+        - name: {{ .Chart.Name }}-storage
+          emptyDir: {}
         - name: {{ .Chart.Name }}-config
           configMap:
             name: {{ .Chart.Name }}-conf
+            items:
+            - key: default.conf
+              path: default.conf
+        - name: {{ .Chart.Name }}-unit-config
+          configMap:
+            name: {{ .Chart.Name }}-conf
+            items:
+            - key: unit.conf.json
+              path: unit.conf.json
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
