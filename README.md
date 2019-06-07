@@ -62,8 +62,8 @@ node-cb997ff45-psj4n                                        1/1     Running   0 
 $ helm install --name nginx easydoggie/nginx
 ```
 # 使い方
-2019年6月6日時点では、以下の構成サービスが起動します。
-![structure_20190606](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_20190606.png)
+2019年6月7日時点では、以下の構成サービスが起動します。
+![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## Web(nginx)へのアクセス
 http://localhost/easydoggie
