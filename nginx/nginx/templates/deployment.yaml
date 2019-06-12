@@ -64,7 +64,8 @@ spec:
                     command:
                         - sh
                         - -c
-                        - "curl -X PUT --data-binary @/tmp/unit.conf.json --unix-socket /var/run/control.unit.sock http://localhost/config"
+                        - "while [ ! -e /var/run/control.unit.sock ]; do sleep 1; done  \
+                           && curl -X PUT --data-binary @/tmp/unit.conf.json --unix-socket /var/run/control.unit.sock http://localhost/config"
           livenessProbe:
             httpGet:
               path: /
