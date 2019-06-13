@@ -19,6 +19,21 @@ spec:
         app.kubernetes.io/name: {{ include "helm.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      initContainers:
+        - name: init-client
+          image: {{ .Values.imageInit.repository }}:{{ .Values.imageInit.tag }}
+          imagePullPolicy: {{ .Values.imageInit.pullPolicy }}
+          {{- with .Values.imageInit.command }}
+          command:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.imageInit.args }}
+          args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          volumeMounts:
+            - name: {{ .Chart.Name }}-storage
+              mountPath: /tmp/git
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -40,13 +55,12 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: {{ .Chart.Name }}-persistent-storage
+            - name: {{ .Chart.Name }}-storage
               mountPath: /app
-              subPath: app
+              subPath: nodejs
       volumes:
-        - name: {{ .Chart.Name }}-persistent-storage
-          persistentVolumeClaim:
-            claimName: {{ .Chart.Name }}-pv-claim
+        - name: {{ .Chart.Name }}-storage
+          emptyDir: {}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

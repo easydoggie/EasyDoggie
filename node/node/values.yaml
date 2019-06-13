@@ -1,20 +1,25 @@
-# Default values for helm.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+# file: node/values.yaml
 
 replicaCount: 1
 
 image:
   repository: node
-  tag: 12.3.1-alpine
+  tag: 10.16.0-alpine
   pullPolicy: IfNotPresent
+
+imageInit:
+  repository: alpine/git
+  tag: latest
+  pullPolicy: IfNotPresent
+  command: []
+  args:
+    - clone
+    - https://github.com/easydoggie/testapp.git
+    - /tmp/git
 
 nameOverride: ""
 fullnameOverride: "node"
 
-pv:
-  hostPath: "/c/Temp/node"
-  
 service:
   type: LoadBalancer
   port: 8081
