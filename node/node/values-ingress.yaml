@@ -1,0 +1,24 @@
+# file: node/values-ingress.yaml
+
+service:
+  type: NodePort
+  port: 8081
+  targetPort: 8081
+
+nginx-ingress:
+  enabled: true
+  controller:
+    name: node-ingress-controller
+    service:
+      type: LoadBalancer
+
+ingress:
+  enabled: true
+  annotations: 
+    ingress.kubernetes.io/ingress.class: nginx
+  paths:
+    - path: /
+      serviceName: node
+      servicePort: 8081
+ 
+  tls: []
