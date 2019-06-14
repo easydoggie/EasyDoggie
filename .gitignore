@@ -1,4 +1,2 @@
-/helm-local-repo/
-/easydoggie/
-/nginx-unit/app/testapp/__pycache__/
-/nginx-unit/app/venv/
+/easydoggie/*.tgz
+/easydoggie/easydoggie/charts/

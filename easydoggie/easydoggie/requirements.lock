@@ -1,0 +1,21 @@
+dependencies:
+- name: nginx
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.3
+- name: nginx-unit
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.2
+- name: node
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.3
+- name: nginx-ingress
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.0
+- name: gitea
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.0
+- name: redis
+  repository: https://easydoggie.github.io/helm-repo/releases
+  version: 0.1.0
+digest: sha256:79273669c2d6b2fae54cf57a0c40a9d654c6cc4bde53c32c3dc706051032d501
+generated: 2019-05-28T16:04:38.3775614+09:00
