@@ -1,76 +1,76 @@
 [
 {
-	"uri": "http://localhost/install/nodejs/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/nodejs/",
 	"title": "Node.js",
 	"tags": [],
 	"description": "",
 	"content": " Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。\n$ helm install --nama \u0026lt;release_name\u0026gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n$ helm install --name \u0026lt;release_name\u0026gt; \\ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n作成中 Node.jsのアンインストール 完全に消去する場合は、--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt;"
 },
 {
-	"uri": "http://localhost/install/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/",
 	"title": "Install",
 	"tags": [],
 	"description": "",
 	"content": " Chapter 1 Install \u0026amp; Uninstall Helm Chartごとの個別インストールとアンインストール方法\n"
 },
 {
-	"uri": "http://localhost/config/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/",
 	"title": "Config",
 	"tags": [],
 	"description": "",
 	"content": " Chapter 2 Config 設定変更の方法\n"
 },
 {
-	"uri": "http://localhost/install/prometheus/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/prometheus/",
 	"title": "Prometheus",
 	"tags": [],
 	"description": "",
 	"content": " Prometheus Operatorのインストール $ helm install --name \u0026lt;release_name\u0026gt; easydoggie/ptometheus-oeprator Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。\n$ helm delete --purge \u0026lt;release_name\u0026gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.monitoring.coreos.com"
 },
 {
-	"uri": "http://localhost/password/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/password/",
 	"title": "Password",
 	"tags": [],
 	"description": "",
 	"content": " Chapter 3 Password 初期パスワード\n"
 },
 {
-	"uri": "http://localhost/config/redis/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/redis/",
 	"title": "Redis",
 	"tags": [],
 	"description": "",
 	"content": " シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、cluster.enabledの値をfalseに設定します。\n# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: false    # values     Master 1   Slave 0   Master RDB x   Master AOF o    \n   接続先 ホスト ポート     Master redis-master 6379    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、cluster.enabledをtrueに設定します。スレーブのノード数は、cluser.slaveCountで設定します。\n# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2    # values     Master 1   Slave 2   Master RDB x   Master AOF o   Slave RDB x   Slave AOF o    \n   接続先 ホスト ポート     Master redis-master 6379   Slave redis-slave 6379    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。\n   node ヘルスチェック間隔(秒) 失敗回数     Master 5 5   Slave 10 5    $ kubectl describe pods/redis-master-0|grep Readiness: Readiness: exec [sh -c /health/ping_local.sh 5] delay=5s timeout=1s period=5s #success=1 #failure=5 $ kubectl describe pods/redis-slave-0|grep Readiness: Readiness: exec [sh -c /health/ping_local_and_master.sh 5] delay=5s timeout=10s period=10s #success=1 #failure=5 以下の例では、マスター、スレーブともに3秒間隔 x 3回のヘルスチェック失敗に設定を変更します。\n# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2 master: readinessProbe: periodSeconds: 3 failureThreshold: 3 slave: readinessProbe: periodSeconds: 3 failureThreshold: 3$ kubectl describe pods/redis-master-0|grep Readiness: Readiness: exec [sh -c /health/ping_local.sh 5] delay=5s timeout=1s period=3s #success=1 #failure=3 $ kubectl describe pods/redis-slave-0|grep Readiness: Readiness: exec [sh -c /health/ping_local_and_master.sh 5] delay=5s timeout=10s period=3s #success=1 #failure=3 マスター、スレーブの再起動間隔を調整する マスター、スレーブのPodを再起動する間隔を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Podの再起動が行われます。\n   node ヘルスチェック間隔(秒) 失敗回数     Master 5 5   Slave 10 5    $ kubectl describe pods/redis-master-0|grep Liveness: Liveness: exec [sh -c /health/ping_local.sh 5] delay=5s timeout=5s period=5s #success=1 #failure=5 $ kubectl describe pods/redis-slave-0|grep Liveness: Liveness: exec [sh -c /health/ping_local_and_master.sh 5] delay=30s timeout=5s period=10s #success=1 #failure=5 以下の例では、マスター、スレーブともに3秒間隔 x 3回のヘルスチェック失敗に設定を変更します。\n# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2 master: livenessProbe: periodSeconds: 3 failureThreshold: 3 slave: livenessProbe: periodSeconds: 3 failureThreshold: 3$ kubectl describe pods/redis-master-0|grep Liveness: Liveness: exec [sh -c /health/ping_local.sh 5] delay=5s timeout=5s period=3s #success=1 #failure=3 $ kubectl describe pods/redis-slave-0|grep Liveness: Liveness: exec [sh -c /health/ping_local_and_master.sh 5] delay=30s timeout=5s period=3s #success=1 #failure=3"
 },
 {
-	"uri": "http://localhost/config/mysql/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/mysql/",
 	"title": "Mysql",
 	"tags": [],
 	"description": "",
 	"content": " シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、replication.enabledの値をfalseに設定します。\n# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: false    接続先 ホスト ポート     Master \u0026lt;helm_name\u0026gt;-mysql 3306    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、replication.enabledをtrueに設定します。スレーブのノード数は、slave.replicasで設定します。\n# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true slave: replicas: 2    接続先 ホスト ポート     Master \u0026lt;helm_name\u0026gt;-mysql 3306   Slave \u0026lt;helm_name\u0026gt;-mysql-slave 3306    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。\n   node ヘルスチェック間隔(秒) 失敗回数     Master 10 3   Slave 10 3    $ kubectl describe pods/mysql-mysql-master-0|grep Readiness: Readiness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD] delay=30s timeout=1s period=10s #success=1 #failure=3 $ kubectl describe pods/mysql-mysql-slave-0|grep Readiness: Readiness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD] delay=30s timeout=1s period=10s #success=1 #failure=3 以下の例では、マスター、スレーブともに5秒間隔 x 5回のヘルスチェック失敗に設定を変更します。\n# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true master: readinessProbe: periodSeconds: 5 failureThreshold: 5 slave: replicas: 1 readinessProbe: periodSeconds: 5 failureThreshold: 5$ kubectl describe pods/mysql-mysql-master-0|grep Readiness: Readiness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD] delay=30s timeout=1s period=5s #success=1 #failure=5 $ kubectl describe pods/mysql-mysql-slave-0|grep Readiness: Readiness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD] delay=30s timeout=1s period=5s #success=1 #failure=5 マスター、スレーブの再起動間隔を調整する マスター、スレーブのPodを再起動する間隔を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Podの再起動が行われます。\n   node ヘルスチェック間隔(秒) 失敗回数     Master 10 3   Slave 10 3    $ kubectl describe pods/mysql-mysql- master-0|grep Liveness: Liveness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD] delay=120s timeout=1s period=10s #success=1 #failure=3 $ kubectl describe pods/mysql-mysql-slave-0|grep Liveness: Liveness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD] delay=120s timeout=1s period=10s #success=1 #failure=3 以下の例では、マスター、スレーブともに5秒間隔 x 5回のヘルスチェック失敗に設定を変更します。\n# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true master: livenessProbe: periodSeconds: 5 failureThreshold: 5 slave: replicas: 1 livenessProbe: periodSeconds: 5 failureThreshold: 5$ kubectl describe pods/mysql-mysql-master-0|grep Liveness: Liveness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD] delay=120s timeout=1s period=5s #success=1 #failure=5 $ kubectl describe pods/mysql-mysql-slave-0|grep Liveness: Liveness: exec [sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD] delay=120s timeout=1s period=5s #success=1 #failure=5"
 },
 {
-	"uri": "http://localhost/password/grafana/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/password/grafana/",
 	"title": "Grafana",
 	"tags": [],
 	"description": "",
 	"content": " Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。\n$ kubectl get secret grafana -o jsonpath=\u0026#34;{.data.admin-password}\u0026#34; | base64 --decode ; echo"
 },
 {
-	"uri": "http://localhost/categories/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://localhost/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/",
 	"title": "EasyDoggie",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "http://localhost/tags/",
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
