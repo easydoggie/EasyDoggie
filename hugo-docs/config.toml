@@ -1,6 +1,5 @@
 # baseURL = "http://localhost/"
 baseURL = "https://easydoggie.github.io/EasyDoggie/"
-canonifyURLs = true
 title = "EasyDoggie"
 theme = "hugo-theme-learn"
 pygmentsStyle = "monokai"
