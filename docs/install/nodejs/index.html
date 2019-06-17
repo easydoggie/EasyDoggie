@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Password :: EasyDoggie</title>
+    <title>Node.js :: EasyDoggie</title>
 
     
-    <link href="/css/nucleus.css?1560746342" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1560746342" rel="stylesheet">
-    <link href="/css/hybrid.css?1560746342" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1560746342" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1560746342" rel="stylesheet">
-    <link href="/css/auto-complete.css?1560746342" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1560746342" rel="stylesheet">
-    <link href="/css/theme.css?1560746342" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1560746342" rel="stylesheet">
+    <link href="/css/nucleus.css?1560746899" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1560746899" rel="stylesheet">
+    <link href="/css/hybrid.css?1560746899" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1560746899" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1560746899" rel="stylesheet">
+    <link href="/css/auto-complete.css?1560746899" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1560746899" rel="stylesheet">
+    <link href="/css/theme.css?1560746899" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1560746899" rel="stylesheet">
     
-      <link href="/css/theme-red.css?1560746342" rel="stylesheet">
+      <link href="/css/theme-red.css?1560746899" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1560746342"></script>
+    <script src="/js/jquery-3.3.1.min.js?1560746899"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/password/">
+  <body class="" data-url="/install/nodejs/">
     <nav id="sidebar" class="">
 
 
@@ -51,14 +51,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1560746342"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1560746342"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1560746899"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1560746899"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1560746342"></script>
+<script type="text/javascript" src="/js/search.js?1560746899"></script>
 
     
   </div>
@@ -75,7 +75,7 @@
   
     
     <li data-nav-id="/install/" title="Install" class="dd-item 
-        
+        parent
         
         
         ">
@@ -99,7 +99,7 @@
  
   
     
-      <li data-nav-id="/install/nodejs/" title="Node.js" class="dd-item ">
+      <li data-nav-id="/install/nodejs/" title="Node.js" class="dd-item active">
         <a href="/install/nodejs/">
         Node.js
         
@@ -215,8 +215,8 @@
   
     
     <li data-nav-id="/password/" title="Password" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/password/">
@@ -292,6 +292,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -302,7 +304,13 @@
             
           
           
-            <a href='/'>EasyDoggie</a> > Password
+            
+            
+          
+          
+            <a href='/'>EasyDoggie</a> > <a href='/install/'>Install</a> > Node.js
+          
+         
           
          
           
@@ -311,6 +319,26 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#node-jsのインストール">Node.jsのインストール</a>
+<ul>
+<li><a href="#serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</a></li>
+<li><a href="#ingressとnginx-ingressを使う場合">IngressとNginx Ingressを使う場合</a></li>
+<li><a href="#ingressとgkeなどのマネジメントingressコントローラを使う場合">IngressとGKEなどのマネジメントIngressコントローラを使う場合</a></li>
+</ul></li>
+<li><a href="#node-jsのアンインストール">Node.jsのアンインストール</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -318,9 +346,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Node.js
+            </h1>
           
 
         
@@ -328,24 +359,32 @@
 
 
 
-	
 
-<h3 id="chapter-3">Chapter 3</h3>
+<h2 id="node-jsのインストール">Node.jsのインストール</h2>
 
-<h1 id="password">Password</h1>
+<h3 id="serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</h3>
 
-<p>初期パスワード</p>
+<p>デフォルトの設定では、Service.type=LoadBalancerとして起動します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --nama &lt;release_name&gt; easydoggie/node</code></pre></div>
+<h3 id="ingressとnginx-ingressを使う場合">IngressとNginx Ingressを使う場合</h3>
 
+<p>IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>-f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node</code></pre></div>
+<h3 id="ingressとgkeなどのマネジメントingressコントローラを使う場合">IngressとGKEなどのマネジメントIngressコントローラを使う場合</h3>
 
+<p>Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">作成中</code></pre></div>
+<h2 id="node-jsのアンインストール">Node.jsのアンインストール</h2>
 
-
+<p>完全に消去する場合は、<code>--purge</code>オプションを利用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm delete --purge &lt;release_name&gt;</code></pre></div>
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -377,8 +416,58 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -440,58 +529,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -516,10 +553,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/config/mysql/" title="Mysql"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/install/" title="Install"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/password/grafana/" title="Grafana" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/install/prometheus/" title="Prometheus" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -529,20 +566,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1560746342"></script>
-    <script src="/js/perfect-scrollbar.min.js?1560746342"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1560746342"></script>
-    <script src="/js/jquery.sticky.js?1560746342"></script>
-    <script src="/js/featherlight.min.js?1560746342"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1560746342"></script>
-    <script src="/js/highlight.pack.js?1560746342"></script>
+    <script src="/js/clipboard.min.js?1560746899"></script>
+    <script src="/js/perfect-scrollbar.min.js?1560746899"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1560746899"></script>
+    <script src="/js/jquery.sticky.js?1560746899"></script>
+    <script src="/js/featherlight.min.js?1560746899"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1560746899"></script>
+    <script src="/js/highlight.pack.js?1560746899"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1560746342"></script>
-    <script src="/js/learn.js?1560746342"></script>
-    <script src="/js/hugo-learn.js?1560746342"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1560746899"></script>
+    <script src="/js/learn.js?1560746899"></script>
+    <script src="/js/hugo-learn.js?1560746899"></script>
 
-    <link href="/mermaid/mermaid.css?1560746342" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1560746342"></script>
+    <link href="/mermaid/mermaid.css?1560746899" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1560746899"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -550,3 +587,4 @@
 
   </body>
 </html>
+

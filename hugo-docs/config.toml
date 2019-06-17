@@ -3,6 +3,7 @@ title = "EasyDoggie"
 theme = "hugo-theme-learn"
 pygmentsStyle = "monokai"
 pygmentsCodefences = true
+publishdir = "../docs/"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
