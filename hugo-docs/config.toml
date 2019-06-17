@@ -1,4 +1,5 @@
-baseURL = "http://localhost/"
+# baseURL = "http://localhost/"
+baseURL = "https://easydoggie.github.io/EasyDoggie/"
 title = "EasyDoggie"
 theme = "hugo-theme-learn"
 pygmentsStyle = "monokai"
