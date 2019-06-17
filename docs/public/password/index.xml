@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Password on EasyDoggie</title>
+    <link>http://localhost/password/</link>
+    <description>Recent content in Password on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jun 2019 10:55:54 +0900</lastBuildDate>
+    
+	<atom:link href="http://localhost/password/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grafana</title>
+      <link>http://localhost/password/grafana/</link>
+      <pubDate>Mon, 17 Jun 2019 10:16:06 +0900</pubDate>
+      
+      <guid>http://localhost/password/grafana/</guid>
+      <description> Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。
+$ kubectl get secret grafana -o jsonpath=&amp;#34;{.data.admin-password}&amp;#34; | base64 --decode ; echo</description>
+    </item>
+    
+  </channel>
+</rss>

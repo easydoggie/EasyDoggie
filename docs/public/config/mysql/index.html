@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Mysql :: EasyDoggie</title>
+
+    
+    <link href="/css/nucleus.css?1560746342" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1560746342" rel="stylesheet">
+    <link href="/css/hybrid.css?1560746342" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1560746342" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1560746342" rel="stylesheet">
+    <link href="/css/auto-complete.css?1560746342" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1560746342" rel="stylesheet">
+    <link href="/css/theme.css?1560746342" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1560746342" rel="stylesheet">
+    
+      <link href="/css/theme-red.css?1560746342" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1560746342"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/config/mysql/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://github.com/easydoggie/EasyDoggie"><image src="/img/logo.svg"></a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1560746342"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1560746342"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1560746342"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/install/" title="Install" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/install/">
+          <b>1. </b>Install
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/install/nodejs/" title="Node.js" class="dd-item ">
+        <a href="/install/nodejs/">
+        Node.js
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/install/prometheus/" title="Prometheus" class="dd-item ">
+        <a href="/install/prometheus/">
+        Prometheus
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/config/" title="Config" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/config/">
+          <b>2. </b>Config
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/config/redis/" title="Redis" class="dd-item ">
+        <a href="/config/redis/">
+        Redis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/config/mysql/" title="Mysql" class="dd-item active">
+        <a href="/config/mysql/">
+        Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/password/" title="Password" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/password/">
+          <b>3. </b>Password
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/password/grafana/" title="Grafana" class="dd-item ">
+        <a href="/password/grafana/">
+        Grafana
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>協賛</p>
+<a href="https://www.skyarch.net/"><image src="/img/skyarch.gif" style="background-color:#f7f7f7"></a>
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>EasyDoggie</a> > <a href='/config/'>Config</a> > Mysql
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#シングルマスター構成">シングルマスター構成</a></li>
+<li><a href="#マスター-スレーブ構成">マスター、スレーブ構成</a></li>
+<li><a href="#マスター-スレーブの切り離し間隔を調整する">マスター、スレーブの切り離し間隔を調整する</a></li>
+<li><a href="#マスター-スレーブの再起動間隔を調整する">マスター、スレーブの再起動間隔を調整する</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Mysql
+            </h1>
+          
+
+        
+
+
+
+
+
+<h2 id="シングルマスター構成">シングルマスター構成</h2>
+
+<p>マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、<code>replication.enabled</code>の値を<code>false</code>に設定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># file: mysql/mysql/values</span>
+mysql:
+  db:
+    name: testdb
+  root:
+    password: easydoggie
+  replication:
+    enabled: <span style="color:#66d9ef">false</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th align="left">接続先</th>
+<th align="left">ホスト</th>
+<th>ポート</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Master</td>
+<td align="left">&lt;helm_name&gt;-mysql</td>
+<td>3306</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="マスター-スレーブ構成">マスター、スレーブ構成</h2>
+
+<p>マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、<code>replication.enabled</code>を<code>true</code>に設定します。スレーブのノード数は、<code>slave.replicas</code>で設定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># file: mysql/mysql/values</span>
+mysql:
+  db:
+    name: testdb
+  root:
+    password: easydoggie
+  replication:
+    enabled: <span style="color:#66d9ef">true</span>
+  slave:
+    replicas: <span style="color:#ae81ff">2</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th align="left">接続先</th>
+<th align="left">ホスト</th>
+<th>ポート</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Master</td>
+<td align="left">&lt;helm_name&gt;-mysql</td>
+<td>3306</td>
+</tr>
+
+<tr>
+<td align="left">Slave</td>
+<td align="left">&lt;helm_name&gt;-mysql-slave</td>
+<td>3306</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="マスター-スレーブの切り離し間隔を調整する">マスター、スレーブの切り離し間隔を調整する</h2>
+
+<p>マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。</p>
+
+<table>
+<thead>
+<tr>
+<th>node</th>
+<th align="right">ヘルスチェック間隔(秒)</th>
+<th align="right">失敗回数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Master</td>
+<td align="right">10</td>
+<td align="right">3</td>
+</tr>
+
+<tr>
+<td>Slave</td>
+<td align="right">10</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pods/mysql-mysql-master-0|grep Readiness:
+    Readiness:      exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>30s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>10s <span style="color:#75715e">#success=1 #failure=3
+</span><span style="color:#75715e"></span>$ kubectl describe pods/mysql-mysql-slave-0|grep Readiness:
+    Readiness:      exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>30s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>10s #success<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> #failure<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span></code></pre></div>
+<p>以下の例では、マスター、スレーブともに5秒間隔 x 5回のヘルスチェック失敗に設定を変更します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># file: mysql/mysql/values</span>
+mysql:
+  db:
+    name: testdb
+  root:
+    password: easydoggie
+  replication:
+    enabled: <span style="color:#66d9ef">true</span>
+  master:
+    readinessProbe:
+      periodSeconds: <span style="color:#ae81ff">5</span>
+      failureThreshold: <span style="color:#ae81ff">5</span>
+  slave:
+    replicas: <span style="color:#ae81ff">1</span>
+    readinessProbe:
+      periodSeconds: <span style="color:#ae81ff">5</span>
+      failureThreshold: <span style="color:#ae81ff">5</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pods/mysql-mysql-master-0|grep Readiness:
+    Readiness:      exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>30s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>5s <span style="color:#75715e">#success=1 #failure=5
+</span><span style="color:#75715e"></span>$ kubectl describe pods/mysql-mysql-slave-0|grep Readiness:
+    Readiness:      exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>30s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>5s #success<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> #failure<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span></code></pre></div>
+<h2 id="マスター-スレーブの再起動間隔を調整する">マスター、スレーブの再起動間隔を調整する</h2>
+
+<p>マスター、スレーブのPodを再起動する間隔を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Podの再起動が行われます。</p>
+
+<table>
+<thead>
+<tr>
+<th>node</th>
+<th align="right">ヘルスチェック間隔(秒)</th>
+<th align="right">失敗回数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Master</td>
+<td align="right">10</td>
+<td align="right">3</td>
+</tr>
+
+<tr>
+<td>Slave</td>
+<td align="right">10</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pods/mysql-mysql-
+master-0|grep Liveness:
+    Liveness:       exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>120s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>10s <span style="color:#75715e">#success=1 #failure=3
+</span><span style="color:#75715e"></span>$ kubectl describe pods/mysql-mysql-slave-0|grep Liveness:
+    Liveness:       exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>120s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>10s #success<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> #failure<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span></code></pre></div>
+<p>以下の例では、マスター、スレーブともに5秒間隔 x 5回のヘルスチェック失敗に設定を変更します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># file: mysql/mysql/values</span>
+mysql:
+  db:
+    name: testdb
+  root:
+    password: easydoggie
+  replication:
+    enabled: <span style="color:#66d9ef">true</span>
+  master:
+    livenessProbe:
+      periodSeconds: <span style="color:#ae81ff">5</span>
+      failureThreshold: <span style="color:#ae81ff">5</span>
+  slave:
+    replicas: <span style="color:#ae81ff">1</span>
+    livenessProbe:
+      periodSeconds: <span style="color:#ae81ff">5</span>
+      failureThreshold: <span style="color:#ae81ff">5</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl describe pods/mysql-mysql-master-0|grep Liveness:
+    Liveness:       exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>120s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>5s <span style="color:#75715e">#success=1 #failure=5
+</span><span style="color:#75715e"></span>$ kubectl describe pods/mysql-mysql-slave-0|grep Liveness:
+    Liveness:       exec <span style="color:#f92672">[</span>sh -c exec mysqladmin status -uroot -p$MYSQL_MASTER_ROOT_PASSWORD<span style="color:#f92672">]</span> delay<span style="color:#f92672">=</span>120s timeout<span style="color:#f92672">=</span>1s period<span style="color:#f92672">=</span>5s #success<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> #failure<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span></code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/config/redis/" title="Redis"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/password/" title="Password" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1560746342"></script>
+    <script src="/js/perfect-scrollbar.min.js?1560746342"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1560746342"></script>
+    <script src="/js/jquery.sticky.js?1560746342"></script>
+    <script src="/js/featherlight.min.js?1560746342"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1560746342"></script>
+    <script src="/js/highlight.pack.js?1560746342"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1560746342"></script>
+    <script src="/js/learn.js?1560746342"></script>
+    <script src="/js/hugo-learn.js?1560746342"></script>
+
+    <link href="/mermaid/mermaid.css?1560746342" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1560746342"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

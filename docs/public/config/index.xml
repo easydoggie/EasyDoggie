@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Config on EasyDoggie</title>
+    <link>http://localhost/config/</link>
+    <description>Recent content in Config on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jun 2019 10:54:43 +0900</lastBuildDate>
+    
+	<atom:link href="http://localhost/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis</title>
+      <link>http://localhost/config/redis/</link>
+      <pubDate>Mon, 17 Jun 2019 10:18:17 +0900</pubDate>
+      
+      <guid>http://localhost/config/redis/</guid>
+      <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、cluster.enabledの値をfalseに設定します。
+# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: false    # values     Master 1   Slave 0   Master RDB x   Master AOF o    
+   接続先 ホスト ポート     Master redis-master 6379    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、cluster.enabledをtrueに設定します。スレーブのノード数は、cluser.slaveCountで設定します。
+# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2    # values     Master 1   Slave 2   Master RDB x   Master AOF o   Slave RDB x   Slave AOF o</description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://localhost/config/mysql/</link>
+      <pubDate>Mon, 17 Jun 2019 10:17:05 +0900</pubDate>
+      
+      <guid>http://localhost/config/mysql/</guid>
+      <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、replication.enabledの値をfalseに設定します。
+# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: false    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、replication.enabledをtrueに設定します。スレーブのノード数は、slave.replicasで設定します。
+# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true slave: replicas: 2    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306   Slave &amp;lt;helm_name&amp;gt;-mysql-slave 3306    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。</description>
+    </item>
+    
+  </channel>
+</rss>

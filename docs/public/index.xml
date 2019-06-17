@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EasyDoggie</title>
+    <link>http://localhost/</link>
+    <description>Recent content on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 Jun 2019 17:56:55 +0900</lastBuildDate>
+    
+	<atom:link href="http://localhost/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost/install/nodejs/</link>
+      <pubDate>Fri, 14 Jun 2019 17:56:55 +0900</pubDate>
+      
+      <guid>http://localhost/install/nodejs/</guid>
+      <description> Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。
+$ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
+$ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
+作成中 Node.jsのアンインストール 完全に消去する場合は、--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>http://localhost/install/prometheus/</link>
+      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      
+      <guid>http://localhost/install/prometheus/</guid>
+      <description>Prometheus Operatorのインストール $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。
+$ helm delete --purge &amp;lt;release_name&amp;gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>http://localhost/config/redis/</link>
+      <pubDate>Mon, 17 Jun 2019 10:18:17 +0900</pubDate>
+      
+      <guid>http://localhost/config/redis/</guid>
+      <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、cluster.enabledの値をfalseに設定します。
+# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: false    # values     Master 1   Slave 0   Master RDB x   Master AOF o    
+   接続先 ホスト ポート     Master redis-master 6379    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、cluster.enabledをtrueに設定します。スレーブのノード数は、cluser.slaveCountで設定します。
+# file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2    # values     Master 1   Slave 2   Master RDB x   Master AOF o   Slave RDB x   Slave AOF o</description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://localhost/config/mysql/</link>
+      <pubDate>Mon, 17 Jun 2019 10:17:05 +0900</pubDate>
+      
+      <guid>http://localhost/config/mysql/</guid>
+      <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、replication.enabledの値をfalseに設定します。
+# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: false    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、replication.enabledをtrueに設定します。スレーブのノード数は、slave.replicasで設定します。
+# file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true slave: replicas: 2    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306   Slave &amp;lt;helm_name&amp;gt;-mysql-slave 3306    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。</description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>http://localhost/password/grafana/</link>
+      <pubDate>Mon, 17 Jun 2019 10:16:06 +0900</pubDate>
+      
+      <guid>http://localhost/password/grafana/</guid>
+      <description> Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。
+$ kubectl get secret grafana -o jsonpath=&amp;#34;{.data.admin-password}&amp;#34; | base64 --decode ; echo</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Install on EasyDoggie</title>
+    <link>http://localhost/install/</link>
+    <description>Recent content in Install on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 Jun 2019 17:54:31 +0900</lastBuildDate>
+    
+	<atom:link href="http://localhost/install/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Node.js</title>
+      <link>http://localhost/install/nodejs/</link>
+      <pubDate>Fri, 14 Jun 2019 17:56:55 +0900</pubDate>
+      
+      <guid>http://localhost/install/nodejs/</guid>
+      <description> Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。
+$ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
+$ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
+作成中 Node.jsのアンインストール 完全に消去する場合は、--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>http://localhost/install/prometheus/</link>
+      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      
+      <guid>http://localhost/install/prometheus/</guid>
+      <description>Prometheus Operatorのインストール $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。
+$ helm delete --purge &amp;lt;release_name&amp;gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.</description>
+    </item>
+    
+  </channel>
+</rss>

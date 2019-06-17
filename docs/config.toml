@@ -1,0 +1,11 @@
+baseURL = "http://localhost/"
+title = "EasyDoggie"
+theme = "hugo-theme-learn"
+pygmentsStyle = "monokai"
+pygmentsCodefences = true
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+themeVariant = "red"

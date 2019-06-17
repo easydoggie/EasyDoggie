@@ -32,9 +32,10 @@ $ sudo mv linux-amd64/helm /usr/local/bin/helm
 $ helm init
 ```
 Helmのインストールについては、[ブログ](https://www.skyarch.net/blog/?p=16350)でも紹介をしているので、参考にしてください。
-GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール前にサービスアカウントの設定を行ってください。
+GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール(helm init)する前にサービスアカウントの設定を行ってください。また、helm initを行うときにサービスアカウントの指定オプションを追加してください。
 ```
-$ kubectl apply -f serviceaccount/helm-account.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml
+$ helm init --service-account helm
 ```
 
 ## Helmリポジトリの追加

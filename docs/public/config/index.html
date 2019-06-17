@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Config :: EasyDoggie</title>
+
+    
+    <link href="/css/nucleus.css?1560746342" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1560746342" rel="stylesheet">
+    <link href="/css/hybrid.css?1560746342" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1560746342" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1560746342" rel="stylesheet">
+    <link href="/css/auto-complete.css?1560746342" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1560746342" rel="stylesheet">
+    <link href="/css/theme.css?1560746342" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1560746342" rel="stylesheet">
+    
+      <link href="/css/theme-red.css?1560746342" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1560746342"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/config/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://github.com/easydoggie/EasyDoggie"><image src="/img/logo.svg"></a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1560746342"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1560746342"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/localhost\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1560746342"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/install/" title="Install" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/install/">
+          <b>1. </b>Install
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/install/nodejs/" title="Node.js" class="dd-item ">
+        <a href="/install/nodejs/">
+        Node.js
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/install/prometheus/" title="Prometheus" class="dd-item ">
+        <a href="/install/prometheus/">
+        Prometheus
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/config/" title="Config" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/config/">
+          <b>2. </b>Config
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/config/redis/" title="Redis" class="dd-item ">
+        <a href="/config/redis/">
+        Redis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/config/mysql/" title="Mysql" class="dd-item ">
+        <a href="/config/mysql/">
+        Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/password/" title="Password" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/password/">
+          <b>3. </b>Password
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/password/grafana/" title="Grafana" class="dd-item ">
+        <a href="/password/grafana/">
+        Grafana
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>協賛</p>
+<a href="https://www.skyarch.net/"><image src="/img/skyarch.gif" style="background-color:#f7f7f7"></a>
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>EasyDoggie</a> > Config
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+
+	
+
+<h3 id="chapter-2">Chapter 2</h3>
+
+<h1 id="config">Config</h1>
+
+<p>設定変更の方法</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/install/prometheus/" title="Prometheus"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/config/redis/" title="Redis" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1560746342"></script>
+    <script src="/js/perfect-scrollbar.min.js?1560746342"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1560746342"></script>
+    <script src="/js/jquery.sticky.js?1560746342"></script>
+    <script src="/js/featherlight.min.js?1560746342"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1560746342"></script>
+    <script src="/js/highlight.pack.js?1560746342"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1560746342"></script>
+    <script src="/js/learn.js?1560746342"></script>
+    <script src="/js/hugo-learn.js?1560746342"></script>
+
+    <link href="/mermaid/mermaid.css?1560746342" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1560746342"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
