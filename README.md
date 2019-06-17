@@ -66,7 +66,7 @@ node-cb997ff45-psj4n                                        1/1     Running   0 
 ```
 $ helm install --name nginx easydoggie/nginx
 ```
-個別インストール方法の詳細は、[Wiki](https://github.com/easydoggie/EasyDoggie/wiki)を参照してください。
+個別インストール方法の詳細は、[別ページ](https://easydoggie.github.io/EasyDoggie/install/)を参照してください。
 # 使い方
 2019年6月13日時点では、以下の構成サービスが起動します。
 ![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
@@ -90,7 +90,7 @@ http://localhost/kibana
 http://localhost/grafana
 
 # 設定方法
-構成ミドルウェアのパラメータ等の変更は、[Wiki](https://github.com/easydoggie/EasyDoggie/wiki)を参照してください。
+構成ミドルウェアのパラメータ等の変更は、[別ページ](https://easydoggie.github.io/EasyDoggie/config/)を参照してください。
 
 # ライセンス
 MIT

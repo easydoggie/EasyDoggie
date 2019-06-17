@@ -2,6 +2,7 @@
 title = "Redis"
 date =  2019-06-17T10:18:17+09:00
 weight = 5
+tags = ["Redis"]
 +++
 
 ## シングルマスター構成

@@ -2,6 +2,7 @@
 title = "Mysql"
 date =  2019-06-17T10:17:05+09:00
 weight = 5
+tags= ["MySQL"]
 +++
 
 ## シングルマスター構成

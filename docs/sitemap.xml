@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/</loc>
+    <lastmod>2019-06-17T15:35:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/redis/</loc>
     <lastmod>2019-06-17T10:18:17+09:00</lastmod>
   </url>
@@ -48,13 +53,20 @@
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/</loc>
-    <lastmod>2019-06-14T17:56:55+09:00</lastmod>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/mysql/</loc>
+    <lastmod>2019-06-17T10:17:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/redis/</loc>
+    <lastmod>2019-06-17T10:18:17+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/</loc>
+    <lastmod>2019-06-17T10:17:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   

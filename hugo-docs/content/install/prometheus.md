@@ -2,6 +2,7 @@
 title = "Prometheus"
 date =  2019-06-17T10:06:18+09:00
 weight = 2
+tag = ["Prometheus"]
 +++
 
 ## Prometheus Operatorのインストール

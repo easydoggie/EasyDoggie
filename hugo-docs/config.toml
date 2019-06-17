@@ -9,4 +9,4 @@ publishdir = "../docs/"
 home = [ "HTML", "RSS", "JSON"]
 
 [params]
-themeVariant = "red"
+themeVariant = "black"
