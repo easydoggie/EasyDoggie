@@ -1,0 +1,11 @@
+#file: drone/values.yaml
+drone:
+  service:
+    type: NodePort
+  server:
+    host: drone.localhost
+  sourceControl:
+    provider: gitea
+    gitea:
+      server: http://gitea:3000
+  sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4

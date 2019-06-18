@@ -1,0 +1,6 @@
+dependencies:
+- name: drone
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 2.0.2
+digest: sha256:17c776924e8cbb4d7b47a16ebe9575365d934363742292d67178842ba2e1ac93
+generated: 2019-06-18T10:23:33.7944164+09:00
