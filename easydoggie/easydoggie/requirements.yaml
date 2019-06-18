@@ -1,45 +1,37 @@
 dependencies:
-  - name: nginx
-    version: 0.1.4
-    repository: "@easydoggie"
-    #repository: "@local"
-  - name: node 
-    version: 0.1.4
-    repository: "@easydoggie"
-    #repository: "@local"
-  - name: nginx-ingress
-    version: 0.1.2
-    repository: "@easydoggie"
-    #repository: "@local"
-  - name: gitea
-    version: 0.1.1
-    repository: "@easydoggie"
-    #repository: "@local"
-  - name: redis
-    version: 0.1.1
-    repository: "@easydoggie"
-    #repository: "@local"
-  - name: mysql
-    version: 0.1.0
-    repository: "@easydoggie"
-    #repository: "@local"
   - name: adminer
     version: 0.1.0
     repository: "@easydoggie"
-    #repository: "@local"
+  - name: drone
+    version: 0.1.0
+    repository: "@easydoggie"
   - name: elasticsearch
     version: 0.1.0
     repository: "@easydoggie"
-    #repository: "@local"
   - name: fluentd
     version: 0.1.0
     repository: "@easydoggie"
-    #repository: "@local"
+  - name: gitea
+    version: 0.1.2
+    repository: "@easydoggie"
   - name: kibana
+    version: 0.1.1
+    repository: "@easydoggie"
+  - name: mysql
     version: 0.1.0
     repository: "@easydoggie"
-    #repository: "@local"
+  - name: nginx
+    version: 0.1.4
+    repository: "@easydoggie"
+  - name: nginx-ingress
+    version: 0.1.3
+    repository: "@easydoggie"
+  - name: node 
+    version: 0.1.4
+    repository: "@easydoggie"
   - name: prometheus
-    version: 0.1.0
+    version: 0.1.1
     repository: "@easydoggie"
-    #repository: "@local"
+  - name: redis
+    version: 0.1.1
+    repository: "@easydoggie"
