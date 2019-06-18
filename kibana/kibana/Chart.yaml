@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: 7.1.0
 description: Chart of Kibana
 name: kibana
-version: 0.1.0
+version: 0.1.1

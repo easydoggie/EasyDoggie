@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: "Adminer 4.7.1"
 description: Adminer for EasyDoggie
 name: adminer
-version: 0.1.0
+version: 0.1.1

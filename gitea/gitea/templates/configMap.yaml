@@ -20,7 +20,7 @@ data:
     APP_DATA_PATH    = /data/gitea
     SSH_DOMAIN       = {{ .Values.gitea.host }}
     HTTP_PORT        = 3000
-    ROOT_URL         = http://{{ .Values.gitea.host }}:{{ .Values.gitea.ingressPort }}/gitea/
+    ROOT_URL         = http://{{ .Values.gitea.host }}:{{ .Values.gitea.ingressPort }}
     DISABLE_SSH      = false
     SSH_PORT         = 22
     LFS_CONTENT_PATH = /data/git/lfs

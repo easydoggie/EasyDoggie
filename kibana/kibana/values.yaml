@@ -5,7 +5,6 @@ kibana:
   kibanaConfig:
     kibana.yml: |
       server:
-        basePath: /kibana
         host: 0.0.0.0
   resources:
     requests:

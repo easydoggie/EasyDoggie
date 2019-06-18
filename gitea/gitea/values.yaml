@@ -6,11 +6,11 @@ replicaCount: 1
 
 image:
   repository: gitea/gitea
-  tag: 1.8.1
+  tag: 1.8.3
   pullPolicy: IfNotPresent
   
 gitea:
-    host: localhost
+    host: gitea.localhost
     port: 3000
     ingressPort: 80
   
