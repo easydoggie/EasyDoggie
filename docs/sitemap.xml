@@ -3,8 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/install/nodejs/</loc>
-    <lastmod>2019-06-14T17:56:55+09:00</lastmod>
+    <loc>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
   </url>
   
   <url>
@@ -13,18 +13,23 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/uninstall/</loc>
+    <lastmod>2019-06-18T15:31:03+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/</loc>
     <lastmod>2019-06-17T10:54:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/install/prometheus/</loc>
-    <lastmod>2019-06-17T10:06:18+09:00</lastmod>
+    <loc>https://easydoggie.github.io/EasyDoggie/password/</loc>
+    <lastmod>2019-06-17T10:55:54+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/password/</loc>
-    <lastmod>2019-06-17T10:55:54+09:00</lastmod>
+    <loc>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</loc>
+    <lastmod>2019-06-18T15:11:47+09:00</lastmod>
   </url>
   
   <url>
@@ -48,25 +53,163 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/adminer/</loc>
+    <lastmod>2019-06-18T15:18:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/drone/</loc>
+    <lastmod>2019-06-18T15:19:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</loc>
+    <lastmod>2019-06-18T15:19:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/fluentd/</loc>
+    <lastmod>2019-06-18T15:19:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/gitea/</loc>
+    <lastmod>2019-06-18T15:19:32+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/kibana/</loc>
+    <lastmod>2019-06-18T15:19:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/mysql/</loc>
+    <lastmod>2019-06-18T15:19:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/nginx/</loc>
+    <lastmod>2019-06-18T15:19:52+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</loc>
+    <lastmod>2019-06-18T15:20:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/nodejs/</loc>
+    <lastmod>2019-06-14T17:56:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/prometheus/</loc>
+    <lastmod>2019-06-17T10:06:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/redis/</loc>
+    <lastmod>2019-06-18T15:20:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/adminer/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/drone/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/elasticsearch/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/fluentd/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/gitea/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/grafana/</loc>
+    <lastmod>2019-06-17T10:16:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/kibana/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/mysql/</loc>
-    <lastmod>2019-06-17T10:17:05+09:00</lastmod>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/nginx/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/node.js/</loc>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/prometheus/</loc>
+    <lastmod>2019-06-17T10:06:18+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/prometheuses/</loc>
+    <lastmod>2019-06-18T15:11:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/redis/</loc>
-    <lastmod>2019-06-17T10:18:17+09:00</lastmod>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/</loc>
-    <lastmod>2019-06-17T10:17:05+09:00</lastmod>
+    <lastmod>2019-06-18T15:14:04+09:00</lastmod>
     <priority>0</priority>
   </url>
   

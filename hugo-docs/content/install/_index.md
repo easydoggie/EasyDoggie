@@ -9,4 +9,4 @@ pre = "<b>1. </b>"
 ### Chapter 1
 
 # Install & Uninstall
-Helm Chartごとの個別インストールとアンインストール方法
+Helm Chartごとの個別インストール方法

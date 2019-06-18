@@ -1,12 +1,12 @@
 +++
 title = "Config"
 date = 2019-06-17T10:54:43+09:00
-weight = 2
+weight = 3
 chapter = true
-pre = "<b>2. </b>"
+pre = "<b>3. </b>"
 +++
 
-### Chapter 2
+### Chapter 3
 
 # Config
 

@@ -68,26 +68,29 @@ $ helm install --name nginx easydoggie/nginx
 ```
 個別インストール方法の詳細は、[別ページ](https://easydoggie.github.io/EasyDoggie/install/)を参照してください。
 # 使い方
-2019年6月13日時点では、以下の構成サービスが起動します。
+2019年6月18日時点では、以下の構成サービスが起動します。
 ![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## Web(nginx)へのアクセス
-http://localhost/easydoggie
+http://easydoggie.localhost
 
 ## API(nginx unit)へのアクセス
-http://localhost/easydoggie/api
+http://easydoggie.localhost/api
 
 ## giteaへのアクセス
-http://localhost/gitea
+http://gitea.localhost
 
 ## Adminerへのアクセス
-http://localhost/adminer
+http://adminer.localhost
 
 ## Kibanaへのアクセス
-http://localhost/kibana
+http://kibana.localhost
 
 ## Grafanaへのアクセス
-http://localhost/grafana
+http://grafana.localhost
+
+## Droneへのアクセス
+http://drone.localhost
 
 # 設定方法
 構成ミドルウェアのパラメータ等の変更は、[別ページ](https://easydoggie.github.io/EasyDoggie/config/)を参照してください。

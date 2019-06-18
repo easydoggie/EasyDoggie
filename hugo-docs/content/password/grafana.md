@@ -2,7 +2,7 @@
 title = "Grafana"
 date =  2019-06-17T10:16:06+09:00
 weight = 5
-tag = ["Grafana"]
+tags = ["Grafana"]
 +++
 
 ## Grafana

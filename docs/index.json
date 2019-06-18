@@ -1,45 +1,52 @@
 [
 {
-	"uri": "https://easydoggie.github.io/EasyDoggie/install/nodejs/",
-	"title": "Node.js",
-	"tags": [],
+	"uri": "https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/",
+	"title": "Uninstall",
+	"tags": ["Adminer", "drone", "Elasticsearch", "Fluentd", "Gitea", "Kibana", "MySQL", "Nginx", "Nginx Ingress", "Nginx Unit", "Node.js", "Redis"],
 	"description": "",
-	"content": " Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。\n$ helm install --nama \u0026lt;release_name\u0026gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n$ helm install --name \u0026lt;release_name\u0026gt; \\ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n作成中 Node.jsのアンインストール 完全に消去する場合は、--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt;"
+	"content": " アンインストール 完全に消去する場合は、--purgeオプションを利用します。には削除対象のリリース名を指定します。\n$ helm delete --purge \u0026lt;release_name\u0026gt;"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/",
 	"title": "Install",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 1 Install \u0026amp; Uninstall Helm Chartごとの個別インストールとアンインストール方法\n"
+	"content": " Chapter 1 Install \u0026amp; Uninstall Helm Chartごとの個別インストール方法\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/uninstall/",
+	"title": "Uninstall",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 2 Uninstall 個別のアンインストール方法\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/",
 	"title": "Config",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 2 Config 設定変更の方法\n"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/install/prometheus/",
-	"title": "Prometheus",
-	"tags": [],
-	"description": "",
-	"content": " Prometheus Operatorのインストール $ helm install --name \u0026lt;release_name\u0026gt; easydoggie/ptometheus-oeprator Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。\n$ helm delete --purge \u0026lt;release_name\u0026gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.monitoring.coreos.com"
+	"content": " Chapter 3 Config 設定変更の方法\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/password/",
 	"title": "Password",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 3 Password 初期パスワード\n"
+	"content": " Chapter 4 Password 初期パスワード\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/",
+	"title": "Prometheus",
+	"tags": ["Prometheuses"],
+	"description": "",
+	"content": " Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。\n$ helm delete --purge \u0026lt;release_name\u0026gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.monitoring.coreos.com"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/",
 	"title": "EasyDoggie",
 	"tags": [],
 	"description": "",
-	"content": " EasyDoggie ゲームインフラは、もっと楽にできる！ スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。\n ・　サーバーサイドのプログラマですが、インフラも兼務しています。インフラの構築、運用に時間がかかってサーバサイドのプログラミングが進みません\n・　インフラの初心者しか会社にいません。ミドルウェアのパラメータ設計の方法がわかりません。全部デフォルト値でよいですか？\n・　コンテナやマイクロサービスに興味があります。でもデプロイや監視の方法がわからないです。\n・　インフラの設計、構築、運用に実績のある外部ベンダに依頼したいのですが、外注コストが心配です。\n このようなインフラ設計、構築、運用の悩みを解決するのに、構築済みのコンテナを再利用する方法があります。\nそう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！\nEasyDoggie構成イメージ セットアップ方法 Helmのインストール EasyDoggieはKubernetes上で動作します。コンテナの初期設定はHelmを利用してインストールを行います。 初めにHelmのインストールと初期設定を行います。 Helmについては、ブログでも紹介をしています。Helmの概要を知りたい場合に、参考にしてください。\n$ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz $ sudo mv linux-amd64/helm /usr/local/bin/helm $ helm init Helmのインストールについては、ブログでも紹介をしているので、参考にしてください。 GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール(helm init)する前にサービスアカウントの設定を行ってください。また、helm initを行うときにサービスアカウントの指定オプションを追加してください。\n$ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml $ helm init --service-account helm Helmリポジトリの追加 EasyDoggie用のHelmリポジトリを追加します。\n$ helm repo add easydoggie https://easydoggie.github.io/helm-repo/releases $ helm repo list NAME URL stable https://kubernetes-charts.storage.googleapis.com local http://127.0.0.1:8879/charts easydoggie https://easydoggie.github.io/helm-repo/releases EasyDoggieのインストール Helmを利用してEasyDoggieをKubernetesにデプロイします。\u0026rdquo;easydoggie\u0026rdquo;チャートは、すべての構成をインストールします。\n$ helm install --name easydoggie easydoggie/easydoggie $ kubectl get pods NAME READY STATUS RESTARTS AGE easydoggie-nginx-ingress-controller-749677776f-kb2fl 1/1 Running 0 30s easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv 1/1 Running 0 30s gitea-6dc55f758d-cwkt9 1/1 Running 0 31s nginx-64f88989bc-n97ml 1/1 Running 0 30s nginx-unit-5ff6499cb5-9ldnt 1/1 Running 0 30s node-cb997ff45-psj4n 1/1 Running 0 30s 必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。以下は、Nginxだけをインストールする例です。\n$ helm install --name nginx easydoggie/nginx 個別インストール方法の詳細は、別ページを参照してください。\n使い方 2019年6月13日時点では、以下の構成サービスが起動します。 Web(nginx)へのアクセス http://\u0026lt;your_url\u0026gt;/easydoggie\nAPI(nginx unit)へのアクセス http://\u0026lt;your_url\u0026gt;/easydoggie/api\ngiteaへのアクセス http://\u0026lt;your_url\u0026gt;/gitea\nAdminerへのアクセス http://\u0026lt;your_url\u0026gt;/adminer\nKibanaへのアクセス http://\u0026lt;your_url\u0026gt;/kibana\nGrafanaへのアクセス http://\u0026lt;your_url\u0026gt;/grafana\n設定方法 構成ミドルウェアのパラメータ等の変更は、別ページを参照してください。\nライセンス MIT\n協賛 \n"
+	"content": " EasyDoggie ゲームインフラは、もっと楽にできる！ スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。\n ・　サーバーサイドのプログラマですが、インフラも兼務しています。インフラの構築、運用に時間がかかってサーバサイドのプログラミングが進みません\n・　インフラの初心者しか会社にいません。ミドルウェアのパラメータ設計の方法がわかりません。全部デフォルト値でよいですか？\n・　コンテナやマイクロサービスに興味があります。でもデプロイや監視の方法がわからないです。\n・　インフラの設計、構築、運用に実績のある外部ベンダに依頼したいのですが、外注コストが心配です。\n このようなインフラ設計、構築、運用の悩みを解決するのに、構築済みのコンテナを再利用する方法があります。\nそう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！\nEasyDoggie構成イメージ セットアップ方法 Helmのインストール EasyDoggieはKubernetes上で動作します。コンテナの初期設定はHelmを利用してインストールを行います。 初めにHelmのインストールと初期設定を行います。 Helmについては、ブログでも紹介をしています。Helmの概要を知りたい場合に、参考にしてください。\n$ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz $ sudo mv linux-amd64/helm /usr/local/bin/helm $ helm init Helmのインストールについては、ブログでも紹介をしているので、参考にしてください。 GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール(helm init)する前にサービスアカウントの設定を行ってください。また、helm initを行うときにサービスアカウントの指定オプションを追加してください。\n$ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml $ helm init --service-account helm Helmリポジトリの追加 EasyDoggie用のHelmリポジトリを追加します。\n$ helm repo add easydoggie https://easydoggie.github.io/helm-repo/releases $ helm repo list NAME URL stable https://kubernetes-charts.storage.googleapis.com local http://127.0.0.1:8879/charts easydoggie https://easydoggie.github.io/helm-repo/releases EasyDoggieのインストール Helmを利用してEasyDoggieをKubernetesにデプロイします。\u0026rdquo;easydoggie\u0026rdquo;チャートは、すべての構成をインストールします。\n$ helm install --name easydoggie easydoggie/easydoggie $ kubectl get pods NAME READY STATUS RESTARTS AGE easydoggie-nginx-ingress-controller-749677776f-kb2fl 1/1 Running 0 30s easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv 1/1 Running 0 30s gitea-6dc55f758d-cwkt9 1/1 Running 0 31s nginx-64f88989bc-n97ml 1/1 Running 0 30s nginx-unit-5ff6499cb5-9ldnt 1/1 Running 0 30s node-cb997ff45-psj4n 1/1 Running 0 30s 必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。以下は、Nginxだけをインストールする例です。\n$ helm install --name nginx easydoggie/nginx 個別インストール方法の詳細は、別ページを参照してください。\n使い方 2019年6月18日時点では、以下の構成サービスが起動します。 Web(nginx)へのアクセス http://easydoggie.localhost\nAPI(nginx unit)へのアクセス http://easydoggie.localhost/api\ngiteaへのアクセス http://gitea.localhost\nAdminerへのアクセス http://adminer.localhost\nKibanaへのアクセス http://kibana.localhost\nGrafanaへのアクセス http://grafana.localhost\nDroneへのアクセス http://drone.localhost\n設定方法 構成ミドルウェアのパラメータ等の変更は、別ページを参照してください。\nライセンス MIT\n協賛 \n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/redis/",
@@ -58,9 +65,100 @@
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/password/grafana/",
 	"title": "Grafana",
-	"tags": [],
+	"tags": ["Grafana"],
 	"description": "",
 	"content": " Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。\n$ kubectl get secret grafana -o jsonpath=\u0026#34;{.data.admin-password}\u0026#34; | base64 --decode ; echo"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/adminer/",
+	"title": "Adminer",
+	"tags": ["Adminer"],
+	"description": "",
+	"content": " Adminerのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/adminer"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/drone/",
+	"title": "Drone",
+	"tags": ["Drone"],
+	"description": "",
+	"content": " Droneのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/drone"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/elasticsearch/",
+	"title": "Elasticsearch",
+	"tags": ["Elasticsearch"],
+	"description": "",
+	"content": " Elasticsearchのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/elasticsearch"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/fluentd/",
+	"title": "Fluentd",
+	"tags": ["Fluentd"],
+	"description": "",
+	"content": " Fluentdのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/fluentd"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/gitea/",
+	"title": "Gitea",
+	"tags": ["Gitea"],
+	"description": "",
+	"content": " Giteaのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/gitea"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/kibana/",
+	"title": "Kibana",
+	"tags": ["Kibana"],
+	"description": "",
+	"content": " Kibanaのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/kibana"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/mysql/",
+	"title": "Mysql",
+	"tags": ["MySQL"],
+	"description": "",
+	"content": " MySQLのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/mysql"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx/",
+	"title": "Nginx",
+	"tags": ["Nginx", "Nginx Unit"],
+	"description": "",
+	"content": " Nginxのインストール NginxとNginx Unitがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx Nginx Unitが不要な場合は、valuesの値を変更します。\n作成中  "
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/",
+	"title": "Nginx Ingress",
+	"tags": ["Nginx Ingress"],
+	"description": "",
+	"content": " Nginx Ingressのインストール IngressとNginx Ingressコントローラがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx-ingress GKEなどIngressのみ必要な場合は、values.yamlの設定を変更します。\n作成中  "
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/nodejs/",
+	"title": "Node.js",
+	"tags": ["Node.js"],
+	"description": "",
+	"content": " Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。\n$ helm install --nama \u0026lt;release_name\u0026gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n$ helm install --name \u0026lt;release_name\u0026gt; \\ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。\n作成中"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/prometheus/",
+	"title": "Prometheus",
+	"tags": ["Prometheus"],
+	"description": "",
+	"content": " Prometheus Operatorのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/ptometheus-oeprator"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/redis/",
+	"title": "Redis",
+	"tags": ["Redis"],
+	"description": "",
+	"content": " Redisのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/redis"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/adminer/",
+	"title": "Adminer",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/categories/",
@@ -70,8 +168,92 @@
 	"content": ""
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/drone/",
+	"title": "Drone",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/elasticsearch/",
+	"title": "Elasticsearch",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/fluentd/",
+	"title": "Fluentd",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/gitea/",
+	"title": "Gitea",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/grafana/",
+	"title": "Grafana",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/kibana/",
+	"title": "Kibana",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/tags/mysql/",
 	"title": "Mysql",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/nginx/",
+	"title": "Nginx",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/",
+	"title": "Nginx Ingress",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/",
+	"title": "Nginx Unit",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/node.js/",
+	"title": "Node.js",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/prometheus/",
+	"title": "Prometheus",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/prometheuses/",
+	"title": "Prometheuses",
 	"tags": [],
 	"description": "",
 	"content": ""

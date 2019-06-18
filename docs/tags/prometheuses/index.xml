@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prometheuses on EasyDoggie</title>
+    <link>https://easydoggie.github.io/EasyDoggie/tags/prometheuses/</link>
+    <description>Recent content in Prometheuses on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Jun 2019 15:11:47 +0900</lastBuildDate>
+    
+	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/prometheuses/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</link>
+      <pubDate>Tue, 18 Jun 2019 15:11:47 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</guid>
+      <description>Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。
+$ helm delete --purge &amp;lt;release_name&amp;gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.</description>
+    </item>
+    
+  </channel>
+</rss>

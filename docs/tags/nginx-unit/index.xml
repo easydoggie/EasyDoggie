@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx Unit on EasyDoggie</title>
+    <link>https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/</link>
+    <description>Recent content in Nginx Unit on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Jun 2019 15:14:04 +0900</lastBuildDate>
+    
+	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Uninstall</title>
+      <link>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</guid>
+      <description> アンインストール 完全に消去する場合は、--purgeオプションを利用します。には削除対象のリリース名を指定します。
+$ helm delete --purge &amp;lt;release_name&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/nginx/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:52 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/nginx/</guid>
+      <description> Nginxのインストール NginxとNginx Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginx Unitが不要な場合は、valuesの値を変更します。
+作成中  </description>
+    </item>
+    
+  </channel>
+</rss>

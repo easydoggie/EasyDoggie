@@ -5,24 +5,141 @@
     <link>https://easydoggie.github.io/EasyDoggie/tags/</link>
     <description>Recent content in Tags on EasyDoggie</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 17 Jun 2019 10:17:05 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 15:14:04 +0900</lastBuildDate>
     
 	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Adminer</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/adminer/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/adminer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Drone</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/drone/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/drone/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/elasticsearch/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fluentd</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/fluentd/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/fluentd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/gitea/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/gitea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/grafana/</link>
+      <pubDate>Mon, 17 Jun 2019 10:16:06 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/kibana/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/kibana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mysql</title>
       <link>https://easydoggie.github.io/EasyDoggie/tags/mysql/</link>
-      <pubDate>Mon, 17 Jun 2019 10:17:05 +0900</pubDate>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Nginx</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/nginx/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx Ingress</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx Unit</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/nginx-unit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/node.js/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/node.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/prometheus/</link>
+      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prometheuses</title>
+      <link>https://easydoggie.github.io/EasyDoggie/tags/prometheuses/</link>
+      <pubDate>Tue, 18 Jun 2019 15:11:47 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/tags/prometheuses/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Redis</title>
       <link>https://easydoggie.github.io/EasyDoggie/tags/redis/</link>
-      <pubDate>Mon, 17 Jun 2019 10:18:17 +0900</pubDate>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/tags/redis/</guid>
       <description></description>

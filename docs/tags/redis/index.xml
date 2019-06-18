@@ -5,10 +5,20 @@
     <link>https://easydoggie.github.io/EasyDoggie/tags/redis/</link>
     <description>Recent content in Redis on EasyDoggie</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 17 Jun 2019 10:18:17 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 15:14:04 +0900</lastBuildDate>
     
 	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Uninstall</title>
+      <link>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</guid>
+      <description> アンインストール 完全に消去する場合は、--purgeオプションを利用します。には削除対象のリリース名を指定します。
+$ helm delete --purge &amp;lt;release_name&amp;gt;</description>
+    </item>
     
     <item>
       <title>Redis</title>
@@ -20,6 +30,16 @@
 # file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: false    # values     Master 1   Slave 0   Master RDB x   Master AOF o    
    接続先 ホスト ポート     Master redis-master 6379    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、cluster.enabledをtrueに設定します。スレーブのノード数は、cluser.slaveCountで設定します。
 # file: redis/redis/values.yaml redis: usePassword: false cluster: enabled: true slaveCount: 2    # values     Master 1   Slave 2   Master RDB x   Master AOF o   Slave RDB x   Slave AOF o</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/redis/</link>
+      <pubDate>Tue, 18 Jun 2019 15:20:15 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/redis/</guid>
+      <description> Redisのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/redis</description>
     </item>
     
   </channel>

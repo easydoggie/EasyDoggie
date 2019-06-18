@@ -11,25 +11,22 @@
     
     
     <item>
-      <title>Node.js</title>
-      <link>https://easydoggie.github.io/EasyDoggie/install/nodejs/</link>
-      <pubDate>Fri, 14 Jun 2019 17:56:55 +0900</pubDate>
+      <title>Uninstall</title>
+      <link>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</link>
+      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
       
-      <guid>https://easydoggie.github.io/EasyDoggie/install/nodejs/</guid>
-      <description> Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。
-$ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
-$ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
-作成中 Node.jsのアンインストール 完全に消去する場合は、--purgeオプションを利用します。
+      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</guid>
+      <description> アンインストール 完全に消去する場合は、--purgeオプションを利用します。には削除対象のリリース名を指定します。
 $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
     </item>
     
     <item>
       <title>Prometheus</title>
-      <link>https://easydoggie.github.io/EasyDoggie/install/prometheus/</link>
-      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      <link>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</link>
+      <pubDate>Tue, 18 Jun 2019 15:11:47 +0900</pubDate>
       
-      <guid>https://easydoggie.github.io/EasyDoggie/install/prometheus/</guid>
-      <description>Prometheus Operatorのインストール $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。
+      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</guid>
+      <description>Prometheus Operatorの完全アンインストール helm deleteコマンドだけだと、kunernetesのCRD(Custom Resource Definitions)は削除されません。 CRDはkubectl delete crdコマンドで個別に削除をします。
 $ helm delete --purge &amp;lt;release_name&amp;gt; $ kubectl delete crd prometheuses.monitoring.coreos.com $ kubectl delete crd prometheusrules.monitoring.coreos.com $ kubectl delete crd servicemonitors.monitoring.coreos.com $ kubectl delete crd alertmanagers.</description>
     </item>
     
@@ -64,6 +61,129 @@ $ helm delete --purge &amp;lt;release_name&amp;gt; $ kubectl delete crd promethe
       <guid>https://easydoggie.github.io/EasyDoggie/password/grafana/</guid>
       <description> Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。
 $ kubectl get secret grafana -o jsonpath=&amp;#34;{.data.admin-password}&amp;#34; | base64 --decode ; echo</description>
+    </item>
+    
+    <item>
+      <title>Adminer</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/adminer/</link>
+      <pubDate>Tue, 18 Jun 2019 15:18:56 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/adminer/</guid>
+      <description> Adminerのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer</description>
+    </item>
+    
+    <item>
+      <title>Drone</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/drone/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:05 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/drone/</guid>
+      <description> Droneのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone</description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:15 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</guid>
+      <description> Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch</description>
+    </item>
+    
+    <item>
+      <title>Fluentd</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/fluentd/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:24 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/fluentd/</guid>
+      <description> Fluentdのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/fluentd</description>
+    </item>
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/gitea/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:32 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/gitea/</guid>
+      <description> Giteaのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/gitea</description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/kibana/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:39 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/kibana/</guid>
+      <description> Kibanaのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/kibana</description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/mysql/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:46 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/mysql/</guid>
+      <description> MySQLのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql</description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/nginx/</link>
+      <pubDate>Tue, 18 Jun 2019 15:19:52 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/nginx/</guid>
+      <description> Nginxのインストール NginxとNginx Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginx Unitが不要な場合は、valuesの値を変更します。
+作成中  </description>
+    </item>
+    
+    <item>
+      <title>Nginx Ingress</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</link>
+      <pubDate>Tue, 18 Jun 2019 15:20:03 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</guid>
+      <description> Nginx Ingressのインストール IngressとNginx Ingressコントローラがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx-ingress GKEなどIngressのみ必要な場合は、values.yamlの設定を変更します。
+作成中  </description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/nodejs/</link>
+      <pubDate>Fri, 14 Jun 2019 17:56:55 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/nodejs/</guid>
+      <description>Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。
+$ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
+$ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。</description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/prometheus/</link>
+      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/prometheus/</guid>
+      <description> Prometheus Operatorのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator</description>
+    </item>
+    
+    <item>
+      <title>Redis</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/redis/</link>
+      <pubDate>Tue, 18 Jun 2019 15:20:15 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/redis/</guid>
+      <description> Redisのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/redis</description>
     </item>
     
   </channel>

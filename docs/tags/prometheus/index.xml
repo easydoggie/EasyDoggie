@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prometheus on EasyDoggie</title>
+    <link>https://easydoggie.github.io/EasyDoggie/tags/prometheus/</link>
+    <description>Recent content in Prometheus on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 17 Jun 2019 10:06:18 +0900</lastBuildDate>
+    
+	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/prometheus/</link>
+      <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/prometheus/</guid>
+      <description> Prometheus Operatorのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator</description>
+    </item>
+    
+  </channel>
+</rss>

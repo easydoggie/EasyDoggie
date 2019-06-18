@@ -1,8 +1,8 @@
 +++
 title = "Node.js"
 date =  2019-06-14T17:56:55+09:00
-weight = 1
-tag = ["Node.js"]
+weight = 100
+tags = ["Node.js"]
 +++
 
 ## Node.jsのインストール
@@ -23,8 +23,3 @@ Ingressを有効にしたマニフェストファイルを指定します。Node
 作成中
 ```
   
-## Node.jsのアンインストール
-完全に消去する場合は、`--purge`オプションを利用します。
-```bash
-$ helm delete --purge <release_name>
-```
