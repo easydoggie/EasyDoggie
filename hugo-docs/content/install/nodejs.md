@@ -26,5 +26,5 @@ Ingressを有効にしたマニフェストファイルを指定します。Node
 ![nodejs_ingress](../../img/nodejs_ingress.png)
 ```bash
 $ helm install --name <release_name> \
--f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-nginx-ingress.yaml easydoggie/node
+-f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node
 ```
