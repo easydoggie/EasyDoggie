@@ -26,9 +26,7 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
       <pubDate>Fri, 14 Jun 2019 17:56:55 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/nodejs/</guid>
-      <description>Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。
-$ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。
-$ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。</description>
+      <description> Node.jsのインストール ServiceとしてLoadBalancerを使う場合 デフォルトの設定では、Service.type=LoadBalancerとして起動します。 $ helm install --nama &amp;lt;release_name&amp;gt; easydoggie/node IngressとNginx Ingressを使う場合 IngressコントローラとしてNginx Ingressを使うパターンです。 IngressとNginx Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。また、ingress.kubernetes.io/ingress.classがnginxに指定されます。 $ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-nginx-ingress.yaml easydoggie/node IngressとGKEなどのマネジメントIngressコントローラを使う場合 IngressコントローラとしてGKEなどのマネジメントロードバランサーを使うパターンです。 Ingressを有効にしたマニフェストファイルを指定します。Node.js用のService.typeはNodePortに設定されます。 $ helm install --name &amp;lt;release_name&amp;gt; \ -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/node/node/values-nginx-ingress.yaml easydoggie/node</description>
     </item>
     
   </channel>
