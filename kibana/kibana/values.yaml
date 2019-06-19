@@ -9,3 +9,5 @@ kibana:
   resources:
     requests:
       memory: 128Mi
+  service:
+    type: NodePort

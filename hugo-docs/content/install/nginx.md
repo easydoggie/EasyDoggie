@@ -6,12 +6,28 @@ tags = ["Nginx", "Nginx Unit"]
 +++
 
 ## Nginxのインストール
-NginxとNginx Unitがインストールされます。
+* デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。
+* 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。
+* Ingress経由でAdminerにアクセスする場合は、別途[Ingressのインストール](nginx-ingress)を行ってください。
+
+### NginxとNginx Unitをインストールする場合(デフォルト)
+![nginx-ingress](../../img/nginx-ingress.png)
+デフォルトでは、NginxとNginx Unitがインストールされます。
 \<release_name\>には任意のリリース名を指定します。
 ```sh
 $ helm install --name <release_name> easydoggie/nginx
 ```
-Nginx Unitが不要な場合は、valuesの値を変更します。
+
+### Nginxのみインストールする場合
+![nginx-nounit](../../img/nginx-nounit.png)
+Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。
 ```
-作成中
+$ helm install --name <release_name> --set appServer.enabled=false easydoggie/nginx
+```
+
+### ServiceとしてLoadBalancerを使う場合
+![nginx-loadbalancer](../../img/nginx-loadbalancer.png)
+Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+```text
+$ helm install --name <release_name> --set service.type=LoadBalancer easydoggie/nginx
 ```

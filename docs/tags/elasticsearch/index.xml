@@ -26,8 +26,10 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
       <pubDate>Tue, 18 Jun 2019 15:19:15 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</guid>
-      <description> Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch</description>
+      <description>Elasticsearchは分散型RESTful検索/分析エンジンです。
+EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。
+Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。</description>
     </item>
     
   </channel>

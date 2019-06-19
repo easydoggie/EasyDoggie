@@ -11,6 +11,54 @@
     
     
     <item>
+      <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/kibana/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:37 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/kibana/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/gitea/</link>
+      <pubDate>Wed, 19 Jun 2019 16:10:14 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/gitea/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Fluentd</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/fluentd/</link>
+      <pubDate>Wed, 19 Jun 2019 15:46:47 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/fluentd/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Drone</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/drone/</link>
+      <pubDate>Wed, 19 Jun 2019 13:46:05 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/drone/</guid>
+      <description>デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。
+以下のファイルをHelmクライアントを実行するサーバに作成します。
+# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。
+$ helm install --name drone -f edit01-values.</description>
+    </item>
+    
+    <item>
       <title>Redis</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/redis/</link>
       <pubDate>Mon, 17 Jun 2019 10:18:17 +0900</pubDate>

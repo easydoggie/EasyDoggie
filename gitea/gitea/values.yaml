@@ -21,7 +21,6 @@ service:
   type: NodePort
   port: 3000
   targetPort: 3000
-  #nodePort: 30010
 
 ingress:
   enabled: false

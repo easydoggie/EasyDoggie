@@ -21,6 +21,54 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
     </item>
     
     <item>
+      <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Kibana</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/kibana/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:37 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/kibana/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Gitea</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/gitea/</link>
+      <pubDate>Wed, 19 Jun 2019 16:10:14 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/gitea/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Fluentd</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/fluentd/</link>
+      <pubDate>Wed, 19 Jun 2019 15:46:47 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/fluentd/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Drone</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/drone/</link>
+      <pubDate>Wed, 19 Jun 2019 13:46:05 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/drone/</guid>
+      <description>デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。
+以下のファイルをHelmクライアントを実行するサーバに作成します。
+# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。
+$ helm install --name drone -f edit01-values.</description>
+    </item>
+    
+    <item>
       <title>Prometheus</title>
       <link>https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/</link>
       <pubDate>Tue, 18 Jun 2019 15:11:47 +0900</pubDate>
@@ -69,8 +117,10 @@ $ kubectl get secret grafana -o jsonpath=&amp;#34;{.data.admin-password}&amp;#34
       <pubDate>Tue, 18 Jun 2019 15:18:56 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/adminer/</guid>
-      <description> Adminerのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer</description>
+      <description> Adminerのインストール Adminerはデータベースの管理ツールです。phpMyAdminの代替として利用することができます。 対応しているデータベースは以下の通りです。
+ MySQL MariaDB PostgreSQL SQLite MS SQL Oracle Firebird SimpleDB Elasticsearch MongoDB  ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+ デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/adminer</description>
     </item>
     
     <item>
@@ -79,8 +129,11 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer</descripti
       <pubDate>Tue, 18 Jun 2019 15:19:05 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/drone/</guid>
-      <description> Droneのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone</description>
+      <description> Droneのインストール DroneはCI/CDを行うためのツールです。
+デフォルトのソースリポジトリはDroneと同じKubernetes上のGiteaを参照します。参照先のリポジトリを変更したい場合は、Configのページを参照してください。
+ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+ デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でDroneにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set drone.service.type=LoadBalancer easydoggie/drone</description>
     </item>
     
     <item>
@@ -89,8 +142,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone</description
       <pubDate>Tue, 18 Jun 2019 15:19:15 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</guid>
-      <description> Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch</description>
+      <description>Elasticsearchは分散型RESTful検索/分析エンジンです。
+EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。
+Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。</description>
     </item>
     
     <item>
@@ -99,8 +154,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch</des
       <pubDate>Tue, 18 Jun 2019 15:19:24 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/fluentd/</guid>
-      <description> Fluentdのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/fluentd</description>
+      <description>Fluentdはログのデータを収集します。
+EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを収集する用途で利用することを想定しています。
+Fluentdのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/fluentd デフォルトでは同じKuberneteクラスタ内のElasticsearchに収集したデータを転送します。 転送先の設定などの変更を行う場合は、設定変更のページを参照してください。</description>
     </item>
     
     <item>
@@ -109,8 +166,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/fluentd</descripti
       <pubDate>Tue, 18 Jun 2019 15:19:32 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/gitea/</guid>
-      <description> Giteaのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/gitea</description>
+      <description> GiteaはセルフホストのGitサーバです。
+Giteaのインストール ServiceとしてNoadPortを使う場合(デフォルト) &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/gitea  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でGiteaにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/gitea</description>
     </item>
     
     <item>
@@ -119,8 +178,11 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/gitea</description
       <pubDate>Tue, 18 Jun 2019 15:19:39 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/kibana/</guid>
-      <description> Kibanaのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/kibana</description>
+      <description> Kibanaはデータを可視化するツールです。
+EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを可視化する用途で利用することを想定しています。
+Kibanaのインストール ServiceとしてNoadPortを使う場合(デフォルト) &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/kibana  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でKibanaにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set kibana.service.type=LoadBalancer easydoggie/kibana</description>
     </item>
     
     <item>
@@ -129,8 +191,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/kibana</descriptio
       <pubDate>Tue, 18 Jun 2019 15:19:46 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/mysql/</guid>
-      <description> MySQLのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql</description>
+      <description>MySQLはデータベース管理システムです。
+シングルマスタもしくはマスタ-スレープ構成のMySQLをインストールすることができます。
+MySQLのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のノードが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。</description>
     </item>
     
     <item>
@@ -139,9 +203,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql</description
       <pubDate>Tue, 18 Jun 2019 15:19:52 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/nginx/</guid>
-      <description> Nginxのインストール NginxとNginx Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginx Unitが不要な場合は、valuesの値を変更します。
-作成中  </description>
+      <description> Nginxのインストール  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  NginxとNginx Unitをインストールする場合(デフォルト) デフォルトでは、NginxとNginx Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。
+$ helm install --name &amp;lt;release_name&amp;gt; --set appServer.enabled=false easydoggie/nginx  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/nginx</description>
     </item>
     
     <item>

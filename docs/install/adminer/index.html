@@ -13,20 +13,20 @@
     <title>Adminer :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1560910060" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1560910060" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1560935737" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1560935737" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1560910060" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1560935737" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1560910060"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1560935737"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1560910060"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1560910060"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1560935737"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1560935737"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1560910060"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1560935737"></script>
 
     
   </div>
@@ -430,6 +430,101 @@
  
   
     
+      <li data-nav-id="/EasyDoggie/config/elasticsearch/" title="Elasticsearch" class="dd-item ">
+        <a href="/EasyDoggie/config/elasticsearch/">
+        Elasticsearch
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/kibana/" title="Kibana" class="dd-item ">
+        <a href="/EasyDoggie/config/kibana/">
+        Kibana
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/gitea/" title="Gitea" class="dd-item ">
+        <a href="/EasyDoggie/config/gitea/">
+        Gitea
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/fluentd/" title="Fluentd" class="dd-item ">
+        <a href="/EasyDoggie/config/fluentd/">
+        Fluentd
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/drone/" title="Drone" class="dd-item ">
+        <a href="/EasyDoggie/config/drone/">
+        Drone
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/EasyDoggie/config/redis/" title="Redis" class="dd-item ">
         <a href="/EasyDoggie/config/redis/">
         Redis
@@ -591,7 +686,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#adminerのインストール">Adminerのインストール</a></li>
+<li><a href="#adminerのインストール">Adminerのインストール</a>
+<ul>
+<li><a href="#serviceとしてnoadportを使う場合-デフォルト">ServiceとしてNoadPortを使う場合(デフォルト)</a></li>
+<li><a href="#serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -628,8 +727,39 @@
 
 <h2 id="adminerのインストール">Adminerのインストール</h2>
 
+<p><a href="https://www.adminer.org/">Adminer</a>はデータベースの管理ツールです。phpMyAdminの代替として利用することができます。
+対応しているデータベースは以下の通りです。</p>
+
+<ul>
+<li>MySQL</li>
+<li>MariaDB</li>
+<li>PostgreSQL</li>
+<li>SQLite</li>
+<li>MS SQL</li>
+<li>Oracle</li>
+<li>Firebird</li>
+<li>SimpleDB</li>
+<li>Elasticsearch</li>
+<li>MongoDB</li>
+</ul>
+
+<h3 id="serviceとしてnoadportを使う場合-デフォルト">ServiceとしてNoadPortを使う場合(デフォルト)</h3>
+
+<p><img src="../../img/adminer-ingress.png" alt="adminer-ingress" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; easydoggie/adminer</code></pre></div>
 <p>&lt;release_name&gt;には任意のリリース名を指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ helm install --name &lt;release_name&gt; easydoggie/adminer</code></pre></div>
+
+<ul>
+<li>デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。</li>
+<li>上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。</li>
+<li>Ingress経由でAdminerにアクセスする場合は、別途<a href="nginx-ingress">Ingressのインストール</a>を行ってください。</li>
+</ul>
+
+<h3 id="serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</h3>
+
+<p><img src="../../img/adminer-loadbalancer.png" alt="adminer-loadbalancer" />
+Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; --set service.type=LoadBalancer easydoggie/adminer</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -968,6 +1098,86 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1025,20 +1235,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1560910060"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1560910060"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1560910060"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1560910060"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1560910060"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1560910060"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1560910060"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1560935737"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1560935737"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1560935737"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1560935737"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1560935737"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1560935737"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1560935737"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1560910060"></script>
-    <script src="/EasyDoggie/js/learn.js?1560910060"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1560910060"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1560935737"></script>
+    <script src="/EasyDoggie/js/learn.js?1560935737"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1560935737"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1560910060" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1560910060"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1560935737" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1560935737"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
