@@ -4,6 +4,8 @@ prometheus-operator:
   fullnameOverride: prometheus
 
   grafana:
+    service:
+      type: NodePort
     fullnameOverride: grafana
     env:
       GF_SERVER_DOMAIN: "localhost"

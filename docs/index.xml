@@ -235,8 +235,10 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalanc
       <pubDate>Mon, 17 Jun 2019 10:06:18 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/prometheus/</guid>
-      <description> Prometheus Operatorのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ptometheus-oeprator</description>
+      <description> Prometheus Operatorのインストール Prometheusはモニタリングのツールです。このチャートでは以下のモニタリングツール一式がインストールされます。
+ prometheus-operator prometheus alertmanager node-exporter kube-state-metrics grafana  GrafanaのServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/prometheus &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+ デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でGrafanaにアクセスする場合は、別途Ingressのインストールを行ってください。  GrafanaのServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set prometheus-operator.grafana.service.type=LoadBalancer easydoggie/prometheus</description>
     </item>
     
     <item>

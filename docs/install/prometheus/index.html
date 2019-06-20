@@ -13,20 +13,20 @@
     <title>Prometheus :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1561006856" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1561006856" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1561009848" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1561009848" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1561006856" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1561009848" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561006856"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561009848"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561006856"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561006856"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561009848"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561009848"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1561006856"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1561009848"></script>
 
     
   </div>
@@ -686,7 +686,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#prometheus-operatorのインストール">Prometheus Operatorのインストール</a></li>
+<li><a href="#prometheus-operatorのインストール">Prometheus Operatorのインストール</a>
+<ul>
+<li><a href="#grafanaのserviceとしてnoadportを使う場合-デフォルト">GrafanaのServiceとしてNoadPortを使う場合(デフォルト)</a></li>
+<li><a href="#grafanaのserviceとしてloadbalancerを使う場合">GrafanaのServiceとしてLoadBalancerを使う場合</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -723,8 +727,34 @@
 
 <h2 id="prometheus-operatorのインストール">Prometheus Operatorのインストール</h2>
 
+<p>Prometheusはモニタリングのツールです。このチャートでは以下のモニタリングツール一式がインストールされます。</p>
+
+<ul>
+<li>prometheus-operator</li>
+<li>prometheus</li>
+<li>alertmanager</li>
+<li>node-exporter</li>
+<li>kube-state-metrics</li>
+<li>grafana</li>
+</ul>
+
+<h3 id="grafanaのserviceとしてnoadportを使う場合-デフォルト">GrafanaのServiceとしてNoadPortを使う場合(デフォルト)</h3>
+
+<p><img src="../../img/prometheus-ingress.png" alt="prometheus-ingress" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; easydoggie/prometheus</code></pre></div>
 <p>&lt;release_name&gt;には任意のリリース名を指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ helm install --name &lt;release_name&gt; easydoggie/ptometheus-oeprator</code></pre></div>
+
+<ul>
+<li>デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。</li>
+<li>上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。</li>
+<li>Ingress経由でGrafanaにアクセスする場合は、別途<a href="nginx-ingress">Ingressのインストール</a>を行ってください。</li>
+</ul>
+
+<h3 id="grafanaのserviceとしてloadbalancerを使う場合">GrafanaのServiceとしてLoadBalancerを使う場合</h3>
+
+<p><img src="../../img/prometheus-loadbalancer.png" alt="prometheus-loadbalancer" />
+Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; --set prometheus-operator.grafana.service.type=LoadBalancer easydoggie/prometheus</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1203,20 +1233,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1561006856"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561006856"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561006856"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1561006856"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1561006856"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561006856"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1561006856"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1561009848"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561009848"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561009848"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1561009848"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1561009848"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561009848"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1561009848"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561006856"></script>
-    <script src="/EasyDoggie/js/learn.js?1561006856"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1561006856"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561009848"></script>
+    <script src="/EasyDoggie/js/learn.js?1561009848"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1561009848"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1561006856" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1561006856"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1561009848" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1561009848"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
