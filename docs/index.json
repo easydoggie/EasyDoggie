@@ -140,6 +140,13 @@
 	"content": " GiteaはセルフホストのGitサーバです。\nGiteaのインストール ServiceとしてNoadPortを使う場合(デフォルト) \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/gitea  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でGiteaにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set service.type=LoadBalancer easydoggie/gitea"
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/ingress/",
+	"title": "Ingress",
+	"tags": ["Ingress", "Nginx Ingress"],
+	"description": "",
+	"content": " IngressコントローラとしてNginx Ingressを利用する場合 デフォルトでは、IngressとNginx Ingressコントローラがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/ingress Ingressだけをインストールする場合 GKEなどIngressコントローラとしてマネジメントLBなどを利用する場合のパターンです。Ingressのみ必要な場合は、setオプションでNginx-Ingressのインストールを禁止設定にします。\n$ helm install --name \u0026lt;release_name\u0026gt; --set ingress.nginxController=false easydoggie/ingress"
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/kibana/",
 	"title": "Kibana",
 	"tags": ["Kibana"],
@@ -159,13 +166,6 @@
 	"tags": ["Nginx", "Nginx Unit"],
 	"description": "",
 	"content": " Nginxのインストール  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  NginxとNginx Unitをインストールする場合(デフォルト) デフォルトでは、NginxとNginx Unitがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。\n$ helm install --name \u0026lt;release_name\u0026gt; --set appServer.enabled=false easydoggie/nginx  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set service.type=LoadBalancer easydoggie/nginx"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/",
-	"title": "Nginx Ingress",
-	"tags": ["Nginx Ingress"],
-	"description": "",
-	"content": " Nginx Ingressのインストール IngressとNginx Ingressコントローラがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx-ingress GKEなどIngressのみ必要な場合は、values.yamlの設定を変更します。\n作成中  "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/nodejs/",
@@ -233,6 +233,13 @@
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/tags/grafana/",
 	"title": "Grafana",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/tags/ingress/",
+	"title": "Ingress",
 	"tags": [],
 	"description": "",
 	"content": ""

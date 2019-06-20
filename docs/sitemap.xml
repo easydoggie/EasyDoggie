@@ -103,6 +103,11 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/ingress/</loc>
+    <lastmod>2019-06-18T15:20:03+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/kibana/</loc>
     <lastmod>2019-06-18T15:19:39+09:00</lastmod>
   </url>
@@ -115,11 +120,6 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/nginx/</loc>
     <lastmod>2019-06-18T15:19:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</loc>
-    <lastmod>2019-06-18T15:20:03+09:00</lastmod>
   </url>
   
   <url>
@@ -175,6 +175,12 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/grafana/</loc>
     <lastmod>2019-06-17T10:16:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/ingress/</loc>
+    <lastmod>2019-06-18T15:20:03+09:00</lastmod>
     <priority>0</priority>
   </url>
   

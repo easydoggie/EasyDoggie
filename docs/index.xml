@@ -173,6 +173,17 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalanc
     </item>
     
     <item>
+      <title>Ingress</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/ingress/</link>
+      <pubDate>Tue, 18 Jun 2019 15:20:03 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/ingress/</guid>
+      <description> IngressコントローラとしてNginx Ingressを利用する場合 デフォルトでは、IngressとNginx Ingressコントローラがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/ingress Ingressだけをインストールする場合 GKEなどIngressコントローラとしてマネジメントLBなどを利用する場合のパターンです。Ingressのみ必要な場合は、setオプションでNginx-Ingressのインストールを禁止設定にします。
+$ helm install --name &amp;lt;release_name&amp;gt; --set ingress.nginxController=false easydoggie/ingress</description>
+    </item>
+    
+    <item>
       <title>Kibana</title>
       <link>https://easydoggie.github.io/EasyDoggie/install/kibana/</link>
       <pubDate>Tue, 18 Jun 2019 15:19:39 +0900</pubDate>
@@ -207,17 +218,6 @@ $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql デフォル
 $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。
 $ helm install --name &amp;lt;release_name&amp;gt; --set appServer.enabled=false easydoggie/nginx  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
 $ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/nginx</description>
-    </item>
-    
-    <item>
-      <title>Nginx Ingress</title>
-      <link>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</link>
-      <pubDate>Tue, 18 Jun 2019 15:20:03 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/install/nginx-ingress/</guid>
-      <description> Nginx Ingressのインストール IngressとNginx Ingressコントローラがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx-ingress GKEなどIngressのみ必要な場合は、values.yamlの設定を変更します。
-作成中  </description>
     </item>
     
     <item>

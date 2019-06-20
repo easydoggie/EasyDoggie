@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="apple-touch-icon" type="image/png" href="img/apple-touch-icon-180x180.png">
 <link rel="icon" type="image/png" href="img/icon-192x192.png">
-    <title>Config :: EasyDoggie</title>
+    <title>Ingress :: EasyDoggie</title>
 
     
     <link href="/EasyDoggie/css/nucleus.css?1561006856" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
-  <body class="" data-url="/EasyDoggie/config/">
+  <body class="" data-url="/EasyDoggie/install/ingress/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/EasyDoggie/install/" title="Install" class="dd-item 
-        
+        parent
         
         
         ">
@@ -195,7 +195,7 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/install/ingress/" title="Ingress" class="dd-item ">
+      <li data-nav-id="/EasyDoggie/install/ingress/" title="Ingress" class="dd-item active">
         <a href="/EasyDoggie/install/ingress/">
         Ingress
         
@@ -406,8 +406,8 @@
   
     
     <li data-nav-id="/EasyDoggie/config/" title="Config" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/EasyDoggie/config/">
@@ -665,7 +665,13 @@
             
           
           
-            <a href='/EasyDoggie/'>EasyDoggie</a> > Config
+            
+            
+          
+          
+            <a href='/EasyDoggie/'>EasyDoggie</a> > <a href='/EasyDoggie/install/'>Install</a> > Ingress
+          
+         
           
          
           
@@ -676,7 +682,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ingressコントローラとしてnginx-ingressを利用する場合">IngressコントローラとしてNginx Ingressを利用する場合</a></li>
+<li><a href="#ingressだけをインストールする場合">Ingressだけをインストールする場合</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -686,13 +700,21 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/EasyDoggie/tags/ingress">Ingress</a>
+
+  <a class="tag-link" href="/EasyDoggie/tags/nginx-ingress">Nginx Ingress</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Config
+              Ingress
             </h1>
           
 
@@ -701,15 +723,23 @@
 
 
 
-	<p>設定変更の方法</p>
 
+<h2 id="ingressコントローラとしてnginx-ingressを利用する場合">IngressコントローラとしてNginx Ingressを利用する場合</h2>
 
+<p><img src="../../img/ingress-nginx-ingress.png" alt="ingress-nginx-ingress" />
+デフォルトでは、IngressとNginx Ingressコントローラがインストールされます。
+&lt;release_name&gt;には任意のリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; easydoggie/ingress</code></pre></div>
+<h2 id="ingressだけをインストールする場合">Ingressだけをインストールする場合</h2>
 
-
+<p><img src="../../img/ingress-ingress.png" alt="ingress-ingress" />
+GKEなどIngressコントローラとしてマネジメントLBなどを利用する場合のパターンです。Ingressのみ必要な場合は、setオプションでNginx-Ingressのインストールを禁止設定にします。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; --set ingress.nginxController=false easydoggie/ingress</code></pre></div>
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -742,8 +772,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -757,6 +785,109 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -849,102 +980,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1001,7 +1036,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1014,9 +1048,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1169,10 +1200,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/EasyDoggie/uninstall/prometheus/" title="Prometheus"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/EasyDoggie/install/gitea/" title="Gitea"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/EasyDoggie/config/elasticsearch/" title="Elasticsearch" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/EasyDoggie/install/kibana/" title="Kibana" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1203,3 +1234,4 @@
 
   </body>
 </html>
+

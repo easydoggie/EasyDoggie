@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nginx Ingress on EasyDoggie</title>
-    <link>https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/</link>
-    <description>Recent content in Nginx Ingress on EasyDoggie</description>
+    <title>Ingress on EasyDoggie</title>
+    <link>https://easydoggie.github.io/EasyDoggie/tags/ingress/</link>
+    <description>Recent content in Ingress on EasyDoggie</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 18 Jun 2019 15:14:04 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2019 15:20:03 +0900</lastBuildDate>
     
-	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/nginx-ingress/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://easydoggie.github.io/EasyDoggie/tags/ingress/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Uninstall</title>
-      <link>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</link>
-      <pubDate>Tue, 18 Jun 2019 15:14:04 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/uninstall/uninstall/</guid>
-      <description> アンインストール 完全に消去する場合は、--purgeオプションを利用します。には削除対象のリリース名を指定します。
-$ helm delete --purge &amp;lt;release_name&amp;gt;</description>
-    </item>
     
     <item>
       <title>Ingress</title>

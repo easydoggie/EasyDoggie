@@ -9,10 +9,15 @@ metadata:
     helm.sh/chart: {{ include "nginx-ingress.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{- with .Values.ingress.annotations }}
+  {{- if or .Values.ingress.annotations (eq .Values.ingress.nginxController true) }}
   annotations:
-    {{- toYaml . | nindent 4 }}
   {{- end }}
+    {{- if .Values.ingress.nginxController }}
+      ingress.kubernetes.io/ingress.class: nginx
+    {{- end }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
 {{- if .Values.ingress.tls }}
   tls:
