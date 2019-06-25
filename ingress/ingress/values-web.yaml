@@ -1,0 +1,28 @@
+ingress:
+  enabled: true
+  nginxController: false
+  hosts:
+  - host: easydoggie.example.com
+    enabled: true
+    serviceName: nginx
+    servicePort: 80
+  - host: gitea.example.com
+    enabled: false
+    serviceName: gitea
+    servicePort: 3000
+  - host: adminer.example.com
+    enabled: false
+    serviceName: adminer
+    servicePort: 80
+  - host: kibana.example.com
+    enabled: false
+    serviceName: kibana-kibana
+    servicePort: 5601
+  - host: grafana.example.com
+    enabled: false
+    serviceName: grafana
+    servicePort: 80
+  - host: drone.example.com
+    enabled: false
+    serviceName: drone-drone
+    servicePort: 80

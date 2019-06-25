@@ -14,22 +14,28 @@ ingress:
     #nginx.ingress.kubernetes.io/rewrite-target: /$2
     #nginx.ingress.kubernetes.io/ssl-redirect: "false"
   hosts:
-  - host: easydoggie.localhost
+  - host: easydoggie.example.com
+    enabled: true
     serviceName: nginx
     servicePort: 80
-  - host: gitea.localhost
+  - host: gitea.example.com
+    enabled: true
     serviceName: gitea
     servicePort: 3000
-  - host: adminer.localhost
+  - host: adminer.example.com
+    enabled: true
     serviceName: adminer
     servicePort: 80
-  - host: kibana.localhost
+  - host: kibana.example.com
+    enabled: true
     serviceName: kibana-kibana
     servicePort: 5601
-  - host: grafana.localhost
+  - host: grafana.example.com
+    enabled: true
     serviceName: grafana
     servicePort: 80
-  - host: drone.localhost
+  - host: drone.example.com
+    enabled: true
     serviceName: drone-drone
     servicePort: 80
 

@@ -31,11 +31,13 @@ spec:
 {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
+    {{- if .enabled }}
     - host: {{ .host }}
       http:
         paths:
         - backend:
             serviceName: {{ .serviceName }}
             servicePort: {{ .servicePort }}
+    {{- end }}
     {{- end }}
 {{- end }}
