@@ -40,7 +40,7 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
       <description>MySQLはデータベース管理システムです。
 シングルマスタもしくはマスタ-スレープ構成のMySQLをインストールすることができます。
 MySQLのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のノードが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。</description>
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のコンテナが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。</description>
     </item>
     
   </channel>

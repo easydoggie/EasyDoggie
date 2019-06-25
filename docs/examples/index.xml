@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Examples on EasyDoggie</title>
+    <link>https://easydoggie.github.io/EasyDoggie/examples/</link>
+    <description>Recent content in Examples on EasyDoggie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 24 Jun 2019 10:45:43 +0900</lastBuildDate>
+    
+	<atom:link href="https://easydoggie.github.io/EasyDoggie/examples/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Webap</title>
+      <link>https://easydoggie.github.io/EasyDoggie/examples/webap/</link>
+      <pubDate>Mon, 24 Jun 2019 10:44:29 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/examples/webap/</guid>
+      <description>WebAPサーバ(Web3層構成) 目次  ローカル開発環境 ステージング/本番環境  ローカル開発環境 ローカルの開発環境を想定した構成です。すべての構成をKubernetes上にインストールします。
+   構成要素 内容     Ingress Controller Nginx Ingress   Web Nginx   AP Nginx Unit   DB MySQL    $ helm install --name ingress easydoggie/ingress $ helm install --name nginx easydoggie/nginx $ helm install --name mysql easydoggie/mysql WebとAPは同じPodで構成されているため、1つのHelmチャート(easydoggie/nginx)でインストールされます。
+ステージング/本番環境 GCPなどのパブリッククラウドでの利用を想定した構成です。Ingressコントローラとデータベースは、パブリッククラウドのマネジメントサービスを利用します。以下はGCPでの構成例です。
+   構成要素 内容     Ingress Controller Cloud LoadBalancing   web Nginx   AP Nginx Unit   DB Cloud SQL    $ helm install --name nginx easydoggie/nginx $ helm install --name ingress -f https://raw.</description>
+    </item>
+    
+  </channel>
+</rss>

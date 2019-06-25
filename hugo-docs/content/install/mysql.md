@@ -14,6 +14,6 @@ MySQLはデータベース管理システムです。
 ```sh
 $ helm install --name <release_name> easydoggie/mysql
 ```
-デフォルトではマスター x 1、スレーブ x 1のノードが起動します。
+デフォルトではマスター x 1、スレーブ x 1のコンテナが起動します。
 ![mysql-containers](../../img/mysql-containers.png)
 スレーブのノード数の変更などは、[設定変更のページ](../config/mysql)を参照してください。

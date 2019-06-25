@@ -35,6 +35,48 @@
 	"content": "初期パスワード\n"
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/examples/",
+	"title": "Examples",
+	"tags": [],
+	"description": "",
+	"content": " 構成例 システム構成の例\nWebAP\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/prometheus/",
+	"title": "Prometheus",
+	"tags": [],
+	"description": "",
+	"content": "Lorem Ipsum.\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/nodejs/",
+	"title": "Nodejs",
+	"tags": [],
+	"description": "",
+	"content": "Lorem Ipsum.\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/nginx/",
+	"title": "Nginx",
+	"tags": [],
+	"description": "",
+	"content": "Lorem Ipsum.\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/ingress/",
+	"title": "Ingress",
+	"tags": [],
+	"description": "",
+	"content": "Lorem Ipsum.\n"
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/adminer/",
+	"title": "Adminer",
+	"tags": [],
+	"description": "",
+	"content": "Lorem Ipsum.\n"
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/elasticsearch/",
 	"title": "Elasticsearch",
 	"tags": [],
@@ -105,6 +147,13 @@
 	"content": " Grafana 以下のコマンドでadminユーザの初期パスワードを取得します。\n$ kubectl get secret grafana -o jsonpath=\u0026#34;{.data.admin-password}\u0026#34; | base64 --decode ; echo"
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/examples/webap/",
+	"title": "Webap",
+	"tags": [],
+	"description": "",
+	"content": " WebAPサーバ(Web3層構成) 目次  ローカル開発環境 ステージング/本番環境  ローカル開発環境 ローカルの開発環境を想定した構成です。すべての構成をKubernetes上にインストールします。\n   構成要素 内容     Ingress Controller Nginx Ingress   Web Nginx   AP Nginx Unit   DB MySQL    $ helm install --name ingress easydoggie/ingress $ helm install --name nginx easydoggie/nginx $ helm install --name mysql easydoggie/mysql WebとAPは同じPodで構成されているため、1つのHelmチャート(easydoggie/nginx)でインストールされます。\nステージング/本番環境 GCPなどのパブリッククラウドでの利用を想定した構成です。Ingressコントローラとデータベースは、パブリッククラウドのマネジメントサービスを利用します。以下はGCPでの構成例です。\n   構成要素 内容     Ingress Controller Cloud LoadBalancing   web Nginx   AP Nginx Unit   DB Cloud SQL    $ helm install --name nginx easydoggie/nginx $ helm install --name ingress -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/ingress/ingress/values-web.yaml easydoggie/ingress  Cloud LoadBalancingはIngressのインストールで作成されます。 Cloud SQLは自動では起動しません。gcloudもしくはコンソールからサービスを作成してください。  "
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/adminer/",
 	"title": "Adminer",
 	"tags": ["Adminer"],
@@ -158,7 +207,7 @@
 	"title": "Mysql",
 	"tags": ["MySQL"],
 	"description": "",
-	"content": " MySQLはデータベース管理システムです。\nシングルマスタもしくはマスタ-スレープ構成のMySQLをインストールすることができます。\nMySQLのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のノードが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。\n"
+	"content": " MySQLはデータベース管理システムです。\nシングルマスタもしくはマスタ-スレープ構成のMySQLをインストールすることができます。\nMySQLのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のコンテナが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx/",

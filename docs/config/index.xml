@@ -11,6 +11,51 @@
     
     
     <item>
+      <title>Prometheus</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/prometheus/</link>
+      <pubDate>Thu, 20 Jun 2019 17:17:01 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/prometheus/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/nodejs/</link>
+      <pubDate>Thu, 20 Jun 2019 17:16:30 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/nodejs/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/nginx/</link>
+      <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Ingress</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/ingress/</link>
+      <pubDate>Thu, 20 Jun 2019 17:15:40 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/ingress/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Adminer</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/adminer/</link>
+      <pubDate>Thu, 20 Jun 2019 17:14:58 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/adminer/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
       <title>Elasticsearch</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
       <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>

@@ -28,6 +28,36 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/examples/</loc>
+    <lastmod>2019-06-24T10:45:43+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/prometheus/</loc>
+    <lastmod>2019-06-20T17:17:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/nodejs/</loc>
+    <lastmod>2019-06-20T17:16:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/nginx/</loc>
+    <lastmod>2019-06-20T17:16:07+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/ingress/</loc>
+    <lastmod>2019-06-20T17:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/adminer/</loc>
+    <lastmod>2019-06-20T17:14:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</loc>
     <lastmod>2019-06-19T16:50:57+09:00</lastmod>
   </url>
@@ -75,6 +105,11 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/password/grafana/</loc>
     <lastmod>2019-06-17T10:16:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/examples/webap/</loc>
+    <lastmod>2019-06-24T10:44:29+09:00</lastmod>
   </url>
   
   <url>
