@@ -10,23 +10,23 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="apple-touch-icon" type="image/png" href="img/apple-touch-icon-180x180.png">
 <link rel="icon" type="image/png" href="img/icon-192x192.png">
-    <title>Nginx :: EasyDoggie</title>
+    <title>NGINX, NGINX Unit :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1561435916" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1561540684" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1561435916" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1561540684" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561435916"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561540684"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561435916"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561435916"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561540684"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1561435916"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1561540684"></script>
 
     
   </div>
@@ -252,9 +252,9 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/install/nginx/" title="Nginx" class="dd-item ">
+      <li data-nav-id="/EasyDoggie/install/nginx/" title="NGINX, NGINX Unit" class="dd-item ">
         <a href="/EasyDoggie/install/nginx/">
-        Nginx
+        NGINX, NGINX Unit
         
         </a>
     </li>
@@ -468,25 +468,6 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/config/nginx/" title="Nginx" class="dd-item active">
-        <a href="/EasyDoggie/config/nginx/">
-        Nginx
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item ">
         <a href="/EasyDoggie/config/ingress/">
         Ingress
@@ -642,6 +623,25 @@
       <li data-nav-id="/EasyDoggie/config/mysql/" title="Mysql" class="dd-item ">
         <a href="/EasyDoggie/config/mysql/">
         Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/nginx/" title="NGINX, NGINX Unit" class="dd-item active">
+        <a href="/EasyDoggie/config/nginx/">
+        NGINX, NGINX Unit
         
         </a>
     </li>
@@ -815,7 +815,7 @@
             
           
           
-            <a href='/EasyDoggie/'>EasyDoggie</a> > <a href='/EasyDoggie/config/'>Config</a> > Nginx
+            <a href='/EasyDoggie/'>EasyDoggie</a> > <a href='/EasyDoggie/config/'>Config</a> > NGINX, NGINX Unit
           
          
           
@@ -828,7 +828,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#サービスの構成-初期化方法の変更">サービスの構成、初期化方法の変更</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -838,13 +845,21 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/EasyDoggie/tags/nginx">NGINX</a>
+
+  <a class="tag-link" href="/EasyDoggie/tags/nginx-unit">NGINX Unit</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Nginx
+              NGINX, NGINX Unit
             </h1>
           
 
@@ -852,7 +867,275 @@
 
 
 
-<p>Lorem Ipsum.</p>
+
+
+<h2 id="サービスの構成-初期化方法の変更">サービスの構成、初期化方法の変更</h2>
+
+<p>以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。</p>
+
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>replicaCount</code></td>
+<td>1</td>
+<td>レプリカセットの数</td>
+</tr>
+
+<tr>
+<td><code>image.repository</code></td>
+<td>nginx</td>
+<td>NGINXのイメージ名</td>
+</tr>
+
+<tr>
+<td><code>image.tag</code></td>
+<td>1.16.0-alpine</td>
+<td>NGINXイメージのタグ名</td>
+</tr>
+
+<tr>
+<td><code>image.pullPolicy</code></td>
+<td>IfNotPresent</td>
+<td>イメージのプルポリシー</td>
+</tr>
+
+<tr>
+<td><code>imageUnit.repository</code></td>
+<td>nginx/unit</td>
+<td>NGINX Unitのイメージ名</td>
+</tr>
+
+<tr>
+<td><code>imageUnit.tag</code></td>
+<td>1.9.0-full</td>
+<td>NGINX Unitのタグ名</td>
+</tr>
+
+<tr>
+<td><code>imageUnit.pullPolicy</code></td>
+<td>IfNotPresent</td>
+<td>イメージのプルポリシー</td>
+</tr>
+
+<tr>
+<td><code>imageInit.alpine.repository</code></td>
+<td>alpine/git</td>
+<td>初期化コンテナ(git clone)用のイメージ名</td>
+</tr>
+
+<tr>
+<td><code>imageInit.alpine.tag</code></td>
+<td>latest</td>
+<td>初期化イメージのタグ名</td>
+</tr>
+
+<tr>
+<td><code>imageInit.alpine.pullPolicy</code></td>
+<td>IfNotPresent</td>
+<td>初期化イメージのプルポリシー</td>
+</tr>
+
+<tr>
+<td><code>imageInit.alpine.command</code></td>
+<td>|-<br>      - &quot;&quot;</td>
+<td>初期化コンテナのEntryPoint</td>
+</tr>
+
+<tr>
+<td><code>imageInit.alpine.args</code></td>
+<td>|-<br>      - &quot;clone&quot;<br>      - &quot;<a href="https://github.com/easydoggie/testapp.git&quot;">https://github.com/easydoggie/testapp.git&quot;</a><br>      - &quot;/tmp/git&quot;</td>
+<td>初期化コンテナのCMD</td>
+</tr>
+
+<tr>
+<td><code>imageInit.python.repository</code></td>
+<td>python</td>
+<td>初期化コンテナ(python)用のイメージ名</td>
+</tr>
+
+<tr>
+<td><code>imageInit.python.tag</code></td>
+<td>3.5-alpine</td>
+<td>初期化イメージのタグ名</td>
+</tr>
+
+<tr>
+<td><code>imageInit.python.pullPolicy</code></td>
+<td>IfNotPresent</td>
+<td>初期化イメージのプルポリシー</td>
+</tr>
+
+<tr>
+<td><code>imageInit.python.command</code></td>
+<td>|-<br>      - &quot;/bin/sh&quot;<br>      - &quot;-c&quot;<br>      - &quot;apk add git; \<br>         git clone <a href="https://github.com/easydoggie/testapp.git">https://github.com/easydoggie/testapp.git</a> /tmp/git; \<br>         python -m venv /tmp/git/python/venv; \<br>         . /tmp/git/python/venv/bin/activate; \<br>         pip install redis&quot;</td>
+<td>初期化コンテナのEntryPoint</td>
+</tr>
+
+<tr>
+<td><code>imageInit.python.args</code></td>
+<td>|-<br>      - &quot;&quot;</td>
+<td>初期化イメージのCMD</td>
+</tr>
+
+<tr>
+<td><code>appServer.enabled</code></td>
+<td>true</td>
+<td>NGINXとNGINX Unitを使う場合はtrue。NGINXだけを利用する場合はfalse。</td>
+</tr>
+
+<tr>
+<td><code>appServer.port</code></td>
+<td>8300</td>
+<td>APサーバのポート</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.name</code></td>
+<td>testapp</td>
+<td>アプリケーションの名前</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.type</code></td>
+<td>python 3.5</td>
+<td>アプリケーションのタイプ。external(GoまたはNode.jsの場合), java, php, python, ruby</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.processes</code></td>
+<td>1</td>
+<td>アプリケーションのプロセス数</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.workingDirectory</code></td>
+<td>/app/python</td>
+<td>アプリケーションのワーキングディレクトリ</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.user</code></td>
+<td>www-data</td>
+<td>アプリケーションの実行ユーザ</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.group</code></td>
+<td>www-data</td>
+<td>アプリケーションの実行グループ</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.timeout</code></td>
+<td>10</td>
+<td>リクエストタイムアウト時間(秒)</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.requests</code></td>
+<td>1000</td>
+<td>プロセス当たりの最大リクエスト数</td>
+</tr>
+
+<tr>
+<td><code>appServer.applications.python.module</code></td>
+<td>index</td>
+<td>WSGIモジュール名</td>
+</tr>
+
+<tr>
+<td><code>appServer.settings.headerReadTimeout</code></td>
+<td>30</td>
+<td>ヘッダリクエストのタイムアウト時間(秒)</td>
+</tr>
+
+<tr>
+<td><code>appServer.settings.bodyReadTimeout</code></td>
+<td>30</td>
+<td>ボディデータの読み込みタイムアウト時間(秒)</td>
+</tr>
+
+<tr>
+<td><code>appServer.settings.sendTimeout</code></td>
+<td>30</td>
+<td>レスポンス送信のタイムアウト時間(秒)</td>
+</tr>
+
+<tr>
+<td><code>appServer.settings.idleTimeout</code></td>
+<td>180</td>
+<td>keep-aliveコネクションのタイムアウト時間(秒)</td>
+</tr>
+
+<tr>
+<td><code>appServer.maxBodySize</code></td>
+<td>8388608</td>
+<td>クライアントリクエストの最大ボディサイズ(byte)</td>
+</tr>
+
+<tr>
+<td><code>nameOverride</code></td>
+<td>&quot;&quot;</td>
+<td>チャート名を上書きする場合に使用する</td>
+</tr>
+
+<tr>
+<td><code>fullnameOverride</code></td>
+<td>nginx</td>
+<td>アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される</td>
+</tr>
+
+<tr>
+<td><code>service.type</code></td>
+<td>NodePort</td>
+<td>Serviceのタイプ</td>
+</tr>
+
+<tr>
+<td><code>service.port</code></td>
+<td>80</td>
+<td>Serviceのポート</td>
+</tr>
+
+<tr>
+<td><code>service.targetPort</code></td>
+<td>80</td>
+<td>Serviceのターゲットポート</td>
+</tr>
+
+<tr>
+<td><code>resources</code></td>
+<td>{}</td>
+<td>Podのリソース使用量の管理</td>
+</tr>
+
+<tr>
+<td><code>nodeSelector</code></td>
+<td>{}</td>
+<td>nodeSelectorの設定</td>
+</tr>
+
+<tr>
+<td><code>tolerations</code></td>
+<td>[]</td>
+<td>tolerationsの設定</td>
+</tr>
+
+<tr>
+<td><code>affinity</code></td>
+<td>{}</td>
+<td>affinityの設定</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class=" footline" >
@@ -1199,26 +1482,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -1358,6 +1621,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1365,6 +1645,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1434,10 +1717,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/EasyDoggie/config/nodejs/" title="Nodejs"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/EasyDoggie/config/mysql/" title="Mysql"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/EasyDoggie/config/ingress/" title="Ingress" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/EasyDoggie/password/" title="Password" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1447,20 +1730,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1561435916"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1561435916"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1561540685"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561540685"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561540685"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1561540685"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1561540685"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561540685"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1561540685"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561435916"></script>
-    <script src="/EasyDoggie/js/learn.js?1561435916"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1561435916"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561540685"></script>
+    <script src="/EasyDoggie/js/learn.js?1561540685"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1561540685"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1561435916" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1561435916"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1561540685" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1561540685"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

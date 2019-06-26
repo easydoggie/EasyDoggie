@@ -21,15 +21,25 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
     </item>
     
     <item>
-      <title>Nginx</title>
+      <title>NGINX, NGINX Unit</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/nginx/</link>
+      <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。
+   パラメータ デフォルト値 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
+- &amp;quot;&amp;quot; 初期化コンテナのEntryPoint   imageInit.</description>
+    </item>
+    
+    <item>
+      <title>NGINX, NGINX Unit</title>
       <link>https://easydoggie.github.io/EasyDoggie/install/nginx/</link>
       <pubDate>Tue, 18 Jun 2019 15:19:52 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/nginx/</guid>
-      <description> Nginxのインストール  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  NginxとNginx Unitをインストールする場合(デフォルト) デフォルトでは、NginxとNginx Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。
-$ helm install --name &amp;lt;release_name&amp;gt; --set appServer.enabled=false easydoggie/nginx  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
-$ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/nginx</description>
+      <description>NGINXは、オープンソースのWebサーバです。NGINX Unitは、複数言語に対応しているアプリケーションサーバです。デフォルトでは1つのPod内にNGINXとNGINX Unitのコンテナが起動します。
+TL;DR # NGINXとNGINX Unitをインストールして、NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/nginx# NGINXだけインストールして、NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install --set appServer.enabled=false easydoggie/nginx# Ingressを使わないでアクセス $ helm install --set service.type=LoadBalancer easydoggie/nginx はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でNginxにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール NGINXとNGINX Unitをインストールする場合(デフォルト) デフォルトでは、NGINXとNGINX Unitがインストールされます。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/nginx  NGINXおよびNGINX Unitの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、NGINXの設定変更またはNGINX Unitの設定変更を参照してください。</description>
     </item>
     
   </channel>

@@ -43,11 +43,6 @@
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/config/nginx/</loc>
-    <lastmod>2019-06-20T17:16:07+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/ingress/</loc>
     <lastmod>2019-06-20T17:15:40+09:00</lastmod>
   </url>
@@ -150,6 +145,11 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/mysql/</loc>
     <lastmod>2019-06-18T15:19:46+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/nginx/</loc>
+    <lastmod>2019-06-20T17:16:07+09:00</lastmod>
   </url>
   
   <url>

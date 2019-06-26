@@ -10,23 +10,23 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="apple-touch-icon" type="image/png" href="img/apple-touch-icon-180x180.png">
 <link rel="icon" type="image/png" href="img/icon-192x192.png">
-    <title>Nginx :: EasyDoggie</title>
+    <title>NGINX, NGINX Unit :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1561435916" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1561435916" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1561540684" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1561435916" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1561540684" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561435916"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561540684"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561435916"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561435916"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561540684"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1561435916"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1561540684"></script>
 
     
   </div>
@@ -252,9 +252,9 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/install/nginx/" title="Nginx" class="dd-item active">
+      <li data-nav-id="/EasyDoggie/install/nginx/" title="NGINX, NGINX Unit" class="dd-item active">
         <a href="/EasyDoggie/install/nginx/">
-        Nginx
+        NGINX, NGINX Unit
         
         </a>
     </li>
@@ -468,25 +468,6 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/config/nginx/" title="Nginx" class="dd-item ">
-        <a href="/EasyDoggie/config/nginx/">
-        Nginx
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item ">
         <a href="/EasyDoggie/config/ingress/">
         Ingress
@@ -642,6 +623,25 @@
       <li data-nav-id="/EasyDoggie/config/mysql/" title="Mysql" class="dd-item ">
         <a href="/EasyDoggie/config/mysql/">
         Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/nginx/" title="NGINX, NGINX Unit" class="dd-item ">
+        <a href="/EasyDoggie/config/nginx/">
+        NGINX, NGINX Unit
         
         </a>
     </li>
@@ -815,7 +815,7 @@
             
           
           
-            <a href='/EasyDoggie/'>EasyDoggie</a> > <a href='/EasyDoggie/install/'>Install</a> > Nginx
+            <a href='/EasyDoggie/'>EasyDoggie</a> > <a href='/EasyDoggie/install/'>Install</a> > NGINX, NGINX Unit
           
          
           
@@ -832,12 +832,16 @@
 <ul>
 <li>
 <ul>
-<li><a href="#nginxのインストール">Nginxのインストール</a>
+<li><a href="#tl-dr">TL;DR</a></li>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#動作確認環境">動作確認環境</a></li>
+<li><a href="#chartのインストール">Chartのインストール</a>
 <ul>
-<li><a href="#nginxとnginx-unitをインストールする場合-デフォルト">NginxとNginx Unitをインストールする場合(デフォルト)</a></li>
+<li><a href="#nginxとnginx-unitをインストールする場合-デフォルト">NGINXとNGINX Unitをインストールする場合(デフォルト)</a></li>
 <li><a href="#nginxのみインストールする場合">Nginxのみインストールする場合</a></li>
 <li><a href="#serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</a></li>
 </ul></li>
+<li><a href="#chartの削除">Chartの削除</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -852,9 +856,9 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/EasyDoggie/tags/nginx">Nginx</a>
+  <a class="tag-link" href="/EasyDoggie/tags/nginx">NGINX</a>
 
-  <a class="tag-link" href="/EasyDoggie/tags/nginx-unit">Nginx Unit</a>
+  <a class="tag-link" href="/EasyDoggie/tags/nginx-unit">NGINX Unit</a>
 
 </div>
 
@@ -864,7 +868,7 @@
           
             <h1>
               
-              Nginx
+              NGINX, NGINX Unit
             </h1>
           
 
@@ -874,33 +878,74 @@
 
 
 
-<h2 id="nginxのインストール">Nginxのインストール</h2>
+<p><a href="https://www.nginx.com/">NGINX</a>は、オープンソースのWebサーバです。<a href="https://www.nginx.com/">NGINX Unit</a>は、複数言語に対応しているアプリケーションサーバです。デフォルトでは1つのPod内にNGINXとNGINX Unitのコンテナが起動します。</p>
+
+<h2 id="tl-dr">TL;DR</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># NGINXとNGINX Unitをインストールして、NGINX Ingress経由でアクセス
+</span><span style="color:#75715e"></span>$ helm install easydoggie/ingress
+$ helm install easydoggie/nginx</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># NGINXだけインストールして、NGINX Ingress経由でアクセス
+</span><span style="color:#75715e"></span>$ helm install easydoggie/ingress
+$ helm install --set appServer.enabled<span style="color:#f92672">=</span>false easydoggie/nginx</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ingressを使わないでアクセス
+</span><span style="color:#75715e"></span>$ helm install --set service.type<span style="color:#f92672">=</span>LoadBalancer easydoggie/nginx</code></pre></div>
+<h2 id="はじめに">はじめに</h2>
 
 <ul>
 <li>デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。</li>
 <li>以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。</li>
-<li>Ingress経由でAdminerにアクセスする場合は、別途<a href="nginx-ingress">Ingressのインストール</a>を行ってください。</li>
+<li>Ingress経由でNginxにアクセスする場合は、別途<a href="../ingress">Ingressのインストール</a>を行ってください。</li>
 </ul>
 
-<h3 id="nginxとnginx-unitをインストールする場合-デフォルト">NginxとNginx Unitをインストールする場合(デフォルト)</h3>
+<h2 id="動作確認環境">動作確認環境</h2>
+
+<ul>
+<li>Docker Desktop for Windows (Kubernetes 1.10.11)</li>
+<li>Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)</li>
+</ul>
+
+<h2 id="chartのインストール">Chartのインストール</h2>
+
+<h3 id="nginxとnginx-unitをインストールする場合-デフォルト">NGINXとNGINX Unitをインストールする場合(デフォルト)</h3>
 
 <p><img src="../../img/nginx-ingress.png" alt="nginx-ingress" />
-デフォルトでは、NginxとNginx Unitがインストールされます。
+デフォルトでは、NGINXとNGINX Unitがインストールされます。
 &lt;release_name&gt;には任意のリリース名を指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ helm install --name &lt;release_name&gt; easydoggie/nginx</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; easydoggie/nginx</code></pre></div>
+<blockquote>
+<p>NGINXおよびNGINX Unitの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、<a href="../../config/nginx">NGINXの設定変更</a>または<a href="../../config/nginxunit">NGINX Unitの設定変更</a>を参照してください。</p>
+</blockquote>
+
 <h3 id="nginxのみインストールする場合">Nginxのみインストールする場合</h3>
 
 <p><img src="../../img/nginx-nounit.png" alt="nginx-nounit" />
-Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。</p>
-
-<pre><code>$ helm install --name &lt;release_name&gt; --set appServer.enabled=false easydoggie/nginx
-</code></pre>
+Nginx Unitが不要な場合は、setオプションでNginx Unitのインストール設定を<code>false</code>にします。
+&lt;release_name&gt;には任意のリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; --set appServer.enabled<span style="color:#f92672">=</span>false easydoggie/nginx</code></pre></div>
+<blockquote>
+<p>NGINXの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、<a href="../../config/nginx">NGINXの設定変更</a>を参照してください。</p>
+</blockquote>
 
 <h3 id="serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</h3>
 
 <p><img src="../../img/nginx-loadbalancer.png" alt="nginx-loadbalancer" />
-Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; --set service.type=LoadBalancer easydoggie/nginx</code></pre></div>
+Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+&lt;release_name&gt;には任意のリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; --set service.type<span style="color:#f92672">=</span>LoadBalancer easydoggie/nginx</code></pre></div>
+<blockquote>
+<p>NGINXおよびNGINX Unitの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、<a href="../../config/nginx">NGINXの設定変更</a>または<a href="../../config/nginxunit">NGINX Unitの設定変更</a>を参照してください。</p>
+</blockquote>
+
+<h2 id="chartの削除">Chartの削除</h2>
+
+<p>指定したリリースのデプロイを削除するには<code>helm delete</code>コマンドにリリース名を指定します。</p>
+
+<pre><code>$ helm delete &lt;release_name&gt; 
+</code></pre>
+
+<p>リリース名を含めて完全に削除をするには<code>--purge</code>オプションを利用します。</p>
+
+<pre><code>$ helm delete --purge &lt;release_name&gt; 
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -1491,20 +1536,20 @@ Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1561435916"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561435916"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1561435916"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1561540684"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1561540684"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561435916"></script>
-    <script src="/EasyDoggie/js/learn.js?1561435916"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1561435916"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561540684"></script>
+    <script src="/EasyDoggie/js/learn.js?1561540684"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1561540684"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1561435916" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1561435916"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1561540684" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1561540684"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

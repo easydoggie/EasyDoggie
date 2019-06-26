@@ -16,7 +16,7 @@
       <pubDate>Thu, 20 Jun 2019 17:17:01 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/prometheus/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -25,16 +25,7 @@
       <pubDate>Thu, 20 Jun 2019 17:16:30 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/nodejs/</guid>
-      <description>Lorem Ipsum.</description>
-    </item>
-    
-    <item>
-      <title>Nginx</title>
-      <link>https://easydoggie.github.io/EasyDoggie/config/nginx/</link>
-      <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -43,7 +34,7 @@
       <pubDate>Thu, 20 Jun 2019 17:15:40 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/ingress/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -52,7 +43,7 @@
       <pubDate>Thu, 20 Jun 2019 17:14:58 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/adminer/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -61,7 +52,7 @@
       <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -70,7 +61,7 @@
       <pubDate>Wed, 19 Jun 2019 16:50:37 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/kibana/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -79,7 +70,7 @@
       <pubDate>Wed, 19 Jun 2019 16:10:14 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/gitea/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -88,7 +79,7 @@
       <pubDate>Wed, 19 Jun 2019 15:46:47 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/fluentd/</guid>
-      <description>Lorem Ipsum.</description>
+      <description>作成中</description>
     </item>
     
     <item>
@@ -124,6 +115,17 @@ $ helm install --name drone -f edit01-values.</description>
       <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、replication.enabledの値をfalseに設定します。
 # file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: false    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、replication.enabledをtrueに設定します。スレーブのノード数は、slave.replicasで設定します。
 # file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true slave: replicas: 2    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306   Slave &amp;lt;helm_name&amp;gt;-mysql-slave 3306    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。</description>
+    </item>
+    
+    <item>
+      <title>NGINX, NGINX Unit</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/nginx/</link>
+      <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。
+   パラメータ デフォルト値 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
+- &amp;quot;&amp;quot; 初期化コンテナのEntryPoint   imageInit.</description>
     </item>
     
   </channel>

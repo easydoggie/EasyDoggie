@@ -11,7 +11,7 @@
 	"title": "Install",
 	"tags": [],
 	"description": "",
-	"content": "Helm Chartごとの個別インストール方法を説明しています。\nHelmのローカルリポジトリ情報を最新にするために、インストールの実行前にリポジトリのアップデートを行ってください。\n$ helm repo update"
+	"content": "Helm Chartごとの個別インストール方法を説明しています。\nHelmのローカルリポジトリ情報を最新にするために、インストールの実行前にリポジトリのアップデートを行ってください。\n$ helm repo update 設定の変更は、以下の2通りがあります。\n helm installコマンドの--setオプションで変更する。 helm inspect valuesコマンドでvalues.yamlを取得して、helm installコマンドの-fオプションで変更したvalues.yamlを指定する。  一次的な変更の場合は、--setオプションを利用する方法が手軽に確認を行うことができます。 恒久的な変更の場合は、Git等でvalues.yamlを管理できる-fオプションを利用する方法をお勧めします。\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/uninstall/",
@@ -46,63 +46,56 @@
 	"title": "Prometheus",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/nodejs/",
 	"title": "Nodejs",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/config/nginx/",
-	"title": "Nginx",
-	"tags": [],
-	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/ingress/",
 	"title": "Ingress",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/adminer/",
 	"title": "Adminer",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/elasticsearch/",
 	"title": "Elasticsearch",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/kibana/",
 	"title": "Kibana",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/gitea/",
 	"title": "Gitea",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/fluentd/",
 	"title": "Fluentd",
 	"tags": [],
 	"description": "",
-	"content": "Lorem Ipsum.\n"
+	"content": "作成中\n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/drone/",
@@ -123,7 +116,7 @@
 	"title": "EasyDoggie",
 	"tags": [],
 	"description": "",
-	"content": " EasyDoggie ゲームインフラは、もっと楽にできる！ スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。\n ・　サーバーサイドのプログラマですが、インフラも兼務しています。インフラの構築、運用に時間がかかってサーバサイドのプログラミングが進みません\n・　インフラの初心者しか会社にいません。ミドルウェアのパラメータ設計の方法がわかりません。全部デフォルト値でよいですか？\n・　コンテナやマイクロサービスに興味があります。でもデプロイや監視の方法がわからないです。\n・　インフラの設計、構築、運用に実績のある外部ベンダに依頼したいのですが、外注コストが心配です。\n このようなインフラ設計、構築、運用の悩みを解決するのに、構築済みのコンテナを再利用する方法があります。\nそう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！\nEasyDoggie構成イメージ セットアップ方法 Helmのインストール EasyDoggieはKubernetes上で動作します。コンテナの初期設定はHelmを利用してインストールを行います。 初めにHelmのインストールと初期設定を行います。 Helmについては、ブログでも紹介をしています。Helmの概要を知りたい場合に、参考にしてください。\n$ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz $ sudo mv linux-amd64/helm /usr/local/bin/helm $ helm init Helmのインストールについては、ブログでも紹介をしているので、参考にしてください。 GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール(helm init)する前にサービスアカウントの設定を行ってください。また、helm initを行うときにサービスアカウントの指定オプションを追加してください。\n$ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml $ helm init --service-account helm Helmリポジトリの追加 EasyDoggie用のHelmリポジトリを追加します。\n$ helm repo add easydoggie https://easydoggie.github.io/helm-repo/releases $ helm repo list NAME URL stable https://kubernetes-charts.storage.googleapis.com local http://127.0.0.1:8879/charts easydoggie https://easydoggie.github.io/helm-repo/releases EasyDoggieのインストール Helmを利用してEasyDoggieをKubernetesにデプロイします。\u0026rdquo;easydoggie\u0026rdquo;チャートは、すべての構成をインストールします。\n$ helm install --name easydoggie easydoggie/easydoggie $ kubectl get pods NAME READY STATUS RESTARTS AGE easydoggie-nginx-ingress-controller-749677776f-kb2fl 1/1 Running 0 30s easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv 1/1 Running 0 30s gitea-6dc55f758d-cwkt9 1/1 Running 0 31s nginx-64f88989bc-n97ml 1/1 Running 0 30s nginx-unit-5ff6499cb5-9ldnt 1/1 Running 0 30s node-cb997ff45-psj4n 1/1 Running 0 30s 必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。以下は、Nginxだけをインストールする例です。\n$ helm install --name nginx easydoggie/nginx 個別インストール方法の詳細は、別ページを参照してください。\n使い方 2019年6月18日時点では、以下の構成サービスが起動します。 Web(nginx)へのアクセス http://easydoggie.localhost\nAPI(nginx unit)へのアクセス http://easydoggie.localhost/api\ngiteaへのアクセス http://gitea.localhost\nAdminerへのアクセス http://adminer.localhost\nKibanaへのアクセス http://kibana.localhost\nGrafanaへのアクセス http://grafana.localhost\nDroneへのアクセス http://drone.localhost\n設定方法 構成ミドルウェアのパラメータ等の変更は、別ページを参照してください。\nライセンス MIT\n協賛 \n"
+	"content": " EasyDoggie ゲームインフラは、もっと楽にできる！ スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。\n ・　サーバーサイドのプログラマですが、インフラも兼務しています。インフラの構築、運用に時間がかかってサーバサイドのプログラミングが進みません\n・　インフラの初心者しか会社にいません。ミドルウェアのパラメータ設計の方法がわかりません。全部デフォルト値でよいですか？\n・　コンテナやマイクロサービスに興味があります。でもデプロイや監視の方法がわからないです。\n・　インフラの設計、構築、運用に実績のある外部ベンダに依頼したいのですが、外注コストが心配です。\n このようなインフラ設計、構築、運用の悩みを解決するのに、構築済みのコンテナを再利用する方法があります。\nそう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！\nEasyDoggie構成イメージ セットアップ方法 Helmのインストール EasyDoggieはKubernetes上で動作します。コンテナの初期設定はHelmを利用してインストールを行います。 初めにHelmのインストールと初期設定を行います。 Helmについては、ブログでも紹介をしています。Helmの概要を知りたい場合に、参考にしてください。\n$ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz $ tar xvfz helm-v2.13.1-linux-amd64.tar.gz $ sudo mv linux-amd64/helm /usr/local/bin/helm $ helm init Helmのインストールについては、ブログでも紹介をしているので、参考にしてください。 GKEなどRBACのアクセス制御が有効になっている環境では、Tillerをインストール(helm init)する前にサービスアカウントの設定を行ってください。また、helm initを行うときにサービスアカウントの指定オプションを追加してください。\n$ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml $ helm init --service-account helm Helmリポジトリの追加 EasyDoggie用のHelmリポジトリを追加します。\n$ helm repo add easydoggie https://easydoggie.github.io/helm-repo/releases $ helm repo list NAME URL stable https://kubernetes-charts.storage.googleapis.com local http://127.0.0.1:8879/charts easydoggie https://easydoggie.github.io/helm-repo/releases EasyDoggieのインストール Helmを利用してEasyDoggieをKubernetesにデプロイします。\u0026rdquo;easydoggie\u0026rdquo;チャートは、すべての構成をインストールします。\n$ helm install --name easydoggie easydoggie/easydoggie $ kubectl get pods NAME READY STATUS RESTARTS AGE easydoggie-nginx-ingress-controller-749677776f-kb2fl 1/1 Running 0 30s easydoggie-nginx-ingress-default-backend-8686dd6ff7-qmgdv 1/1 Running 0 30s gitea-6dc55f758d-cwkt9 1/1 Running 0 31s nginx-64f88989bc-n97ml 1/1 Running 0 30s nginx-unit-5ff6499cb5-9ldnt 1/1 Running 0 30s node-cb997ff45-psj4n 1/1 Running 0 30s 必要なパッケージのみインストールしたい場合は、インストール対象のチャートを指定してインストールをしてください。以下は、Nginxだけをインストールする例です。\n$ helm install --name nginx easydoggie/nginx 個別インストール方法の詳細は、別ページを参照してください。\n使い方 2019年6月18日時点では、以下の構成サービスが起動します。 Web(nginx)へのアクセス http://easydoggie.example.com\nAPI(nginx unit)へのアクセス http://easydoggie.example.com/api\ngiteaへのアクセス http://gitea.example.com\nAdminerへのアクセス http://adminer.example.com\nKibanaへのアクセス http://kibana.example.com\nGrafanaへのアクセス http://grafana.example.com\nDroneへのアクセス http://drone.example.com\n設定方法 構成ミドルウェアのパラメータ等の変更は、別ページを参照してください。\nライセンス MIT\n協賛 \n"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/redis/",
@@ -210,11 +203,18 @@
 	"content": " MySQLはデータベース管理システムです。\nシングルマスタもしくはマスタ-スレープ構成のMySQLをインストールすることができます。\nMySQLのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/mysql デフォルトではマスター x 1、スレーブ x 1のコンテナが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。\n"
 },
 {
-	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx/",
-	"title": "Nginx",
-	"tags": ["Nginx", "Nginx Unit"],
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/nginx/",
+	"title": "NGINX, NGINX Unit",
+	"tags": ["NGINX", "NGINX Unit"],
 	"description": "",
-	"content": " Nginxのインストール  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  NginxとNginx Unitをインストールする場合(デフォルト) デフォルトでは、NginxとNginx Unitがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストールを禁止にします。\n$ helm install --name \u0026lt;release_name\u0026gt; --set appServer.enabled=false easydoggie/nginx  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set service.type=LoadBalancer easydoggie/nginx"
+	"content": " サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。\n   パラメータ デフォルト値 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-\n- \u0026quot;\u0026quot; 初期化コンテナのEntryPoint   imageInit.alpine.args |-\n- \u0026quot;clone\u0026quot;\n- \u0026quot;https://github.com/easydoggie/testapp.git\u0026quot;\n- \u0026quot;/tmp/git\u0026quot; 初期化コンテナのCMD   imageInit.python.repository python 初期化コンテナ(python)用のイメージ名   imageInit.python.tag 3.5-alpine 初期化イメージのタグ名   imageInit.python.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.python.command |-\n- \u0026quot;/bin/sh\u0026quot;\n- \u0026quot;-c\u0026quot;\n- \u0026quot;apk add git; \\\ngit clone https://github.com/easydoggie/testapp.git /tmp/git; \\\npython -m venv /tmp/git/python/venv; \\\n. /tmp/git/python/venv/bin/activate; \\\npip install redis\u0026quot; 初期化コンテナのEntryPoint   imageInit.python.args |-\n- \u0026quot;\u0026quot; 初期化イメージのCMD   appServer.enabled true NGINXとNGINX Unitを使う場合はtrue。NGINXだけを利用する場合はfalse。   appServer.port 8300 APサーバのポート   appServer.applications.name testapp アプリケーションの名前   appServer.applications.type python 3.5 アプリケーションのタイプ。external(GoまたはNode.jsの場合), java, php, python, ruby   appServer.applications.processes 1 アプリケーションのプロセス数   appServer.applications.workingDirectory /app/python アプリケーションのワーキングディレクトリ   appServer.applications.user www-data アプリケーションの実行ユーザ   appServer.applications.group www-data アプリケーションの実行グループ   appServer.applications.timeout 10 リクエストタイムアウト時間(秒)   appServer.applications.requests 1000 プロセス当たりの最大リクエスト数   appServer.applications.python.module index WSGIモジュール名   appServer.settings.headerReadTimeout 30 ヘッダリクエストのタイムアウト時間(秒)   appServer.settings.bodyReadTimeout 30 ボディデータの読み込みタイムアウト時間(秒)   appServer.settings.sendTimeout 30 レスポンス送信のタイムアウト時間(秒)   appServer.settings.idleTimeout 180 keep-aliveコネクションのタイムアウト時間(秒)   appServer.maxBodySize 8388608 クライアントリクエストの最大ボディサイズ(byte)   nameOverride \u0026quot;\u0026quot; チャート名を上書きする場合に使用する   fullnameOverride nginx アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される   service.type NodePort Serviceのタイプ   service.port 80 Serviceのポート   service.targetPort 80 Serviceのターゲットポート   resources {} Podのリソース使用量の管理   nodeSelector {} nodeSelectorの設定   tolerations [] tolerationsの設定   affinity {} affinityの設定    "
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/install/nginx/",
+	"title": "NGINX, NGINX Unit",
+	"tags": ["NGINX", "NGINX Unit"],
+	"description": "",
+	"content": " NGINXは、オープンソースのWebサーバです。NGINX Unitは、複数言語に対応しているアプリケーションサーバです。デフォルトでは1つのPod内にNGINXとNGINX Unitのコンテナが起動します。\nTL;DR # NGINXとNGINX Unitをインストールして、NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/nginx# NGINXだけインストールして、NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install --set appServer.enabled=false easydoggie/nginx# Ingressを使わないでアクセス $ helm install --set service.type=LoadBalancer easydoggie/nginx はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 以下のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でNginxにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール NGINXとNGINX Unitをインストールする場合(デフォルト) デフォルトでは、NGINXとNGINX Unitがインストールされます。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/nginx  NGINXおよびNGINX Unitの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、NGINXの設定変更またはNGINX Unitの設定変更を参照してください。\n Nginxのみインストールする場合 Nginx Unitが不要な場合は、setオプションでNginx Unitのインストール設定をfalseにします。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set appServer.enabled=false easydoggie/nginx  NGINXの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、NGINXの設定変更を参照してください。\n ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set service.type=LoadBalancer easydoggie/nginx  NGINXおよびNGINX Unitの設定値は、デフォルトの値が設定されます。設定値を変更する場合は、NGINXの設定変更またはNGINX Unitの設定変更を参照してください。\n Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。\n$ helm delete \u0026lt;release_name\u0026gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt;  "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/nodejs/",

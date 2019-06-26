@@ -79,25 +79,25 @@ $ helm install --name nginx easydoggie/nginx
 ![structure_2](img/structure2.png)
 
 ### Web(nginx)へのアクセス
-http://easydoggie.localhost
+http://easydoggie.example.com
 
 ### API(nginx unit)へのアクセス
-http://easydoggie.localhost/api
+http://easydoggie.example.com/api
 
 ### giteaへのアクセス
-http://gitea.localhost
+http://gitea.example.com
 
 ### Adminerへのアクセス
-http://adminer.localhost
+http://adminer.example.com
 
 ### Kibanaへのアクセス
-http://kibana.localhost
+http://kibana.example.com
 
 ### Grafanaへのアクセス
-http://grafana.localhost
+http://grafana.example.com
 
 ### Droneへのアクセス
-http://drone.localhost
+http://drone.example.com
 
 ## 設定方法
 構成ミドルウェアのパラメータ等の変更は、[別ページ](https://easydoggie.github.io/EasyDoggie/config/)を参照してください。
