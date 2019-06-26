@@ -32,7 +32,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "init.repository" -}}
-{{- if .Values.imageInit.python.enabled -}}
+{{- if contains "python" .Values.appServer.applications.type -}}
 {{- .Values.imageInit.python.repository -}}
 {{- else -}}
 {{- .Values.imageInit.alpine.repository -}}
@@ -40,7 +40,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "init.tag" -}}
-{{- if .Values.imageInit.python.enabled -}}
+{{- if contains "python" .Values.appServer.applications.type -}}
 {{- .Values.imageInit.python.tag -}}
 {{- else -}}
 {{- .Values.imageInit.alpine.tag -}}
@@ -48,7 +48,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "init.pullPolicy" -}}
-{{- if .Values.imageInit.python.enabled -}}
+{{- if contains "python" .Values.appServer.applications.type -}}
 {{- .Values.imageInit.python.pullPolicy -}}
 {{- else -}}
 {{- .Values.imageInit.alpine.pullPolicy -}}
@@ -56,7 +56,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "init.command" -}}
-{{- if .Values.imageInit.python.enabled -}}
+{{- if contains "python" .Values.appServer.applications.type -}}
 {{- .Values.imageInit.python.command }}
 {{- else -}}
 {{- .Values.imageInit.alpine.command }}
@@ -64,7 +64,7 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{- define "init.args" -}}
-{{- if .Values.imageInit.python.enabled -}}
+{{- if contains "python" .Values.appServer.applications.type -}}
 {{- .Values.imageInit.python.args }}
 {{- else -}}
 {{- .Values.imageInit.alpine.args }}

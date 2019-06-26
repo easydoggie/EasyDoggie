@@ -6,12 +6,12 @@ data:
   default.conf: |-
     {{- if .Values.appServer.enabled }}
     upstream unit_backend {
-       server {{ .Values.appServer.serverName }}:{{ .Values.appServer.port }};
+       server localhost:{{ .Values.appServer.port }};
     }
     {{- end }}
     
     server {
-        listen       80;
+        listen       {{ .Values.service.targetPort }};
         server_name  localhost;
             
         location / {
@@ -35,32 +35,34 @@ data:
     {
       "listeners": {
         "*:{{ .Values.appServer.port }}": {
-          "pass": "applications/testapp"
+          "pass": "applications/{{ .Values.appServer.applications.name }}"
         }
       },  
       "applications": {
-        "testapp": {
-          "type": "python 3.5",
-          "processes": 2,
-          "working_directory": "/app/python",
-          "path": "/app/python/testapp",
+        "{{ .Values.appServer.applications.name }}": {
+          "type": "{{ .Values.appServer.applications.type }}",
+          "processes": {{ .Values.appServer.applications.processes }},
+          "working_directory": "{{ .Values.appServer.applications.workingDirectory }}",
+          "user": "{{ .Values.appServer.applications.user }}",
+          "group": "{{ .Values.appServer.applications.group }}",
+          {{- if contains "python" .Values.appServer.applications.type }}
+          "path": "/app/python/{{ .Values.appServer.applications.name }}",
           "home": "/app/python/venv",
-          "module": "index",
-          "user": "root",
-          "group": "root",
+          "module": "{{ .Values.appServer.applications.python.module }}",
+          {{- end }}
           "limits": {
-              "timeout": 10,
-              "requests": 1000
+              "timeout": {{ int .Values.appServer.applications.timeout }},
+              "requests": {{ int .Values.appServer.applications.requests }}
           }
         }
       },
       "settings": {
           "http": {
-              "header_read_timeout": 10,
-              "body_read_timeout": 10,
-              "send_timeout": 10,
-              "idle_timeout": 120,
-              "max_body_size": 6291456
+              "header_read_timeout": {{ int .Values.appServer.settings.headerReadTimeout }},
+              "body_read_timeout": {{ int .Values.appServer.settings.bodyReadTimeout }},
+              "send_timeout": {{ int .Values.appServer.settings.sendTimeout }},
+              "idle_timeout": {{ int .Values.appServer.settings.idleTimeout }},
+              "max_body_size": {{ int .Values.appServer.settings.maxBodySize }}
           }
       },
     }
