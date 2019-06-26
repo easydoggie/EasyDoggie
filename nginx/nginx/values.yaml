@@ -22,7 +22,6 @@ imageInit:
       - "https://github.com/easydoggie/testapp.git"
       - "/tmp/git"
   python:
-    enabled: true
     repository: python
     tag: 3.5-alpine
     pullPolicy: IfNotPresent
