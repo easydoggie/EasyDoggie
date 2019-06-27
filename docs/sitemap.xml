@@ -43,11 +43,6 @@
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/config/ingress/</loc>
-    <lastmod>2019-06-20T17:15:40+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/adminer/</loc>
     <lastmod>2019-06-20T17:14:58+09:00</lastmod>
   </url>
@@ -133,6 +128,11 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/ingress/</loc>
+    <lastmod>2019-06-20T17:15:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/ingress/</loc>
     <lastmod>2019-06-18T15:20:03+09:00</lastmod>
   </url>
@@ -215,7 +215,7 @@
   
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/ingress/</loc>
-    <lastmod>2019-06-18T15:20:03+09:00</lastmod>
+    <lastmod>2019-06-20T17:15:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   

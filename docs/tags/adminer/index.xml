@@ -26,10 +26,10 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
       <pubDate>Tue, 18 Jun 2019 15:18:56 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/adminer/</guid>
-      <description> Adminerのインストール Adminerはデータベースの管理ツールです。phpMyAdminの代替として利用することができます。 対応しているデータベースは以下の通りです。
- MySQL MariaDB PostgreSQL SQLite MS SQL Oracle Firebird SimpleDB Elasticsearch MongoDB  ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
- デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
-$ helm install --name &amp;lt;release_name&amp;gt; --set service.type=LoadBalancer easydoggie/adminer</description>
+      <description>Adminerはデータベースの管理ツールです。phpMyAdminの代替として利用することができます。 対応しているデータベースは以下の通りです。
+ MySQL MariaDB PostgreSQL SQLite MS SQL Oracle Firebird SimpleDB Elasticsearch MongoDB  TL;DR # NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/adminer# Ingressを使わないでアクセス $ helm install --set service.type=LoadBalancer easydoggie/adminer はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/adminer &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set service.</description>
     </item>
     
   </channel>

@@ -29,15 +29,6 @@
     </item>
     
     <item>
-      <title>Ingress</title>
-      <link>https://easydoggie.github.io/EasyDoggie/config/ingress/</link>
-      <pubDate>Thu, 20 Jun 2019 17:15:40 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/config/ingress/</guid>
-      <description>作成中</description>
-    </item>
-    
-    <item>
       <title>Adminer</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/adminer/</link>
       <pubDate>Thu, 20 Jun 2019 17:14:58 +0900</pubDate>
@@ -118,13 +109,21 @@ $ helm install --name drone -f edit01-values.</description>
     </item>
     
     <item>
+      <title>Ingress</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/ingress/</link>
+      <pubDate>Thu, 20 Jun 2019 17:15:40 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/ingress/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はIngressおよびNGINX Ingressの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     nginx-ingress.controller.service.type LoadBalancer Nginx Ingressのサービスタイプ   ingress.enabled true ingressリソースを有効にする場合はtrue、無効にする場合はfalse   ingress.nginxController true IngressコントローラとしてNginx Ingressを利用する場合はtrue, 利用しない場合はfalse   ingress.annotations {} Ingressのannotaions   ingress.hosts.nginx.host easydoggie.example.com NINGXのホスト名   ingress.hosts.nginx.enabled true NGINXへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse   ingress.hosts.nginx.serviceName nginx NGINXのService名   ingress.hosts.nginx.servicePort 80 NGINXのSerivceポート番号   ingress.hosts.gitea.host gitea.example.com Giteaのホスト名   ingress.hosts.gitea.enabled true Giteaへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse   ingress.hosts.gitea.serviceName gitea GiteaのService名   ingress.</description>
+    </item>
+    
+    <item>
       <title>NGINX, NGINX Unit</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/nginx/</link>
       <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
-      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。
-   パラメータ デフォルト値 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
+      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
 - &amp;quot;&amp;quot; 初期化コンテナのEntryPoint   imageInit.</description>
     </item>
     

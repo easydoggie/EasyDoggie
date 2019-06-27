@@ -7,8 +7,9 @@ tags = ["NGINX", "NGINX Unit"]
 
 ## サービスの構成、初期化方法の変更
 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。
+<div style="font-size:small">
 
-|パラメータ|デフォルト値|説明|
+|パラメータ|デフォルト|説明 |
 |---|---|---|
 |`replicaCount`|1|レプリカセットの数|
 |`image.repository`| nginx |NGINXのイメージ名|
@@ -52,3 +53,5 @@ tags = ["NGINX", "NGINX Unit"]
 |`nodeSelector`| {}|nodeSelectorの設定|
 |`tolerations`| []|tolerationsの設定|
 |`affinity`| {}|affinityの設定|
+
+</div>

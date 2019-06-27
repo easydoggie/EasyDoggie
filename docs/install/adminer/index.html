@@ -13,20 +13,20 @@
     <title>Adminer :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1561613859" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1561613859" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1561540684" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1561613859" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561613859"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561540684"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561613859"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561613859"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1561613859"></script>
 
     
   </div>
@@ -468,25 +468,6 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item ">
-        <a href="/EasyDoggie/config/ingress/">
-        Ingress
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/EasyDoggie/config/adminer/" title="Adminer" class="dd-item ">
         <a href="/EasyDoggie/config/adminer/">
         Adminer
@@ -623,6 +604,25 @@
       <li data-nav-id="/EasyDoggie/config/mysql/" title="Mysql" class="dd-item ">
         <a href="/EasyDoggie/config/mysql/">
         Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item ">
+        <a href="/EasyDoggie/config/ingress/">
+        Ingress
         
         </a>
     </li>
@@ -832,11 +832,15 @@
 <ul>
 <li>
 <ul>
-<li><a href="#adminerのインストール">Adminerのインストール</a>
+<li><a href="#tl-dr">TL;DR</a></li>
+<li><a href="#はじめに">はじめに</a></li>
+<li><a href="#動作確認環境">動作確認環境</a></li>
+<li><a href="#chartのインストール">Chartのインストール</a>
 <ul>
 <li><a href="#serviceとしてnoadportを使う場合-デフォルト">ServiceとしてNoadPortを使う場合(デフォルト)</a></li>
 <li><a href="#serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</a></li>
 </ul></li>
+<li><a href="#chartの削除">Chartの削除</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -871,8 +875,6 @@
 
 
 
-<h2 id="adminerのインストール">Adminerのインストール</h2>
-
 <p><a href="https://www.adminer.org/">Adminer</a>はデータベースの管理ツールです。phpMyAdminの代替として利用することができます。
 対応しているデータベースは以下の通りです。</p>
 
@@ -889,23 +891,45 @@
 <li>MongoDB</li>
 </ul>
 
-<h3 id="serviceとしてnoadportを使う場合-デフォルト">ServiceとしてNoadPortを使う場合(デフォルト)</h3>
-
-<p><img src="../../img/adminer-ingress.png" alt="adminer-ingress" /></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; easydoggie/adminer</code></pre></div>
-<p>&lt;release_name&gt;には任意のリリース名を指定します。</p>
+<h2 id="tl-dr">TL;DR</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># NGINX Ingress経由でアクセス
+</span><span style="color:#75715e"></span>$ helm install easydoggie/ingress
+$ helm install easydoggie/adminer</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Ingressを使わないでアクセス
+</span><span style="color:#75715e"></span>$ helm install --set service.type<span style="color:#f92672">=</span>LoadBalancer easydoggie/adminer</code></pre></div>
+<h2 id="はじめに">はじめに</h2>
 
 <ul>
 <li>デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。</li>
 <li>上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。</li>
-<li>Ingress経由でAdminerにアクセスする場合は、別途<a href="nginx-ingress">Ingressのインストール</a>を行ってください。</li>
+<li>Ingress経由でAdminerにアクセスする場合は、別途<a href="../ingress">Ingressのインストール</a>を行ってください。</li>
 </ul>
+
+<h2 id="動作確認環境">動作確認環境</h2>
+
+<ul>
+<li>Docker Desktop for Windows (Kubernetes 1.10.11)</li>
+<li>Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)</li>
+</ul>
+
+<h2 id="chartのインストール">Chartのインストール</h2>
+
+<h3 id="serviceとしてnoadportを使う場合-デフォルト">ServiceとしてNoadPortを使う場合(デフォルト)</h3>
+
+<p><img src="../../img/adminer-ingress.png" alt="adminer-ingress" /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; easydoggie/adminer</code></pre></div>
+<p>&lt;release_name&gt;には任意のリリース名を指定します。</p>
 
 <h3 id="serviceとしてloadbalancerを使う場合">ServiceとしてLoadBalancerを使う場合</h3>
 
 <p><img src="../../img/adminer-loadbalancer.png" alt="adminer-loadbalancer" />
 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ helm install --name &lt;release_name&gt; --set service.type=LoadBalancer easydoggie/adminer</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; --set service.type<span style="color:#f92672">=</span>LoadBalancer easydoggie/adminer</code></pre></div>
+<h2 id="chartの削除">Chartの削除</h2>
+
+<p>指定したリリースのデプロイを削除するには<code>helm delete</code>コマンドにリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm delete &lt;release_name&gt; </code></pre></div>
+<p>リリース名を含めて完全に削除をするには<code>--purge</code>オプションを利用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm delete --purge &lt;release_name&gt; </code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1493,20 +1517,20 @@ Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1561540684"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1561540684"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1561613860"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1561613860"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561540684"></script>
-    <script src="/EasyDoggie/js/learn.js?1561540684"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1561540684"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561613860"></script>
+    <script src="/EasyDoggie/js/learn.js?1561613860"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1561613860"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1561540684" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1561540684"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1561613860" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1561613860"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

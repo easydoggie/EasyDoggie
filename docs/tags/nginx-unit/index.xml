@@ -26,8 +26,7 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
       <pubDate>Thu, 20 Jun 2019 17:16:07 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/config/nginx/</guid>
-      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。
-   パラメータ デフォルト値 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
+      <description>サービスの構成、初期化方法の変更 以下の表はNGINXおよびNGINX Unitの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository nginx NGINXのイメージ名   image.tag 1.16.0-alpine NGINXイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageUnit.repository nginx/unit NGINX Unitのイメージ名   imageUnit.tag 1.9.0-full NGINX Unitのタグ名   imageUnit.pullPolicy IfNotPresent イメージのプルポリシー   imageInit.alpine.repository alpine/git 初期化コンテナ(git clone)用のイメージ名   imageInit.alpine.tag latest 初期化イメージのタグ名   imageInit.alpine.pullPolicy IfNotPresent 初期化イメージのプルポリシー   imageInit.alpine.command |-
 - &amp;quot;&amp;quot; 初期化コンテナのEntryPoint   imageInit.</description>
     </item>
     

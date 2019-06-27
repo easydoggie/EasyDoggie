@@ -13,20 +13,20 @@
     <title>Ingress :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1561540684" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1561540684" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1561613860" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1561613860" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1561540684" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1561613860" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561540684"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1561613860"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561540684"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1561613860"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1561613860"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1561540684"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1561613860"></script>
 
     
   </div>
@@ -468,25 +468,6 @@
  
   
     
-      <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item active">
-        <a href="/EasyDoggie/config/ingress/">
-        Ingress
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/EasyDoggie/config/adminer/" title="Adminer" class="dd-item ">
         <a href="/EasyDoggie/config/adminer/">
         Adminer
@@ -623,6 +604,25 @@
       <li data-nav-id="/EasyDoggie/config/mysql/" title="Mysql" class="dd-item ">
         <a href="/EasyDoggie/config/mysql/">
         Mysql
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/EasyDoggie/config/ingress/" title="Ingress" class="dd-item active">
+        <a href="/EasyDoggie/config/ingress/">
+        Ingress
         
         </a>
     </li>
@@ -828,7 +828,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#サービスの構成-初期化方法の変更">サービスの構成、初期化方法の変更</a></li>
+<li><a href="#values-false-yaml">values-false.yaml</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -838,6 +846,14 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/EasyDoggie/tags/ingress">Ingress</a>
+
+  <a class="tag-link" href="/EasyDoggie/tags/nginx-ingress">Nginx Ingress</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
@@ -852,7 +868,209 @@
 
 
 
-<p>作成中</p>
+
+
+<h2 id="サービスの構成-初期化方法の変更">サービスの構成、初期化方法の変更</h2>
+
+<p>以下の表はIngressおよびNGINX Ingressの変更可能なパラーメータとデフォルト値の一覧です。
+<div style="font-size:small"></p>
+
+<table>
+<thead>
+<tr>
+<th>パラメータ</th>
+<th>デフォルト</th>
+<th>説明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>nginx-ingress.controller.service.type</code></td>
+<td>LoadBalancer</td>
+<td>Nginx Ingressのサービスタイプ</td>
+</tr>
+
+<tr>
+<td><code>ingress.enabled</code></td>
+<td>true</td>
+<td>ingressリソースを有効にする場合はtrue、無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.nginxController</code></td>
+<td>true</td>
+<td>IngressコントローラとしてNginx Ingressを利用する場合はtrue, 利用しない場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.annotations</code></td>
+<td>{}</td>
+<td>Ingressのannotaions</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.nginx.host</code></td>
+<td>easydoggie.example.com</td>
+<td>NINGXのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.nginx.enabled</code></td>
+<td>true</td>
+<td>NGINXへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.nginx.serviceName</code></td>
+<td>nginx</td>
+<td>NGINXのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.nginx.servicePort</code></td>
+<td>80</td>
+<td>NGINXのSerivceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.gitea.host</code></td>
+<td>gitea.example.com</td>
+<td>Giteaのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.gitea.enabled</code></td>
+<td>true</td>
+<td>Giteaへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.gitea.serviceName</code></td>
+<td>gitea</td>
+<td>GiteaのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.gitea.servicePort</code></td>
+<td>3000</td>
+<td>GiteaのServiceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.adminer.host</code></td>
+<td>adminer.example.com</td>
+<td>Adminerのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.adminer.enabled</code></td>
+<td>true</td>
+<td>Adminerへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.adminer.serviceName</code></td>
+<td>adminer</td>
+<td>AdminerのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.adminer.servicePort</code></td>
+<td>80</td>
+<td>AdminerのServiceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.kibana.host</code></td>
+<td>kibana.example.com</td>
+<td>Kibanaのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.kibana.enabled</code></td>
+<td>true</td>
+<td>Kibanaへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.kibana.serviceName</code></td>
+<td>kibana-kibana</td>
+<td>KibanaのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.kibana.servicePort</code></td>
+<td>5601</td>
+<td>KibanaのServiceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.grafana.host</code></td>
+<td>grafana.example.com</td>
+<td>Grafanaのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.grafana.enabled</code></td>
+<td>true</td>
+<td>Grafanaへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.grafana.serviceName</code></td>
+<td>grafana</td>
+<td>GrafanaのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.grafana.servicePort</code></td>
+<td>80</td>
+<td>GrafanaのServiceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.drone.host</code></td>
+<td>drone.example.com</td>
+<td>Droneのホスト名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.drone.enabled</code></td>
+<td>true</td>
+<td>Droneへのアクセスルールを有効にする場合はtrue, 無効にする場合はfalse</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.drone.serviceName</code></td>
+<td>drone-drone</td>
+<td>DroneのService名</td>
+</tr>
+
+<tr>
+<td><code>ingress.hosts.drone.servicePort</code></td>
+<td>80</td>
+<td>DroneのServiceポート番号</td>
+</tr>
+
+<tr>
+<td><code>ingress.tls</code></td>
+<td>[]</td>
+<td>TLS設定</td>
+</tr>
+</tbody>
+</table>
+
+<p></div></p>
+
+<h2 id="values-false-yaml">values-false.yaml</h2>
+
+<p><code>values-false.yaml</code>は、すべてのIngressルールを無効に設定したValueファイルです。<code>--set</code>オプションで個別のルールを有効化して使用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># NGINXのルールだけを有効化した例
+</span><span style="color:#75715e"></span>$ helm install --name &lt;release_name&gt; -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/ingress/ingress/values-false.yaml --set ingress.hosts.nginx.enabled<span style="color:#f92672">=</span>true easydoggie/ingress</code></pre></div>
+<blockquote>
+<p><code>values-false.yaml</code>ファイルは、Nginx Ingressも無効化してあります。マネジメントサービスのIngressコントローラの使用もしくはNginx Ingressの有効化を行ってください。</p>
+</blockquote>
 
 
 <footer class=" footline" >
@@ -1199,26 +1417,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -1346,6 +1544,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1434,10 +1652,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/EasyDoggie/config/nodejs/" title="Nodejs"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/EasyDoggie/config/mysql/" title="Mysql"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/EasyDoggie/config/adminer/" title="Adminer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/EasyDoggie/config/nginx/" title="NGINX, NGINX Unit" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1447,20 +1665,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1561540684"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561540684"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1561540684"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1561613860"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1561613860"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1561613860"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561540684"></script>
-    <script src="/EasyDoggie/js/learn.js?1561540684"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1561540684"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1561613860"></script>
+    <script src="/EasyDoggie/js/learn.js?1561613860"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1561613860"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1561540684" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1561540684"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1561613860" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1561613860"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

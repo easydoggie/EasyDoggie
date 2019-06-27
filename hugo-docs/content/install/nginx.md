@@ -64,10 +64,10 @@ $ helm install --name <release_name> --set service.type=LoadBalancer easydoggie/
 
 ## Chartの削除
 指定したリリースのデプロイを削除するには`helm delete`コマンドにリリース名を指定します。
-```
+```bash
 $ helm delete <release_name> 
 ```
 リリース名を含めて完全に削除をするには`--purge`オプションを利用します。
-```
+```bash
 $ helm delete --purge <release_name> 
 ```
