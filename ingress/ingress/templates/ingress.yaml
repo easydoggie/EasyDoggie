@@ -30,7 +30,7 @@ spec:
   {{- end }}
 {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
+    {{- range $rule, $val := .Values.ingress.hosts }}
     {{- if .enabled }}
     - host: {{ .host }}
       http:
