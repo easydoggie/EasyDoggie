@@ -8,4 +8,4 @@ pre = "<b>5. </b>"
 # 構成例
 システム構成の例
 
-WebAP
+* [WebAPサーバ(Web3層構成)](webap)

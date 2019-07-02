@@ -22,14 +22,26 @@ $ helm delete --purge &amp;lt;release_name&amp;gt;</description>
     
     <item>
       <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
+      <description> デフォルトの設定 # file: elasticsearch/elasticsearch/values.yaml elasticsearch: roles: ingest: false replicas: 1 resources: requests: memory: 128Mi    パラメータ 初期値 説明     elasticsearch.roles.ingest false ElasticsearchのIngest nodeを無効にします。有効にする場合はtrueに設定します。   elasticsearch.replicas 1 Elasticsearchのレプリカ数   elasticsearch.resources.requests.memory 128Mi メモリ使用量の上限    </description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
       <link>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</link>
       <pubDate>Tue, 18 Jun 2019 15:19:15 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</guid>
-      <description>Elasticsearchは分散型RESTful検索/分析エンジンです。
+      <description> Elasticsearchは分散型RESTful検索/分析エンジンです。
 EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。
-Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。</description>
+動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてClusterIPを使う場合(デフォルト) Elasticsearchはローカルでのアクセスのみ想定しているため、サービスタイプはClusterIPとして起動します。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。
+Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。
+$ helm delete &amp;lt;release_name&amp;gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt; </description>
     </item>
     
   </channel>

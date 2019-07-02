@@ -39,7 +39,7 @@
 	"title": "Examples",
 	"tags": [],
 	"description": "",
-	"content": " 構成例 システム構成の例\nWebAP\n"
+	"content": " 構成例 システム構成の例\n WebAPサーバ(Web3層構成)  "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/prometheus/",
@@ -51,20 +51,6 @@
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/config/nodejs/",
 	"title": "Nodejs",
-	"tags": [],
-	"description": "",
-	"content": "作成中\n"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/config/adminer/",
-	"title": "Adminer",
-	"tags": [],
-	"description": "",
-	"content": "作成中\n"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/config/elasticsearch/",
-	"title": "Elasticsearch",
 	"tags": [],
 	"description": "",
 	"content": "作成中\n"
@@ -89,13 +75,6 @@
 	"tags": [],
 	"description": "",
 	"content": "作成中\n"
-},
-{
-	"uri": "https://easydoggie.github.io/EasyDoggie/config/drone/",
-	"title": "Drone",
-	"tags": [],
-	"description": "",
-	"content": " デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。\n以下のファイルをHelmクライアントを実行するサーバに作成します。\n# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。\n$ helm install --name drone -f edit01-values.yaml easydoggie/drone"
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/uninstall/prometheus/",
@@ -140,6 +119,13 @@
 	"content": " WebAPサーバ(Web3層構成) 目次  ローカル開発環境 ステージング/本番環境  ローカル開発環境 ローカルの開発環境を想定した構成です。すべての構成をKubernetes上にインストールします。\n   構成要素 内容     Ingress Controller Nginx Ingress   Web Nginx   AP Nginx Unit   DB MySQL    $ helm install --name ingress easydoggie/ingress $ helm install --name nginx easydoggie/nginx $ helm install --name mysql easydoggie/mysql WebとAPは同じPodで構成されているため、1つのHelmチャート(easydoggie/nginx)でインストールされます。\nステージング/本番環境 GCPなどのパブリッククラウドでの利用を想定した構成です。Ingressコントローラとデータベースは、パブリッククラウドのマネジメントサービスを利用します。以下はGCPでの構成例です。\n   構成要素 内容     Ingress Controller Cloud LoadBalancing   web Nginx   AP Nginx Unit   DB Cloud SQL    $ helm install --name nginx easydoggie/nginx $ helm install --name ingress -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/ingress/ingress/values-web.yaml easydoggie/ingress  Cloud LoadBalancingはIngressのインストールで作成されます。 Cloud SQLは自動では起動しません。gcloudもしくはコンソールからサービスを作成してください。  "
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/adminer/",
+	"title": "Adminer",
+	"tags": ["Adminer"],
+	"description": "",
+	"content": " サービスの構成、初期化方法の変更 以下の表はAdminerの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository easydoggie/adminer Adminerのイメージ名   image.tag 0.1.0 Adminerイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageNginx.repository nginx Adminer用リバースプロキシのイメージ名   imageNginx.tag 1.15.12-alpine Adminer用リバースプロキシイメージのタグ名   imageNginx.pullPolicy IfNotPresent Adminer用リバースプロキシイメージのプルポリシー   nameOverride \u0026rdquo;\u0026rdquo; チャート名を上書きする場合に使用する   fullnameOverride adminer アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される   service.type NodePort Serviceのタイプ   service.port 80 Serviceのポート   service.targetPort 80 Serviceのターゲットポート   appServer.port 8300 Adminerのポート   resources {} Podリソース使用量の管理   nodeSelector {} nodeSelectorの設定   tolerations [] tolerationsの設定   affinity {} affinityの設定    \n"
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/adminer/",
 	"title": "Adminer",
 	"tags": ["Adminer"],
@@ -147,18 +133,32 @@
 	"content": " Adminerはデータベースの管理ツールです。phpMyAdminの代替として利用することができます。 対応しているデータベースは以下の通りです。\n MySQL MariaDB PostgreSQL SQLite MS SQL Oracle Firebird SimpleDB Elasticsearch MongoDB  TL;DR # NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/adminer# Ingressを使わないでアクセス $ helm install --set service.type=LoadBalancer easydoggie/adminer はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でAdminerにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name \u0026lt;release_name\u0026gt; easydoggie/adminer \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\nServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set service.type=LoadBalancer easydoggie/adminer Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。\n$ helm delete \u0026lt;release_name\u0026gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt; "
 },
 {
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/elasticsearch/",
+	"title": "Elasticsearch",
+	"tags": ["Elasticsearch"],
+	"description": "",
+	"content": " デフォルトの設定 # file: elasticsearch/elasticsearch/values.yaml elasticsearch: roles: ingest: false replicas: 1 resources: requests: memory: 128Mi    パラメータ 初期値 説明     elasticsearch.roles.ingest false ElasticsearchのIngest nodeを無効にします。有効にする場合はtrueに設定します。   elasticsearch.replicas 1 Elasticsearchのレプリカ数   elasticsearch.resources.requests.memory 128Mi メモリ使用量の上限    "
+},
+{
+	"uri": "https://easydoggie.github.io/EasyDoggie/config/drone/",
+	"title": "Drone",
+	"tags": ["Drone"],
+	"description": "",
+	"content": " デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。\n以下のファイルをHelmクライアントを実行するサーバに作成します。\n# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。\n$ helm install --name drone -f edit01-values.yaml easydoggie/drone"
+},
+{
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/drone/",
 	"title": "Drone",
 	"tags": ["Drone"],
 	"description": "",
-	"content": " Droneのインストール DroneはCI/CDを行うためのツールです。\nデフォルトのソースリポジトリはDroneと同じKubernetes上のGiteaを参照します。参照先のリポジトリを変更したい場合は、Configのページを参照してください。\nServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name \u0026lt;release_name\u0026gt; easydoggie/drone \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でDroneにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set drone.service.type=LoadBalancer easydoggie/drone"
+	"content": " DroneはCI/CDを行うためのツールです。\nデフォルトのソースリポジトリはDroneと同じKubernetes上のGiteaを参照します。参照先のリポジトリを変更したい場合は、Configのページを参照してください。\nTL;DR # NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/drone# Ingressを使わないでアクセス $ helm install --set drone.service.type=LoadBalancer easydoggie/drone はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でDroneにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name \u0026lt;release_name\u0026gt; easydoggie/drone \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\nServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。\n$ helm install --name \u0026lt;release_name\u0026gt; --set drone.service.type=LoadBalancer easydoggie/drone Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。\n$ helm delete \u0026lt;release_name\u0026gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt; "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/elasticsearch/",
 	"title": "Elasticsearch",
 	"tags": ["Elasticsearch"],
 	"description": "",
-	"content": " Elasticsearchは分散型RESTful検索/分析エンジンです。\nEasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。\nElasticsearchのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。\n"
+	"content": " Elasticsearchは分散型RESTful検索/分析エンジンです。\nEasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。\n動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてClusterIPを使う場合(デフォルト) Elasticsearchはローカルでのアクセスのみ想定しているため、サービスタイプはClusterIPとして起動します。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。\nChartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。\n$ helm delete \u0026lt;release_name\u0026gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt; "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/fluentd/",

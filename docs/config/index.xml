@@ -29,24 +29,6 @@
     </item>
     
     <item>
-      <title>Adminer</title>
-      <link>https://easydoggie.github.io/EasyDoggie/config/adminer/</link>
-      <pubDate>Thu, 20 Jun 2019 17:14:58 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/config/adminer/</guid>
-      <description>作成中</description>
-    </item>
-    
-    <item>
-      <title>Elasticsearch</title>
-      <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
-      <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
-      <description>作成中</description>
-    </item>
-    
-    <item>
       <title>Kibana</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/kibana/</link>
       <pubDate>Wed, 19 Jun 2019 16:50:37 +0900</pubDate>
@@ -74,18 +56,6 @@
     </item>
     
     <item>
-      <title>Drone</title>
-      <link>https://easydoggie.github.io/EasyDoggie/config/drone/</link>
-      <pubDate>Wed, 19 Jun 2019 13:46:05 +0900</pubDate>
-      
-      <guid>https://easydoggie.github.io/EasyDoggie/config/drone/</guid>
-      <description>デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。
-以下のファイルをHelmクライアントを実行するサーバに作成します。
-# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。
-$ helm install --name drone -f edit01-values.</description>
-    </item>
-    
-    <item>
       <title>Redis</title>
       <link>https://easydoggie.github.io/EasyDoggie/config/redis/</link>
       <pubDate>Mon, 17 Jun 2019 10:18:17 +0900</pubDate>
@@ -106,6 +76,36 @@ $ helm install --name drone -f edit01-values.</description>
       <description>シングルマスター構成 マスター x 1、スレーブ x 0の構成例です。スレーブを利用しない場合は、replication.enabledの値をfalseに設定します。
 # file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: false    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306    マスター、スレーブ構成 マスター x 1、スレーブ x 2の構成例です。スレーブを利用する場合は、replication.enabledをtrueに設定します。スレーブのノード数は、slave.replicasで設定します。
 # file: mysql/mysql/values mysql: db: name: testdb root: password: easydoggie replication: enabled: true slave: replicas: 2    接続先 ホスト ポート     Master &amp;lt;helm_name&amp;gt;-mysql 3306   Slave &amp;lt;helm_name&amp;gt;-mysql-slave 3306    マスター、スレーブの切り離し間隔を調整する マスター、スレーブのPodをServiceから切り離す時間を調整します。デフォルトでは以下のヘルスチェック間隔と連続失敗回数を満たすと、Serviceから切り離されます。</description>
+    </item>
+    
+    <item>
+      <title>Adminer</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/adminer/</link>
+      <pubDate>Thu, 20 Jun 2019 17:14:58 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/adminer/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はAdminerの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository easydoggie/adminer Adminerのイメージ名   image.tag 0.1.0 Adminerイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   imageNginx.repository nginx Adminer用リバースプロキシのイメージ名   imageNginx.tag 1.15.12-alpine Adminer用リバースプロキシイメージのタグ名   imageNginx.pullPolicy IfNotPresent Adminer用リバースプロキシイメージのプルポリシー   nameOverride &amp;rdquo;&amp;rdquo; チャート名を上書きする場合に使用する   fullnameOverride adminer アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される   service.type NodePort Serviceのタイプ   service.port 80 Serviceのポート   service.targetPort 80 Serviceのターゲットポート   appServer.</description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</link>
+      <pubDate>Wed, 19 Jun 2019 16:50:57 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</guid>
+      <description> デフォルトの設定 # file: elasticsearch/elasticsearch/values.yaml elasticsearch: roles: ingest: false replicas: 1 resources: requests: memory: 128Mi    パラメータ 初期値 説明     elasticsearch.roles.ingest false ElasticsearchのIngest nodeを無効にします。有効にする場合はtrueに設定します。   elasticsearch.replicas 1 Elasticsearchのレプリカ数   elasticsearch.resources.requests.memory 128Mi メモリ使用量の上限    </description>
+    </item>
+    
+    <item>
+      <title>Drone</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/drone/</link>
+      <pubDate>Wed, 19 Jun 2019 13:46:05 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/drone/</guid>
+      <description>デフォルトの設定 #file: drone/values.yaml drone: service: type: NodePort server: host: drone.localhost sourceControl: provider: gitea gitea: server: http://gitea:3000 sharedSecret: 45f7a425dc0595bdca3af34ef97ebaa4    パラメータ 初期値 説明     drone.service.type NodePort Serviceタイプ   drone.server.host drone.localhost DroneのWebUIのホスト名   drone.sourceControl.provider gitea ソース管理をしているプロバイダ   drone.sourceControl.gitea.server http://gitea:3000 Giteaサーバのアドレス   drone.sharedSecret 45f7a425dc0595bdca3af34ef97ebaa4 DroneとGiteaの共有秘密鍵    設定変更の例 ServiceタイプをLoadBalancerに変更する 外部からのアクセスにIngressではなくLoadBalancerを使う場合は、Serviceタイプの変更を行います。
+以下のファイルをHelmクライアントを実行するサーバに作成します。
+# file: edit01-values.yaml drone: service: type: LoadBalancer インストールを実行します。
+$ helm install --name drone -f edit01-values.</description>
     </item>
     
     <item>

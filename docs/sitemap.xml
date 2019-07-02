@@ -43,16 +43,6 @@
   </url>
   
   <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/config/adminer/</loc>
-    <lastmod>2019-06-20T17:14:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</loc>
-    <lastmod>2019-06-19T16:50:57+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/kibana/</loc>
     <lastmod>2019-06-19T16:50:37+09:00</lastmod>
   </url>
@@ -65,11 +55,6 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/config/fluentd/</loc>
     <lastmod>2019-06-19T15:46:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://easydoggie.github.io/EasyDoggie/config/drone/</loc>
-    <lastmod>2019-06-19T13:46:05+09:00</lastmod>
   </url>
   
   <url>
@@ -103,8 +88,23 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/adminer/</loc>
+    <lastmod>2019-06-20T17:14:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/adminer/</loc>
     <lastmod>2019-06-18T15:18:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/elasticsearch/</loc>
+    <lastmod>2019-06-19T16:50:57+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/drone/</loc>
+    <lastmod>2019-06-19T13:46:05+09:00</lastmod>
   </url>
   
   <url>

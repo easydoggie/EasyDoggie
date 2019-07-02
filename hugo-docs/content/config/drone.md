@@ -1,7 +1,8 @@
 +++
 title = "Drone"
 date =  2019-06-19T13:46:05+09:00
-weight = 5
+weight = 20
+tags = ["Drone"]
 +++
 ## デフォルトの設定
 

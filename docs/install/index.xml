@@ -28,11 +28,12 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set service.</description>
       <pubDate>Tue, 18 Jun 2019 15:19:05 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/drone/</guid>
-      <description> Droneのインストール DroneはCI/CDを行うためのツールです。
+      <description>DroneはCI/CDを行うためのツールです。
 デフォルトのソースリポジトリはDroneと同じKubernetes上のGiteaを参照します。参照先のリポジトリを変更したい場合は、Configのページを参照してください。
-ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
- デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でDroneにアクセスする場合は、別途Ingressのインストールを行ってください。  ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
-$ helm install --name &amp;lt;release_name&amp;gt; --set drone.service.type=LoadBalancer easydoggie/drone</description>
+TL;DR # NGINX Ingress経由でアクセス $ helm install easydoggie/ingress $ helm install easydoggie/drone# Ingressを使わないでアクセス $ helm install --set drone.service.type=LoadBalancer easydoggie/drone はじめに  デフォルトのServiceタイプはIngress経由でのアクセスを想定しているため、NodePortとして起動します。 上記のインストールコマンドではIngress ControllerとIngess Resourceのインストールは行われません。 Ingress経由でDroneにアクセスする場合は、別途Ingressのインストールを行ってください。  動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてNoadPortを使う場合(デフォルト) $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/drone &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+ServiceとしてLoadBalancerを使う場合 Ingressを使わず、ServiceタイプとしてLoadBalancerを使う場合は、setオプションでサービスタイプをLoadBalancerに変更します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set drone.service.type=LoadBalancer easydoggie/drone Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。
+$ helm delete &amp;lt;release_name&amp;gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。</description>
     </item>
     
     <item>
@@ -41,10 +42,13 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set drone.service.type=Load
       <pubDate>Tue, 18 Jun 2019 15:19:15 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/elasticsearch/</guid>
-      <description>Elasticsearchは分散型RESTful検索/分析エンジンです。
+      <description> Elasticsearchは分散型RESTful検索/分析エンジンです。
 EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを検索/分析する用途で利用することを想定しています。
-Elasticsearchのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。</description>
+動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてClusterIPを使う場合(デフォルト) Elasticsearchはローカルでのアクセスのみ想定しているため、サービスタイプはClusterIPとして起動します。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/elasticsearch デフォルトではシングルマスタのノードが起動します。 クラスタのノード数の変更などは、設定変更のページを参照してください。
+Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。
+$ helm delete &amp;lt;release_name&amp;gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt; </description>
     </item>
     
     <item>
