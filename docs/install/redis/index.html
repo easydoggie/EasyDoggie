@@ -13,20 +13,20 @@
     <title>Redis :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1562056162" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1562056162" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1562121968" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1562121968" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1562056162" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1562121968" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1562056162"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1562121968"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1562056162"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1562056162"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1562121968"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1562121968"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1562056162"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1562121968"></script>
 
     
   </div>
@@ -832,7 +832,13 @@
 <ul>
 <li>
 <ul>
-<li><a href="#redisのインストール">Redisのインストール</a></li>
+<li><a href="#動作確認環境">動作確認環境</a></li>
+<li><a href="#chartのインストール">Chartのインストール</a>
+<ul>
+<li><a href="#master-slave構成-デフォルト">Master-Slave構成（デフォルト）</a></li>
+<li><a href="#masterのみの構成">Masterのみの構成</a></li>
+</ul></li>
+<li><a href="#chartの削除">Chartの削除</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -868,17 +874,36 @@
 
 
 <p>Redisはインメモリのデータストアです。<br />
-シングルマスタもしくはマスタ/スレーブ構成のRedisをインストールすることができます。
-<img src="../../img/redis.png" alt="redis" /></p>
+シングルマスタもしくはマスタ/スレーブ構成のRedisをインストールすることができます。</p>
 
-<h2 id="redisのインストール">Redisのインストール</h2>
+<h2 id="動作確認環境">動作確認環境</h2>
 
-<p>&lt;release_name&gt;には任意のリリース名を指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ helm install --name &lt;release_name&gt; easydoggie/redis</code></pre></div>
-<p>デフォルトではマスター x 1、スレーブ x 2のコンテナが起動します。
-<img src="../../img/redis-containers.png" alt="redis-containers" />
-スレーブのノード数の変更などは、<a href="../config/redis">設定変更のページ</a>を参照してください。</p>
+<ul>
+<li>Docker Desktop for Windows (Kubernetes 1.10.11)</li>
+<li>Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)</li>
+</ul>
 
+<h2 id="chartのインストール">Chartのインストール</h2>
+
+<h3 id="master-slave構成-デフォルト">Master-Slave構成（デフォルト）</h3>
+
+<p><img src="../../img/redis-masterslave.png" alt="redis-masterslave" />
+デフォルトではマスター x 1、スレーブ x 2のPodが起動します。データの永続化領域としてEmptyDirを利用します。
+&lt;release_name&gt;には任意のリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; easydoggie/redis</code></pre></div>
+<p>スレーブのノード数の変更などは、<a href="../config/redis">設定変更のページ</a>を参照してください。</p>
+
+<h3 id="masterのみの構成">Masterのみの構成</h3>
+
+<p><img src="../../img/redis-master.png" alt="redis-master" />
+マスター1台のみの構成です。<code>--set</code>オプションでクラスタの利用を<code>false</code>に設定します。データの永続化領域としてEmptyDirを利用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install --name &lt;release_name&gt; --set redis.cluster.enabled<span style="color:#f92672">=</span>false easydoggie/redis</code></pre></div>
+<h2 id="chartの削除">Chartの削除</h2>
+
+<p>指定したリリースのデプロイを削除するには<code>helm delete</code>コマンドにリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm delete &lt;release_name&gt; </code></pre></div>
+<p>リリース名を含めて完全に削除をするには<code>--purge</code>オプションを利用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm delete --purge &lt;release_name&gt; </code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1469,20 +1494,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1562056162"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1562056162"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1562056162"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1562056162"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1562056162"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1562056162"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1562056162"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1562121968"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1562121968"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1562121968"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1562121968"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1562121968"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1562121968"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1562121968"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1562056162"></script>
-    <script src="/EasyDoggie/js/learn.js?1562056162"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1562056162"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1562121968"></script>
+    <script src="/EasyDoggie/js/learn.js?1562121968"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1562121968"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1562056162" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1562056162"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1562121968" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1562121968"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

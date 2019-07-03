@@ -154,9 +154,14 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set prometheus-operator.gra
       <pubDate>Tue, 18 Jun 2019 15:20:15 +0900</pubDate>
       
       <guid>https://easydoggie.github.io/EasyDoggie/install/redis/</guid>
-      <description>Redisはインメモリのデータストアです。
-シングルマスタもしくはマスタ/スレーブ構成のRedisをインストールすることができます。 Redisのインストール &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
-$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/redis デフォルトではマスター x 1、スレーブ x 2のコンテナが起動します。 スレーブのノード数の変更などは、設定変更のページを参照してください。</description>
+      <description> Redisはインメモリのデータストアです。
+シングルマスタもしくはマスタ/スレーブ構成のRedisをインストールすることができます。
+動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール Master-Slave構成（デフォルト） デフォルトではマスター x 1、スレーブ x 2のPodが起動します。データの永続化領域としてEmptyDirを利用します。 &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。
+$ helm install --name &amp;lt;release_name&amp;gt; easydoggie/redis スレーブのノード数の変更などは、設定変更のページを参照してください。
+Masterのみの構成 マスター1台のみの構成です。--setオプションでクラスタの利用をfalseに設定します。データの永続化領域としてEmptyDirを利用します。
+$ helm install --name &amp;lt;release_name&amp;gt; --set redis.cluster.enabled=false easydoggie/redis Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。
+$ helm delete &amp;lt;release_name&amp;gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt; </description>
     </item>
     
   </channel>
