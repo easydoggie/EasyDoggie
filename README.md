@@ -1,6 +1,6 @@
 # EasyDoggie
 Easy Develop and Operation of Game InfrastructurE  
-![logo](https://github.com/easydoggie/EasyDoggie/blob/master/images/logo2.png)
+[![logo](https://github.com/easydoggie/EasyDoggie/blob/master/images/logo2.png)](https://easydoggie.github.io/EasyDoggie/)
 ## ゲームインフラは、もっと楽にできる。
 
 ![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure.png)
@@ -18,4 +18,4 @@ Easy Develop and Operation of Game InfrastructurE
 MIT
 
 # 協賛
-[![skyarch](https://github.com/easydoggie/EasyDoggie/blob/master/images/skyarch.gif)](https://www.skyarch.net/
+[![skyarch](https://github.com/easydoggie/EasyDoggie/blob/master/images/skyarch.gif)](https://www.skyarch.net/)
