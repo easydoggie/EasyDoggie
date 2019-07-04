@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS testdb
-	CHARACTER SET utf8mb4 
+	CHARACTER SET utf8mb4;
 
-USE testdb
+USE testdb;
 
 CREATE ROLE easydoggie;
 

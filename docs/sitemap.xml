@@ -168,6 +168,16 @@
   </url>
   
   <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/config/proxysql/</loc>
+    <lastmod>2019-07-04T13:26:56+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/install/proxysql/</loc>
+    <lastmod>2019-07-04T12:03:17+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://easydoggie.github.io/EasyDoggie/install/redis/</loc>
     <lastmod>2019-06-18T15:20:15+09:00</lastmod>
   </url>
@@ -264,6 +274,12 @@
   <url>
     <loc>https://easydoggie.github.io/EasyDoggie/tags/prometheuses/</loc>
     <lastmod>2019-06-18T15:11:47+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://easydoggie.github.io/EasyDoggie/tags/proxysql/</loc>
+    <lastmod>2019-07-04T13:26:56+09:00</lastmod>
     <priority>0</priority>
   </url>
   

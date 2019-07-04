@@ -1,0 +1,53 @@
+replicaCount: 1
+
+image:
+  repository: severalnines/proxysql
+  tag: 2.0.4
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: proxysql
+
+service:
+  type: ClusterIP
+  adminPort:
+    port: 6032
+    name: admin
+  servicePort:
+    port: 6033
+    name: service
+
+proxysql:
+  servers:
+    - server: mysql-mysql
+      hostgroup: 10
+      port: 3306
+      maxConnections: 100
+    - server: mysql-mysql-slave
+      hostgroup: 20
+      port: 3306
+      maxConnections: 100
+  users:
+    - user: testuser
+      password: easydoggie
+      hostgroup: 10
+  monitor:
+    user: testuser
+    password: easydoggie
+  admin:
+    user: admin
+    password: admin
+  
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

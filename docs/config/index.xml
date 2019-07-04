@@ -127,5 +127,14 @@ $ helm install --name drone -f edit01-values.</description>
 - &amp;quot;&amp;quot; 初期化コンテナのEntryPoint   imageInit.</description>
     </item>
     
+    <item>
+      <title>Proxysql</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/proxysql/</link>
+      <pubDate>Thu, 04 Jul 2019 13:26:56 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/proxysql/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はProxySQLの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository severalnines/proxysql ProxySQLのイメージ名   image.tag 2.0.4 ProxySQLイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   nameOverride &amp;rdquo;&amp;rdquo; チャート名を上書きする場合に使用する   fullnameOverride &amp;ldquo;proxysql&amp;rdquo; アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される   service.type ClusterIP Serviceのタイプ   service.adminPort.port 6032 ProxySQLの管理用ポート   service.adminPort.name admin ProxySQLの管理ポート名   service.servicePort.port 6033 ProxySQLのサービス提供ポート   service.servicePort.name service ProxySQLのサービス提供ポート名   proxysql.servers - server: mysql-mysql</description>
+    </item>
+    
   </channel>
 </rss>

@@ -17,7 +17,7 @@
 **そう、EasyDoggieなら設計済みコンテナからCI/CD、運用監視まで、そろっています！**
 
 ## EasyDoggie構成イメージ
-![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure.PNG)
+![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure.png)
 
 # セットアップ方法
 ## Helmのインストール
@@ -68,7 +68,7 @@ $ helm install --name nginx easydoggie/nginx
 ```
 個別インストール方法の詳細は、[別ページ](https://easydoggie.github.io/EasyDoggie/install/)を参照してください。
 # 使い方
-2019年6月18日時点では、以下の構成サービスが起動します。
+2019年7月04日時点では、以下の構成サービスが起動します。
 ![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## Web(nginx)へのアクセス

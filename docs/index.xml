@@ -308,6 +308,28 @@ $ helm install --name &amp;lt;release_name&amp;gt; --set prometheus-operator.gra
     </item>
     
     <item>
+      <title>Proxysql</title>
+      <link>https://easydoggie.github.io/EasyDoggie/config/proxysql/</link>
+      <pubDate>Thu, 04 Jul 2019 13:26:56 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/config/proxysql/</guid>
+      <description>サービスの構成、初期化方法の変更 以下の表はProxySQLの変更可能なパラーメータとデフォルト値の一覧です。    パラメータ デフォルト 説明     replicaCount 1 レプリカセットの数   image.repository severalnines/proxysql ProxySQLのイメージ名   image.tag 2.0.4 ProxySQLイメージのタグ名   image.pullPolicy IfNotPresent イメージのプルポリシー   nameOverride &amp;rdquo;&amp;rdquo; チャート名を上書きする場合に使用する   fullnameOverride &amp;ldquo;proxysql&amp;rdquo; アプリケーション名を上書きする場合に使用する。指定しない場合は、チャート名-リリース名が設定される   service.type ClusterIP Serviceのタイプ   service.adminPort.port 6032 ProxySQLの管理用ポート   service.adminPort.name admin ProxySQLの管理ポート名   service.servicePort.port 6033 ProxySQLのサービス提供ポート   service.servicePort.name service ProxySQLのサービス提供ポート名   proxysql.servers - server: mysql-mysql</description>
+    </item>
+    
+    <item>
+      <title>Proxysql</title>
+      <link>https://easydoggie.github.io/EasyDoggie/install/proxysql/</link>
+      <pubDate>Thu, 04 Jul 2019 12:03:17 +0900</pubDate>
+      
+      <guid>https://easydoggie.github.io/EasyDoggie/install/proxysql/</guid>
+      <description> ProxySQLはMySQLのプロキシです。GPLライセンスとして利用することができます。指定したクエリのルールに従って、ReadとWriteのクエリをMySQLサーバに振り分けます。アプリケーション側でMaster、Slaveのサーバ構成やフェイルオーバーを意識する必要がなくなり、DBの管理が簡単になります。 同様のMySQLプロキシとしてMaxScaleがあります。MaxScaleにはライセンス制限があるため、EasyDoggieではProxySQLを採用しています。
+動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール $ helm install --name &amp;lt;release_name&amp;gt; easydoggie/proxysql &amp;lt;release_name&amp;gt;には任意のリリース名を指定します。MySQLの接続先の設定などは、設定変更のページを参照してください。
+Chartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。
+$ helm delete &amp;lt;release_name&amp;gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。
+$ helm delete --purge &amp;lt;release_name&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>Redis</title>
       <link>https://easydoggie.github.io/EasyDoggie/install/redis/</link>
       <pubDate>Tue, 18 Jun 2019 15:20:15 +0900</pubDate>

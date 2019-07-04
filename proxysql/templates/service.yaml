@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "proxysql.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "proxysql.name" . }}
+    helm.sh/chart: {{ include "proxysql.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.adminPort.port }}
+      targetPort: {{ .Values.service.adminPort.port }}
+      protocol: TCP
+      name: {{ .Values.service.adminPort.name  }}
+    - port: {{ .Values.service.servicePort.port }}
+      targetPort: {{ .Values.service.servicePort.port }}
+      protocol: TCP
+      name: {{ .Values.service.servicePort.name  }}
+  selector:
+    app.kubernetes.io/name: {{ include "proxysql.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
