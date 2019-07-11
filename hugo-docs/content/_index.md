@@ -6,6 +6,8 @@ weight = 5
 
 # EasyDoggie
 ![logo2](img/logo2.png)
+pre-α版を公開中。  
+バグ、機能要望などは[こちら](https://github.com/easydoggie/EasyDoggie/issues/new/choose)。
 ##  ゲームインフラは、もっと楽にできる！
 
 スマートフォン向けゲームはレッドオーシャン化が進み、小規模の開発会社では生き残るのが難しくなっています。斬新なゲームアイデアを実現するためにゲームインフラとしてどのような貢献ができるのでしょうか？現実問題として、以下のような悩みを抱えている開発会社が多いのではないでしょうか。
@@ -23,7 +25,7 @@ weight = 5
 そう、**EasyDoggie**なら設計済みコンテナからCI/CD、運用監視まで、そろっています！
 
 ## EasyDoggie構成イメージ
-![structure](img/structure.png)
+![structure](img/structure_all.png)
 
 ## セットアップ方法
 ### Helmのインストール
