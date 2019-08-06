@@ -13,20 +13,20 @@
     <title>Fluentd :: EasyDoggie</title>
 
     
-    <link href="/EasyDoggie/css/nucleus.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/fontawesome-all.min.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/hybrid.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/featherlight.min.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/auto-complete.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/theme.css?1562811459" rel="stylesheet">
-    <link href="/EasyDoggie/css/hugo-theme.css?1562811459" rel="stylesheet">
+    <link href="/EasyDoggie/css/nucleus.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/fontawesome-all.min.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/hybrid.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/featherlight.min.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/perfect-scrollbar.min.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/auto-complete.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/atom-one-dark-reasonable.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/theme.css?1565069687" rel="stylesheet">
+    <link href="/EasyDoggie/css/hugo-theme.css?1565069687" rel="stylesheet">
     
-      <link href="/EasyDoggie/css/theme-black.css?1562811459" rel="stylesheet">
+      <link href="/EasyDoggie/css/theme-black.css?1565069687" rel="stylesheet">
     
 
-    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1562811459"></script>
+    <script src="/EasyDoggie/js/jquery-3.3.1.min.js?1565069687"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1562811459"></script>
-<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1562811459"></script>
+<script type="text/javascript" src="/EasyDoggie/js/lunr.min.js?1565069687"></script>
+<script type="text/javascript" src="/EasyDoggie/js/auto-complete.js?1565069687"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/easydoggie.github.io\/EasyDoggie\/";
     
 </script>
-<script type="text/javascript" src="/EasyDoggie/js/search.js?1562811459"></script>
+<script type="text/javascript" src="/EasyDoggie/js/search.js?1565069687"></script>
 
     
   </div>
@@ -870,7 +870,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#fluentdのインストール">Fluentdのインストール</a></li>
+<li><a href="#動作確認環境">動作確認環境</a></li>
+<li><a href="#chartのインストール">Chartのインストール</a>
+<ul>
+<li><a href="#serviceとしてclusteripを使う場合-デフォルト">ServiceとしてClusterIPを使う場合(デフォルト)</a></li>
+</ul></li>
+<li><a href="#chartの削除">Chartの削除</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -905,17 +910,33 @@
 
 
 
-<p>Fluentdはログのデータを収集します。<br />
+<p><a href="https://www.fluentd.org/">Fluentd</a>はログのデータを収集します。<br />
 EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを収集する用途で利用することを想定しています。</p>
 
-<h2 id="fluentdのインストール">Fluentdのインストール</h2>
+<h2 id="動作確認環境">動作確認環境</h2>
+
+<ul>
+<li>Docker Desktop for Windows (Kubernetes 1.10.11)</li>
+<li>Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)</li>
+</ul>
+
+<h2 id="chartのインストール">Chartのインストール</h2>
+
+<h3 id="serviceとしてclusteripを使う場合-デフォルト">ServiceとしてClusterIPを使う場合(デフォルト)</h3>
 
 <p><img src="../../img/fluentd.png" alt="fluentd" />
+Fluentdはローカルでのアクセスのみを想定しているため、サービスタイプはClusterIPとして起動します。
 &lt;release_name&gt;には任意のリリース名を指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ helm install --name &lt;release_name&gt; easydoggie/fluentd</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ helm install --name &lt;release_name&gt; easydoggie/fluentd</code></pre></div>
 <p>デフォルトでは同じKuberneteクラスタ内のElasticsearchに収集したデータを転送します。
 転送先の設定などの変更を行う場合は、<a href="../config/fkuentd">設定変更のページ</a>を参照してください。</p>
 
+<h2 id="chartの削除">Chartの削除</h2>
+
+<p>指定したリリースのデプロイを削除するには<code>helm delete</code>コマンドにリリース名を指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ helm delete &lt;release_name&gt; </code></pre></div>
+<p>リリース名を含めて完全に削除をするには<code>--purge</code>オプションを利用します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ helm delete --purge &lt;release_name&gt; </code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1538,20 +1559,20 @@ EasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを収�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/EasyDoggie/js/clipboard.min.js?1562811459"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1562811459"></script>
-    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1562811459"></script>
-    <script src="/EasyDoggie/js/jquery.sticky.js?1562811459"></script>
-    <script src="/EasyDoggie/js/featherlight.min.js?1562811459"></script>
-    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1562811459"></script>
-    <script src="/EasyDoggie/js/highlight.pack.js?1562811459"></script>
+    <script src="/EasyDoggie/js/clipboard.min.js?1565069688"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.min.js?1565069688"></script>
+    <script src="/EasyDoggie/js/perfect-scrollbar.jquery.min.js?1565069688"></script>
+    <script src="/EasyDoggie/js/jquery.sticky.js?1565069688"></script>
+    <script src="/EasyDoggie/js/featherlight.min.js?1565069688"></script>
+    <script src="/EasyDoggie/js/html5shiv-printshiv.min.js?1565069688"></script>
+    <script src="/EasyDoggie/js/highlight.pack.js?1565069688"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1562811459"></script>
-    <script src="/EasyDoggie/js/learn.js?1562811459"></script>
-    <script src="/EasyDoggie/js/hugo-learn.js?1562811459"></script>
+    <script src="/EasyDoggie/js/modernizr.custom-3.6.0.js?1565069688"></script>
+    <script src="/EasyDoggie/js/learn.js?1565069688"></script>
+    <script src="/EasyDoggie/js/hugo-learn.js?1565069688"></script>
 
-    <link href="/EasyDoggie/mermaid/mermaid.css?1562811459" rel="stylesheet" />
-    <script src="/EasyDoggie/mermaid/mermaid.js?1562811459"></script>
+    <link href="/EasyDoggie/mermaid/mermaid.css?1565069688" rel="stylesheet" />
+    <script src="/EasyDoggie/mermaid/mermaid.js?1565069688"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

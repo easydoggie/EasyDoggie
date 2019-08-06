@@ -6,7 +6,7 @@ weight = 5
 
 # EasyDoggie
 ![logo2](img/logo2.png)
-pre-α版を公開中。  
+[pre-α版](https://github.com/easydoggie/EasyDoggie)を公開中。  
 バグ、機能要望などは[こちら](https://github.com/easydoggie/EasyDoggie/issues/new/choose)。
 ##  ゲームインフラは、もっと楽にできる！
 

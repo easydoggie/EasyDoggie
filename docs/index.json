@@ -165,7 +165,7 @@
 	"title": "Fluentd",
 	"tags": ["Fluentd"],
 	"description": "",
-	"content": " Fluentdはログのデータを収集します。\nEasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを収集する用途で利用することを想定しています。\nFluentdのインストール \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/fluentd デフォルトでは同じKuberneteクラスタ内のElasticsearchに収集したデータを転送します。 転送先の設定などの変更を行う場合は、設定変更のページを参照してください。\n"
+	"content": " Fluentdはログのデータを収集します。\nEasyDoggieでは、Fluentd、Elasticsearch、Kibanaのセットでログを収集する用途で利用することを想定しています。\n動作確認環境  Docker Desktop for Windows (Kubernetes 1.10.11) Google Kubernetes Engine (Kubernetes 1.12.8-gke.6)  Chartのインストール ServiceとしてClusterIPを使う場合(デフォルト) Fluentdはローカルでのアクセスのみを想定しているため、サービスタイプはClusterIPとして起動します。 \u0026lt;release_name\u0026gt;には任意のリリース名を指定します。\n$ helm install --name \u0026lt;release_name\u0026gt; easydoggie/fluentd デフォルトでは同じKuberneteクラスタ内のElasticsearchに収集したデータを転送します。 転送先の設定などの変更を行う場合は、設定変更のページを参照してください。\nChartの削除 指定したリリースのデプロイを削除するにはhelm deleteコマンドにリリース名を指定します。\n$ helm delete \u0026lt;release_name\u0026gt;  リリース名を含めて完全に削除をするには--purgeオプションを利用します。\n$ helm delete --purge \u0026lt;release_name\u0026gt; "
 },
 {
 	"uri": "https://easydoggie.github.io/EasyDoggie/install/gitea/",
