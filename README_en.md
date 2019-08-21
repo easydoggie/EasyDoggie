@@ -4,7 +4,7 @@
   
 ## Scheduled to be released at the end of 2019
 The pre-α version is now available.
-Click [this link]https://github.com/easydoggie/EasyDoggie/issues/new/choose) for bugs, feature requests, etc.
+Click [this link](https://github.com/easydoggie/EasyDoggie/issues/new/choose) for bugs, feature requests, etc.
 
 Easy Develop and Operation of Game InfrastructurE  
 [![logo](https://github.com/easydoggie/EasyDoggie/blob/master/images/logo2.png)](https://easydoggie.github.io/EasyDoggie/)
@@ -31,7 +31,7 @@ Yes, ** EasyDoggie ** has everything from designed containers to CI / CD to oper
 ### Install Helm
 EasyDoggie works on Kubernetes. The initial setting of the container is installed using Helm.
 First, install Helm and make initial settings.
-Helm is also introduced in [Blog] (https://www.skyarch.net/blog/?p=16335). Please refer to it if you want to get an overview of Helm.
+Helm is also introduced in [Blog](https://www.skyarch.net/blog/?p=16335). Please refer to it if you want to get an overview of Helm.
 
 ```text
 $ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz
@@ -40,7 +40,7 @@ $ sudo mv linux-amd64/helm /usr/local/bin/helm
 $ helm init
 ```
 
-For information on installing Helm, please refer to [Blog] (https://www.skyarch.net/blog/?p=16350).
+For information on installing Helm, please refer to [Blog](https://www.skyarch.net/blog/?p=16350).
 In an environment where RBAC access control is enabled, such as GKE, set the service account before installing Tiller (helm init). Also, add a service account specification option when performing helm init.
 ```text
 $ kubectl apply -f https://raw.githubusercontent.com/easydoggie/EasyDoggie/master/serviceaccount/helm-account.yaml
@@ -82,7 +82,7 @@ As of August 21, 2019, the following configuration services will start.
 ![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## Configurations
-Please refer to [A separate page] (https://easydoggie.github.io/EasyDoggie/config/) for the change of configuration middleware parameters.
+Please refer to [A separate page](https://easydoggie.github.io/EasyDoggie/config/) for the change of configuration middleware parameters.
 
 ![qr](https://github.com/easydoggie/EasyDoggie/blob/master/images/easydoggie_qr2.png)
 
