@@ -25,7 +25,7 @@ To solve such problems of infrastructure design, construction, and operation, th
 Yes, ** EasyDoggie ** has everything from designed containers to CI / CD to operational monitoring!
 
 ## EasyDoggie configuration image
-![structure](img/structure_all.png)
+![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_all.png)
 
 ## Setup
 ### Install Helm
@@ -79,7 +79,7 @@ Please refer to [separate page](https://easydoggie.github.io/EasyDoggie/install/
 
 ## Usage
 As of August 21, 2019, the following configuration services will start.
-![structure_2](img/structure2.png)
+![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## Configurations
 Please refer to [A separate page] (https://easydoggie.github.io/EasyDoggie/config/) for the change of configuration middleware parameters.

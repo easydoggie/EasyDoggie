@@ -25,7 +25,7 @@ Easy Develop and Operation of Game InfrastructurE
 そう、**EasyDoggie**なら設計済みコンテナからCI/CD、運用監視まで、そろっています！
 
 ## EasyDoggie構成イメージ
-![structure](img/structure_all.png)
+![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_all.png)
 
 ## セットアップ方法
 ### Helmのインストール
@@ -78,7 +78,7 @@ $ helm install --name nginx easydoggie/nginx
 個別インストール方法の詳細は、[別ページ](https://easydoggie.github.io/EasyDoggie/install/)を参照してください。
 ## 使い方
 2019年08月21日時点では、以下の構成サービスが起動します。
-![structure_2](img/structure2.png)
+![structure_2](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure2.png)
 
 ## 設定方法
 構成ミドルウェアのパラメータ等の変更は、[別ページ](https://easydoggie.github.io/EasyDoggie/config/)を参照してください。
