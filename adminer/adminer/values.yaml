@@ -2,12 +2,12 @@ replicaCount: 1
 
 image:
   repository: easydoggie/adminer
-  tag: 0.1.0
+  tag: 0.1.17
   pullPolicy: IfNotPresent
 
 imageNginx:
   repository: nginx
-  tag: 1.15.12-alpine
+  tag: 1.17.3-alpine
   pullPolicy: IfNotPresent
   
 nameOverride: ""
