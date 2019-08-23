@@ -22,7 +22,7 @@ Smartphone games are becoming red oceans, making it difficult for small develope
 
 To solve such problems of infrastructure design, construction, and operation, there is a method of reusing configured containers.  
 
-Yes, ** EasyDoggie ** has everything from designed containers to CI / CD to operational monitoring!
+Yes, **EasyDoggie** has everything from designed containers to CI / CD to operational monitoring!
 
 ## EasyDoggie configuration image
 ![structure](https://github.com/easydoggie/EasyDoggie/blob/master/images/structure_all.png)
