@@ -1,3 +1,4 @@
+# 2019.08.23
 FROM ubuntu:18.04
 
 RUN set -x \
